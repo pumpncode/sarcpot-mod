@@ -1,0 +1,78 @@
+
+SMODS.Joker {
+
+	discovered = true,
+	key = 'garlic_bread',
+
+	loc_txt = {
+		name = 'Garlic Bread',
+		text = {
+			"If hand is the first hand of round, convert scoring cards to Aces",
+			"{C:green}#1# in #2#{} chance this card is destroyed at end of round"
+		}
+	},
+
+	config = { extra = {odds = 6} },
+	loc_vars = function(self, info_queue, card)
+		return { vars = {G.GAME.probabilities.normal, card.ability.extra.odds} }
+	end,
+	rarity = 2,
+	atlas = 'sarcpot_atlas',
+	pos = { x = 0, y = 0 },
+	cost = 5,
+	eternal_compat = false,
+	calculate = function(self, card, context)		
+
+		if context.first_hand_drawn and not context.blueprint then
+            local eval = function() return G.GAME.current_round.hands_played == 0 end
+            juice_card_until(card, eval, true)
+        end
+		
+
+		if context.individual and context.cardarea == G.play and next(context.poker_hands['High Card']) and G.GAME.current_round.hands_played == 0 then	
+			card = context.other_card
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					blockable = true,
+					blocking = false,
+					delay = 2.3,
+					func = function()
+						card:juice_up(0.5, 0.5)
+						play_sound('card1')
+						assert(SMODS.change_base(card, nil, "Ace"))
+						
+						return true
+					end
+				}))
+		end	
+		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
+			
+			if pseudorandom('garlic_bread') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			
+				G.E_MANAGER:add_event(Event({
+					trigger = 'after',
+					delay = 0.7,
+					func = function()
+						play_sound('tarot1')
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						card:start_dissolve()
+						card = nil
+						return true
+				end}))
+				return {
+					message = 'Eaten!',
+				
+				}
+			else
+				return {
+					card = card,
+					message = 'Safe!'
+					
+				}
+			end
+		end
+	end
+}
