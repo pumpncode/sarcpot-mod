@@ -1,0 +1,86 @@
+SMODS.Joker {
+
+    discovered = true,
+    key = 'cracked_egg',
+
+    loc_txt = {
+        name = 'Cracked Egg',
+        text = {
+            "When sold, transform joker to the right",
+            "to a {C:green}#1#{} Joker",
+            "Rarity increases every {C:attention}Three{} rounds",
+            "{C:inactive}(Currently {C:attention}#2#{C:inactive}/6)"
+        }
+    },
+
+    config = { extra = { current_rarity = "Common", rounds = 0 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.current_rarity, card.ability.extra.rounds } }
+    end,
+    rarity = 2,
+    atlas = 'sarcpot_atlas',
+    pos = { x = 0, y = 1 },
+    cost = 6,
+
+    calculate = function(self, card, context)
+        --Selects joker to the right
+        local other_joker
+
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] or nil end
+        end
+
+
+        --juices if it is at its max rarity
+        if card.ability.extra.current_rarity == "Rare" then
+            local eval = function() return card.ability.extra.current_rarity == "Rare" end
+            juice_card_until(card, eval, true)
+        end
+
+
+        if context.end_of_round and not context.blueprint and not context.individual and not context.repetition then
+            if card.ability.extra.rounds < 6 then
+                card.ability.extra.rounds = card.ability.extra.rounds + 1
+            end
+            if card.ability.extra.rounds >= 3 and card.ability.extra.rounds <= 5 then
+                card.ability.extra.current_rarity = "Uncommon"
+            elseif card.ability.extra.rounds == 6 then
+                card.ability.extra.current_rarity = "Rare"
+            end   
+        end
+
+        if context.selling_self and other_joker ~= nil then
+            G.E_MANAGER:add_event(Event({
+
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    local edition = other_joker.edition and other_joker.edition.key or nil
+                    local stickers = {}
+                    for k, v in pairs(SMODS.Stickers) do
+                        if card.ability[k] then
+                            other_joker.insert(stickers, k)
+                        end
+                    end
+
+                    other_joker:start_dissolve()
+                    local new_joker = SMODS.create_card({
+                        area = G.jokers,
+                        set = 'Joker',
+                        rarity = card.ability.extra.current_rarity,
+                        edition =
+                            edition,
+                        stickers = stickers
+                    })
+                    new_joker:add_to_deck()
+                    G.jokers:emplace(new_joker)
+                    new_joker:start_materialize()
+                    return true
+                end
+            }))
+        end
+    end
+
+
+
+}
