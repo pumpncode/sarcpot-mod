@@ -1,3 +1,3 @@
-# Tesseract - Vanilla-balanced Joker Mod
+# Sarcpot - A Balatro mod for the girls, gays and indie game fans
 
-Tesseract is a mod that adds 15 new Jokers with unique and interesting effects, intended to improve some weaker aspects of the base game in a way that doesn't interfere with the vanilla experience.
+Sarcpot is a mod where i'm adding anything i want really. Will release it once i have a larger number of implemented content.
