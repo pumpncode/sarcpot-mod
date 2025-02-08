@@ -1,0 +1,62 @@
+SMODS.Joker {
+
+    discovered = true,
+    key = 'double_crescent',
+
+    loc_txt = {
+        name = 'Double Crescent',
+        text = {
+            "If your hand contains a pair,",
+            "{C:green}#1# in #2#{} chance",
+            "to generate a Planet card",
+        }
+    },
+
+    config = { extra = { odds = 2 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+    end,
+    rarity = 2,
+    atlas = 'sarcpot_atlas',
+    pos = { x = 3, y = 0 },
+    cost = 7,
+    eternal_compat = false,
+    calculate = function(self, card, context)
+        if context.before and not context.blueprint and not (context.individual or context.repetition) then
+           
+            local count = {}
+            local found = false
+      
+     
+            for _, v in pairs(context.scoring_hand) do
+              
+              if v.ability.name ~= "Stone Card" then
+                local rank = v:get_id()
+                count[rank] = (count[rank] or 0) + 1
+      
+                if count[rank] >= 2 then
+                  found = true
+                  break
+                end
+            end
+        end  
+        if pseudorandom("Double Crescent") < G.GAME.probabilities.normal / card.ability.extra.odds and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+              trigger = 'before',
+              delay = 0.0,
+              func = function()
+                local card = create_card('Planet', G.consumeables, nil, nil, nil, nil, nil, 'double crescent')
+                card:add_to_deck()
+                G.consumeables:emplace(card)
+                G.GAME.consumeable_buffer = 0
+                return true
+              end
+            }))
+            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil,
+              { message = localize('k_plus_planet'), colour = G.C.SET.Planet })
+          end
+  
+    end
+    end
+}
