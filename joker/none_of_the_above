@@ -1,0 +1,60 @@
+
+SMODS.Joker {
+
+	discovered = true,
+	key = 'none_of_the_above',
+
+	loc_txt = {
+		name = 'None of the Above',
+		text = {
+			"Wild cards have a {C:green}#1# in #2#{} chance",
+			"to give: {C:mult}+#3#{} Mult, {C:chips}+#4#{} Chips,",
+            "{C:money}+#5#${}, {X:mult,C:white}X#6#{} Mult",
+			"or {C:attention}retrigger{}",
+            "{C:inactive}(Multiple effects may trigger)"
+		}
+	},
+
+	config = { extra = {odds = 2,mult = 4,chips = 30,money = 5,xmult = 1.5,retriggers = 1} },
+	loc_vars = function(self, info_queue, card)
+		return { vars = {G.GAME.probabilities.normal, card.ability.extra.odds, 
+        card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.money, card.ability.extra.xmult} }
+	end,
+	rarity = 1,
+	atlas = 'sarcpot_atlas',
+	pos = { x = 0, y = 0 },
+	cost = 5,
+	calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+          if context.other_card.ability.name == "Wild Card" then
+			local mult = nil
+			local chips = nil
+			local money = nil
+			local xmult = nil
+			local retriggers = nil
+            if pseudorandom("nota mult") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                mult = card.ability.extra.mult
+            end
+			if pseudorandom("nota chips") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                chips = card.ability.extra.chips
+            end
+			if pseudorandom("nota money") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				money = card.ability.extra.money
+			
+			if pseudorandom("nota xmult") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				xmult = card.ability.extra.xmult
+            end
+			return{
+				mult = mult,
+				chips = chips,
+				
+				
+
+					dollars = money,
+				x_mult = xmult,
+				card = card}		
+          end
+        end
+		end
+	end
+}
