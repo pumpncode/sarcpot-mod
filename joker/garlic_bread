@@ -4,13 +4,7 @@ SMODS.Joker {
 	discovered = true,
 	key = 'garlic_bread',
 
-	loc_txt = {
-		name = 'Garlic Bread',
-		text = {
-			"If hand is the first hand of round, convert scoring cards to Aces",
-			"{C:green}#1# in #2#{} chance this card is destroyed at end of round"
-		}
-	},
+	
 
 	config = { extra = {odds = 6} },
 	loc_vars = function(self, info_queue, card)
@@ -63,13 +57,13 @@ SMODS.Joker {
 						return true
 				end}))
 				return {
-					message = 'Eaten!',
+					message = localize('k_eaten_ex'),
 				
 				}
 			else
 				return {
 					card = card,
-					message = 'Safe!'
+					message = localize('k_safe_ex'),
 					
 				}
 			end

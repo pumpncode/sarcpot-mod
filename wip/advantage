@@ -1,0 +1,20 @@
+SMODS.Voucher({
+	key = "advantage",
+	atlas = "sarcpot_atlas",
+
+	name = 'Advantage',
+	text = {
+		"+1 to all probabilities"
+	},
+
+
+	config = { extra = {} },
+	pos = { x = 0, y = 0 },
+	cost = 10,
+	unlocked = true,
+	discovered = false,
+	available = true,
+	redeem = function(self)
+			G.GAME.probabilities.normal = G.GAME.probabilities.normal + 1
+	end
+})
