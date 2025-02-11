@@ -13,7 +13,16 @@ return {
                     "Chance de {C:green}#1# em #2#{} desta carta ser destruída no",
                     "fim da rodada"
                 }
-        
+                
+            },
+            j_sarc_artemis ={
+                name = 'Ártemis',
+                text = {
+                    "Cartas de {C:hearts}Copas{} recebem {C:attention}desvantagem{},",
+                    "Dá {X:mult,C:white}X#1#{} Multi por cada carta",
+                    "com desvantagem",
+                    "{C:inactive}(No momento {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                }
             },
             j_sarc_cracked_egg={
                 name = 'Ovo Rachado',
@@ -35,23 +44,26 @@ return {
             j_sarc_green_carnation={
                 name = 'Cravo Verde',
                 text = {
-                    "Reis pontuados dão {C:chips}+#1#{} Fichas para cada",
+                    "Reis pontuados dão",
+                    "{C:chips}+#1#{} Fichas para cada",
                     "Rei previamente pontuado"
                 }
             },
             j_sarc_labrys={
                 name = 'Lábris',
                 text = {
-                    "Rainhas pontuadas dão {C:mult}+#1#{} Multi para cada",
+                    "Rainhas pontuadas dão",
+                    "{C:mult}+#1#{} Multi para cada",
                     "Rainha previamente pontuada"
                 }
             },
             j_sarc_none_of_the_above={
                 name = 'Nenhuma das Alternativas',
                 text = {
-                    "{C:attention}Cartas Naipe Curinga{} tem uma chance de {C:green}#1# em #2#{}",
-                    "de dar: {C:mult}+#3#{} Multi, {C:chips}+#4#{} Fichas,",
-                    "{C:money}+#5#${} ou {X:mult,C:white}X#6#{} Multi",
+                    "{C:attention}Cartas Naipe Curinga{}",
+                    "tem uma chance de {C:green}#1# em #2#{}",
+                    "de dar: {C:mult}+#3#{} Multi",
+                    "{C:chips}+#4#{} Fichas, {C:money}+#5#${} ou {X:mult,C:white}X#6#{} Multi",
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
@@ -59,7 +71,8 @@ return {
                 name = 'Panqueca',
                 text = {
                     "Depois de jogar as próximas {C:attention}#2#{} mãos,",
-                    "converta todas as cartas jogadas para {C:attention}Cartas Naipe Curinga{}",
+                    "converta todas as cartas jogadas",
+                    "em {C:attention}Cartas Naipe Curinga{}",
                     "{C:inactive}(No momento {C:attention}#1#{C:inactive}/#2#)"
                 }
             }

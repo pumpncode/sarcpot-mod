@@ -13,6 +13,14 @@ return {
                     "{C:green}#1# in #2#{} chance this card is destroyed at end of round"
                 }
             },
+            j_sarc_artemis ={
+                name = 'Artemis',
+                text = {
+                    "{C:attention}Debuffs{} all {C:hearts}Hearts{} cards,",
+                    "Gives {X:mult,C:white}X#1#{} Mult per card debuffed",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                }
+            },
             j_sarc_cracked_egg ={
                 name = 'Cracked Egg',
                 text = {
@@ -71,6 +79,12 @@ return {
         Voucher = {
             v_sarc_advantage= {
                 name = 'Advantage',
+                text = {
+                    "{C:attention}+1{} to all listed probabilities"
+                },
+            },
+            v_sarc_nat_20= {
+                name = 'Nat 20!',
                 text = {
                     "{C:attention}+1{} to all listed probabilities"
                 },

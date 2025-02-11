@@ -3,14 +3,7 @@ SMODS.Joker {
     discovered = true,
     key = 'double_crescent',
 
-    loc_txt = {
-        name = 'Double Crescent',
-        text = {
-            "If your hand contains a pair,",
-            "{C:green}#1# in #2#{} chance",
-            "to generate a Planet card",
-        }
-    },
+   
 
     config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, card)
@@ -20,7 +13,7 @@ SMODS.Joker {
     atlas = 'sarcpot_atlas',
     pos = { x = 3, y = 0 },
     cost = 5,
-    eternal_compat = false,
+  
     calculate = function(self, card, context)
         if context.before and not context.blueprint and not (context.individual or context.repetition) then
            
@@ -40,7 +33,9 @@ SMODS.Joker {
                 end
             end
         end  
-        if pseudorandom("Double Crescent") < G.GAME.probabilities.normal / card.ability.extra.odds and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+        if pseudorandom("Double Crescent") < G.GAME.probabilities.normal / card.ability.extra.odds 
+        and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit 
+        and found == true then
             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
               trigger = 'before',

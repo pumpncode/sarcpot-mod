@@ -4,14 +4,7 @@ SMODS.Joker {
 	discovered = true,
 	key = 'pancake',
 
-	loc_txt = {
-		name = 'Pancake',
-		text = {
-			"After playing the next {C:attention}#2#{} hands,",
-			"convert all cards played to {C:attention}Wild Cards{}",
-			"{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
-		}
-	},
+	
 
 	config = { extra = {current_hands = 0, hands = 3} },
 	loc_vars = function(self, info_queue, card)
@@ -20,7 +13,7 @@ SMODS.Joker {
 	end,
 	rarity = 2,
 	atlas = 'sarcpot_atlas',
-	pos = { x = 0, y = 0 },
+	pos = { x = 2, y = 1 },
 	cost = 6,
 	eternal_compat = false,
 	calculate = function(self, card, context)		
@@ -57,7 +50,7 @@ SMODS.Joker {
 						return true
 				end}))
 				return {
-					message = 'Eaten!',
+					message = localize('k_eaten_ex'),
 				
 				}
 			end
