@@ -2,10 +2,7 @@ SMODS.Voucher({
 	key = "advantage",
 	atlas = "sarcpot_atlas",
 
-	name = 'Advantage',
-	text = {
-		"+1 to all probabilities"
-	},
+	
 
 
 	config = { extra = {} },

@@ -5,11 +5,11 @@ SMODS.Joker {
 	key = 'none_of_the_above',
 
 	
-	config = { extra = {odds = 2,mult = 4,chips = 30,money = 5,xmult = 1.5,retriggers = 1} },
+	config = { extra = {odds = 2,mult = 4,chips = 30,money = 5,xmult = 1.5,retriggers = 1,} },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue+1] = G.P_CENTERS.m_wild
 		return { vars = {G.GAME.probabilities.normal, card.ability.extra.odds, 
-        card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.money, card.ability.extra.xmult} }
+        card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.money, card.ability.extra.xmult,} }
 	end,
 	rarity = 1,
 	atlas = 'sarcpot_atlas',
@@ -22,26 +22,28 @@ SMODS.Joker {
 			local chips = nil
 			local money = nil
 			local xmult = nil
-			local retriggers = nil
-            if pseudorandom("nota mult") < G.GAME.probabilities.normal / card.ability.extra.odds then
-                mult = card.ability.extra.mult
-            end
-			if pseudorandom("nota chips") < G.GAME.probabilities.normal / card.ability.extra.odds then
-                chips = card.ability.extra.chips
-            end
-			if pseudorandom("nota money") < G.GAME.probabilities.normal / card.ability.extra.odds then
-				money = card.ability.extra.money
 			
-			if pseudorandom("nota xmult") < G.GAME.probabilities.normal / card.ability.extra.odds then
+			
+            if pseudorandom("notamult") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                mult = card.ability.extra.mult
+				
+            end
+			if pseudorandom("notachips") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                chips = card.ability.extra.chips
+				
+            end
+			if pseudorandom("notamoney") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				money = card.ability.extra.money
+				
+			
+			if pseudorandom("notaxmult") < G.GAME.probabilities.normal / card.ability.extra.odds then
 				xmult = card.ability.extra.xmult
+				
             end
 			return{
 				mult = mult,
 				chips = chips,
-				
-				
-
-					dollars = money,
+				dollars = money,
 				x_mult = xmult,
 				card = card}		
           end
