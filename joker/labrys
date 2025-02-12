@@ -4,15 +4,7 @@ SMODS.Joker {
 	discovered = true,
 	key = 'labrys',
 
-	loc_txt = {
-		name = 'Labrys',
-		text = {
-			"Scored Queens give {C:mult}+#1#{} Mult for every",
-			"previously scored Queen"
-		}
-	},
-
-	config = { extra = {mult = 4} },
+	config = { extra = {mult = 4, prior_triggers = -1} },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {card.ability.extra.mult} }
 	end,
@@ -23,22 +15,19 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 
 		if context.individual and context.cardarea == G.play and context.other_card:get_id() == 12 then
-            local prior_cards = 0
-            local mult_mod = 0
-            for i=1, #context.scoring_hand do
-                if context.scoring_hand[i] == context.other_card then
-                    mult_mod = prior_cards
-                else
-                    if context.scoring_hand[i]:get_id() == 12 then prior_cards = prior_cards + 1 end
-                end
-            end
-            if mult_mod > 0 then
-                return {
-                    mult = card.ability.extra.mult * mult_mod,
-                    card = card
-                }
+            
+            
+            card.ability.extra.prior_triggers = card.ability.extra.prior_triggers+1
+				if card.ability.extra.prior_triggers>0 then
+					return {
+						mult = card.ability.extra.mult * card.ability.extra.prior_triggers,
+						card = card
+					}
+				end
             end
 
+		if context.after then
+			card.ability.extra.prior_triggers = -1
 		end
 	end
 }
