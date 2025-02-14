@@ -68,7 +68,25 @@ return {
                     "convert all cards played to {C:attention}Wild Cards{}",
                     "{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
                 }
-            }
+            },
+            j_sarc_warrior_dice ={
+                name = 'Warrior Dice',
+                text = {
+                    "{C:green}#1# in #2#{} chance to gain a {C:green}reroll{}",
+                    "when {C:attention}discarding{}",
+                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary discard{}",
+                    "when {C:green}rerolling{}"
+                }
+            },
+            j_sarc_thief_dice ={
+                name = 'Thief Dice',
+                text = {
+                    "{C:green}#1# in #2#{} chance to gain a",
+                    "{C:dark_edition}negative perishable common{} Joker",
+                    "or a random {C:attention}consumable{}",
+                    "{C:inactive}(Multiple effects may trigger)"
+                }
+            },
         },
         --Other={},
         --Planet={},
@@ -91,7 +109,14 @@ return {
             }
         },
     },
-    --misc = {
+    misc = {
+        dictionary={
+            sarc_combat_roll_ex = "Combat Roll!",
+            sarc_plus_one_discard = "+1 Discard!",
+            sarc_stolen = "Stolen!",
+            sarc_yoink = "Yoink!",
+        }       
+    }
     --achievement_descriptions={},
     -- achievement_names={},
     --blind_states={},

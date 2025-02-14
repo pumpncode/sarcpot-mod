@@ -1,0 +1,39 @@
+SMODS.Joker {
+
+	discovered = true,
+	key = 'warrior_dice',
+
+
+
+	config = { extra = { odds = 6, discarded = false } },
+	loc_vars = function(self, info_queue, card)
+		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+	end,
+	rarity = 1,
+	atlas = 'sarcpot_atlas',
+	pos = { x = 0, y = 2 },
+	cost = 4,
+	calculate = function(self, card, context)
+		if context.pre_discard then
+			if pseudorandom('warrior_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
+				calculate_reroll_cost(true)
+				return {
+					message = localize('sarc_combat_roll_ex'),
+					colour = G.C.BLUE,
+					play_sound("whoosh1")
+				}
+			end
+		end
+		if context.reroll_shop then
+			if pseudorandom('warrior_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				G.GAME.round_bonus["discards"] = G.GAME.round_bonus["discards"] + 1
+				return {
+					message = localize('sarc_plus_one_discard'),
+					colour = G.C.RED,
+				
+				}
+			end
+		end
+	end
+}

@@ -8,14 +8,14 @@ return {
             j_sarc_garlic_bread = {
                 name = "Pão de Alho",
                 text = {
-                  "Se a primeira mão da rodada é uma {C:attention}Carta Alta{}",
+                    "Se a primeira mão da rodada é uma {C:attention}Carta Alta{}",
                     "converta cartas pontuadas em {C:attention}Ases{}",
                     "Chance de {C:green}#1# em #2#{} desta carta ser destruída no",
                     "fim da rodada"
                 }
-                
+
             },
-            j_sarc_artemis ={
+            j_sarc_artemis = {
                 name = 'Ártemis',
                 text = {
                     "Cartas de {C:hearts}Copas{} recebem {C:attention}desvantagem{},",
@@ -24,7 +24,7 @@ return {
                     "{C:inactive}(No momento {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 }
             },
-            j_sarc_cracked_egg={
+            j_sarc_cracked_egg = {
                 name = 'Ovo Rachado',
                 text = {
                     "Quando vendido, transforme o Curinga à direita",
@@ -33,7 +33,7 @@ return {
                     "{C:inactive}(No momento {C:attention}#2#{C:inactive}/6)"
                 }
             },
-            j_sarc_double_crescent={
+            j_sarc_double_crescent = {
                 name = 'Luas Duplas',
                 text = {
                     "Se sua mão contém um {C:attention}Par{},",
@@ -41,7 +41,7 @@ return {
                     "de criar uma carta de {C:planet}Planeta{}",
                 }
             },
-            j_sarc_green_carnation={
+            j_sarc_green_carnation = {
                 name = 'Cravo Verde',
                 text = {
                     "Reis pontuados dão",
@@ -49,7 +49,7 @@ return {
                     "Rei previamente pontuado"
                 }
             },
-            j_sarc_labrys={
+            j_sarc_labrys = {
                 name = 'Lábris',
                 text = {
                     "Rainhas pontuadas dão",
@@ -57,7 +57,7 @@ return {
                     "Rainha previamente pontuada"
                 }
             },
-            j_sarc_none_of_the_above={
+            j_sarc_none_of_the_above = {
                 name = 'Nenhuma das Alternativas',
                 text = {
                     "{C:attention}Cartas Naipe Curinga{}",
@@ -67,7 +67,7 @@ return {
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
-            j_sarc_pancake={
+            j_sarc_pancake = {
                 name = 'Panqueca',
                 text = {
                     "Depois de jogar as próximas {C:attention}#2#{} mãos,",
@@ -75,7 +75,25 @@ return {
                     "em {C:attention}Cartas Naipe Curinga{}",
                     "{C:inactive}(No momento {C:attention}#1#{C:inactive}/#2#)"
                 }
-            }
+            },
+            j_sarc_warrior_dice ={
+                name = 'Dado Guerreiro',
+                text = {
+                    "Chance de {C:green}#1# em #2#{} de ganhar uma {C:green}atualização grátis{}",
+                    "quando {C:attention}descartando{}",
+                    "Chance de {C:green}#1# em #2#{} de ganhar um {C:attention}descarte temporário{}",
+                    "quando {C:green}atualizando{} a loja"
+                }
+            },
+            j_sarc_thief_dice ={
+                name = 'Thief Dice',
+                text = {
+                    "Chance de {C:green}#1# em #2#{} de ganhar um",
+                    "Curinga {C:dark_edition}comum negativo perecível{}",
+                    "ou um {C:attention}consumível{} aleatório",
+                    "{C:inactive}(Vários efeitos podem ativar)"
+                }
+            },
         },
         --Other={},
         --Planet={},
@@ -84,13 +102,13 @@ return {
         --Tag={},
         --Tarot={},
         Voucher = {
-            v_sarc_advantage ={
+            v_sarc_advantage = {
                 name = 'Vantagem',
                 text = {
                     "{C:attention}+1{} à todas as probabilidades listadas"
                 },
             },
-            v_sarc_nat_20 ={
+            v_sarc_nat_20 = {
                 name = '20 Natural!',
                 text = {
                     "{C:attention}+1{} à todas as probabilidades listadas"
@@ -98,7 +116,16 @@ return {
             }
         },
     },
-    --misc = {
+    misc = {
+        dictionary = {
+             sarc_combat_roll_ex = "Jogada de Batalha!",
+              sarc_plus_one_discard = "+1 Descarte!",
+              sarc_stolen = "Roubado!",
+            sarc_yoink = "Peguei!",
+        }
+           
+        
+    }
     --achievement_descriptions={},
     -- achievement_names={},
     --blind_states={},
