@@ -76,13 +76,15 @@ return {
                     "{C:inactive}(No momento {C:attention}#1#{C:inactive}/#2#)"
                 }
             },
-            j_sarc_warrior_dice ={
-                name = 'Dado Guerreiro',
+            j_sarc_robot_dice ={
+                name = 'Robot Dice',
                 text = {
-                    "Chance de {C:green}#1# em #2#{} de ganhar uma {C:green}atualização grátis{}",
-                    "quando {C:attention}descartando{}",
-                    "Chance de {C:green}#1# em #2#{} de ganhar um {C:attention}descarte temporário{}",
-                    "quando {C:green}atualizando{} a loja"
+                   "Este Curinga ganha {C:mult}#5#{} Multi quando",
+                   "o valor da {C:attention}mão jogada{} totaliza",
+                   "em {C:attention}#3#{} (Valor muda a cada mão)",
+                   "Chance de {C:green}#1# em #2#{} de aumentar multi",
+                   "em {C:attention}6{} vezes mais",
+                "{C:inactive}(No momento {C:mult}#4#{} {C:inactive}Multi{})"
                 }
             },
             j_sarc_thief_dice ={
@@ -92,6 +94,15 @@ return {
                     "Curinga {C:dark_edition}comum negativo perecível{}",
                     "ou um {C:attention}consumível{} aleatório",
                     "{C:inactive}(Vários efeitos podem ativar)"
+                }
+            },
+            j_sarc_warrior_dice ={
+                name = 'Dado Guerreiro',
+                text = {
+                    "Chance de {C:green}#1# em #2#{} de ganhar uma {C:green}atualização grátis{}",
+                    "quando {C:attention}descartando{}",
+                    "Chance de {C:green}#1# em #2#{} de ganhar um {C:attention}descarte temporário{}",
+                    "quando {C:green}atualizando{} a loja"
                 }
             },
         },

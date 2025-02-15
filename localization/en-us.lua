@@ -69,13 +69,14 @@ return {
                     "{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
                 }
             },
-            j_sarc_warrior_dice ={
-                name = 'Warrior Dice',
+            j_sarc_robot_dice ={
+                name = 'Robot Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain a {C:green}reroll{}",
-                    "when {C:attention}discarding{}",
-                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary discard{}",
-                    "when {C:green}rerolling{}"
+                   "This Joker gains {C:mult}#5#{} Mult when",
+                   "{C:attention}played hand{} value adds to",
+                   "{C:attention}#3#{} (Value Changes every round)",
+                   "{C:green}#1# in #2#{} to increase mult by {C:attention}6{} times more",
+                    "{C:inactive}(Currently {C:mult}#4#{} {C:inactive}Mult{})"
                 }
             },
             j_sarc_thief_dice ={
@@ -85,6 +86,15 @@ return {
                     "{C:dark_edition}negative perishable common{} Joker",
                     "or a random {C:attention}consumable{}",
                     "{C:inactive}(Multiple effects may trigger)"
+                }
+            },
+            j_sarc_warrior_dice ={
+                name = 'Warrior Dice',
+                text = {
+                    "{C:green}#1# in #2#{} chance to gain a {C:green}reroll{}",
+                    "when {C:attention}discarding{}",
+                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary discard{}",
+                    "when {C:green}rerolling{}"
                 }
             },
         },
