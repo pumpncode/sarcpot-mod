@@ -5,7 +5,7 @@ SMODS.Joker {
 
 
 
-	config = { extra = { odds = 6, discarded = false } },
+	config = { extra = { odds = 6} },
 	loc_vars = function(self, info_queue, card)
 		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
 	end,

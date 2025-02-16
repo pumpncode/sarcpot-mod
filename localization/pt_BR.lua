@@ -76,18 +76,18 @@ return {
                     "{C:inactive}(No momento {C:attention}#1#{C:inactive}/#2#)"
                 }
             },
-            j_sarc_robot_dice ={
+            j_sarc_robot_dice = {
                 name = 'Robot Dice',
                 text = {
-                   "Este Curinga ganha {C:mult}#5#{} Multi quando",
-                   "o valor da {C:attention}mão jogada{} totaliza",
-                   "em {C:attention}#3#{} (Valor muda a cada mão)",
-                   "Chance de {C:green}#1# em #2#{} de aumentar multi",
-                   "em {C:attention}6{} vezes mais",
-                "{C:inactive}(No momento {C:mult}#4#{} {C:inactive}Multi{})"
+                    "Este Curinga ganha {C:mult}#5#{} Multi quando",
+                    "o valor da {C:attention}mão jogada{} totaliza",
+                    "em {C:attention}#3#{} (Valor muda a cada mão)",
+                    "Chance de {C:green}#1# em #2#{} de aumentar multi",
+                    "em {C:attention}6{} vezes mais",
+                    "{C:inactive}(No momento {C:mult}#4#{} {C:inactive}Multi{})"
                 }
             },
-            j_sarc_thief_dice ={
+            j_sarc_thief_dice = {
                 name = 'Thief Dice',
                 text = {
                     "Chance de {C:green}#1# em #2#{} de ganhar um",
@@ -96,7 +96,7 @@ return {
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
-            j_sarc_warrior_dice ={
+            j_sarc_warrior_dice = {
                 name = 'Dado Guerreiro',
                 text = {
                     "Chance de {C:green}#1# em #2#{} de ganhar uma {C:green}atualização grátis{}",
@@ -129,13 +129,14 @@ return {
     },
     misc = {
         dictionary = {
-             sarc_combat_roll_ex = "Jogada de Batalha!",
-              sarc_plus_one_discard = "+1 Descarte!",
-              sarc_stolen = "Roubado!",
+            sarc_combat_roll_ex = "Jogada de Batalha!",
+            sarc_plus_one_discard = "+1 Descarte!",
+            sarc_stolen = "Roubado!",
             sarc_yoink = "Peguei!",
+            sarc_lucky6 = "6 sortudo!",
         }
-           
-        
+
+
     }
     --achievement_descriptions={},
     -- achievement_names={},

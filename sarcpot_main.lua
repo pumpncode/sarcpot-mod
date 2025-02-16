@@ -9,6 +9,13 @@ SMODS.Atlas {
 	py = 95,
 }
 
+SMODS.Atlas {
+	key = "vouchers",
+	path = "vouchers.png",
+	px = 71,
+	py = 95,
+}
+
 local path = SMODS.current_mod.path..'joker/'
 for _,v in pairs(NFS.getDirectoryItems(path)) do
   assert(SMODS.load_file('joker/'..v))()

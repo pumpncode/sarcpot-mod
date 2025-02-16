@@ -1,6 +1,6 @@
 SMODS.Voucher({
-	key = "nat_20",
-	atlas = "sarcpot_atlas",
+	key = "advantage",
+	atlas = "vouchers",
 
 	
 
@@ -11,7 +11,6 @@ SMODS.Voucher({
 	unlocked = true,
 	discovered = false,
 	available = true,
-    requires = {'v_sarc_advantage'},
 	redeem = function(self)
 			G.GAME.probabilities.normal = G.GAME.probabilities.normal + 1
 	end
