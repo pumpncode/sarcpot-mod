@@ -14,10 +14,11 @@ SMODS.Joker {
 	atlas = 'sarcpot_atlas',
 	pos = { x = 2, y = 0 },
 	cost = 6,
+	blueprint_compat = true,
 	calculate = function(self, card, context)
 
 		
-		if context.individual and context.cardarea == G.play and context.other_card:get_id() == 13 then
+		if context.individual and context.cardarea == G.play and not context.blueprint and context.other_card:get_id() == 13 then
             
             
             card.ability.extra.prior_triggers = card.ability.extra.prior_triggers+1

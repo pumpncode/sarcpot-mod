@@ -1,0 +1,84 @@
+SMODS.Joker {
+
+    discovered = true,
+    key = 'inventor_dice',
+
+    config = { extra = { odds = 6 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+    end,
+    rarity = 3,
+    atlas = 'sarcpot_atlas',
+    pos = { x = 0, y = 2 },
+    cost = 9,
+
+    calculate = function(self, card, context)
+        --Selects joker to the right
+        local other_joker
+
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] or nil end
+        end
+
+        if context.ending_shop and not context.blueprint and other_joker ~= nil then
+            G.E_MANAGER:add_event(Event({
+
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    other_joker:start_dissolve()
+                    play_sound('crumple1')
+
+                    return true
+                end
+            }))
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+                if pseudorandom('inventor_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    for i = 1, G.consumeables.config.card_limit do
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+
+                            local consumable = poll_consumable('inventor_dice')
+                            consumable:add_to_deck()
+                            G.consumeables:emplace(consumable)
+                            G.GAME.consumeable_buffer = 0
+                        end
+                    end
+                   
+                    return {
+                        message = localize('sarc_focus')
+                    }
+                else
+                    
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+
+                            local consumable = poll_consumable('inventor_dice')
+                            consumable:add_to_deck()
+                            G.consumeables:emplace(consumable)
+                            G.GAME.consumeable_buffer = 0
+                        end
+                  
+                    return {
+                        message = localize('sarc_scrapped')
+                    }
+                end
+            end
+        end
+    end
+}
+
+function poll_consumable(seed)
+    local types = {}
+
+    for k, v in pairs(SMODS.ConsumableTypes) do
+        
+        types[#types + 1] = k
+    end
+
+    return SMODS.create_card {
+        set = pseudorandom_element(types, pseudoseed(seed)),
+        area = G.consumables,
+        key_append = seed,
+    }
+end

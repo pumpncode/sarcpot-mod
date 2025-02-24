@@ -49,6 +49,17 @@ return {
                     "Rei previamente pontuado"
                 }
             },
+            j_sarc_inventor_dice = {
+                name = 'Dado Inventor',
+                text = {
+                    "Destrua Curinga à direita",
+                    "após sair da loja para ganhar",
+                    "{C:attention}+2{} consumíveis aleatórios",
+                    "Chance de {C:green}#1# em#2#{} de lotar espaços de consumíveis",
+                    "e dar mais +2 {C:attention}consumíveis{}",
+                    "{C:inactive}(Deve ter espaço)"
+                }
+            },
             j_sarc_labrys = {
                 name = 'Lábris',
                 text = {
@@ -80,11 +91,11 @@ return {
                 name = 'Robot Dice',
                 text = {
                     "Este Curinga ganha {C:mult}#5#{} Multi quando",
-                    "o valor da {C:attention}mão jogada{} totaliza",
-                    "em {C:attention}#3#{} (Valor muda a cada mão)",
+                    "o valor da {C:attention}mão jogada{} totaliza {C:attention}#3#{}",
                     "Chance de {C:green}#1# em #2#{} de aumentar multi",
                     "em {C:attention}6{} vezes mais",
-                    "{C:inactive}(No momento {C:mult}#4#{} {C:inactive}Multi{})"
+                    "{C:inactive}(No momento {C:mult}#4#{} {C:inactive}Multi,",
+                    "{C:inactive}Valor muda a cada mão)"
                 }
             },
             j_sarc_thief_dice = {
@@ -99,9 +110,11 @@ return {
             j_sarc_warrior_dice = {
                 name = 'Dado Guerreiro',
                 text = {
-                    "Chance de {C:green}#1# em #2#{} de ganhar uma {C:green}atualização grátis{}",
+                    "Chance de {C:green}#1# em #2#{} de",
+                    "ganhar uma {C:green}atualização grátis{}",
                     "quando {C:attention}descartando{}",
-                    "Chance de {C:green}#1# em #2#{} de ganhar um {C:attention}descarte temporário{}",
+                    "Chance de {C:green}#1# em #2#{} de",
+                    "ganhar um {C:attention}descarte temporário{}",
                     "quando {C:green}atualizando{} a loja"
                 }
             },

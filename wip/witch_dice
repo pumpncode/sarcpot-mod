@@ -1,0 +1,80 @@
+SMODS.Joker {
+
+    discovered = true,
+    key = 'witch_dice',
+
+    config = { extra = { odds = 6, chips = 0, nominal_mod = 2} },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.chips } }
+    end,
+    rarity = 1,
+    atlas = 'sarcpot_atlas',
+    pos = { x = 0, y = 2 },
+    cost = 5,
+
+    calculate = function(self, card, context)
+        if context.pre_discard and not context.blueprint then
+            for _, v in pairs(context.full_hand) do
+                local nominal = v.base.nominal
+                if pseudorandom('witch_dice_discard') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    card.ability.extra.chips = card.ability.extra.chips + (nominal * card.ability.extra.nominal_mod)
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        blockable = true,
+                        blocking = false,
+                        delay = 0.5,
+                        func = function()
+                            card:juice_up(0.5, 0.5)
+                            play_sound('other1')
+                            return true
+                        end
+                    }))
+                    return{
+                        message = localize('sarc_throw'),
+                        colour = G.C.PURPLE,
+                    }
+                end
+            end
+        end
+        if context.before and not context.blueprint then
+            for _, v in pairs(context.full_hand) do
+                local nominal = v.base.nominal
+                if pseudorandom('witch_dice_play') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    card.ability.extra.chips = card.ability.extra.chips + (nominal * card.ability.extra.nominal_mod)
+                    G.E_MANAGER:add_event(Event({
+                        trigger = 'after',
+                        blockable = true,
+                        blocking = false,
+                        delay = 0.5,
+                        func = function()
+                            card:juice_up(0.5, 0.5)
+                            play_sound('other1')
+                            return true
+                        end
+                    }))
+                end
+                return{
+                    message = localize('sarc_throw'),
+                    colour = G.C.PURPLE,
+                }
+            end
+        end
+        if context.joker_main then
+            return {
+                
+                chips = card.ability.extra.chips,
+                
+            }
+        end
+    end
+
+
+}
+
+--local play_on_discard = G.FUNCS.discard_cards_from_highlighted
+--function G.FUNCS.discard_cards_from_highlighted()
+--local ret = play_on_discard(self)
+--if pseudorandom('witch_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+--G.FUNCS.play_cards_from_highlighted()
+--end
+--return ret

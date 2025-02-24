@@ -45,6 +45,16 @@ return {
                     "previously scored King"
                 }
             },
+            j_sarc_inventor_dice = {
+                name = 'Inventor Dice',
+                text = {
+                    "Destroy Joker to the right",
+                    "when exiting the shop to gain",
+                    "{C:attention}+1{} random consumable",
+                    "{C:green}#1# in #2#{} to instead fill {C:attention}all{} slots",
+                    "{C:inactive}(Must have space)"
+                }
+            },
             j_sarc_labrys = {
                 name = 'Labrys',
                 text = {
@@ -92,11 +102,18 @@ return {
             j_sarc_warrior_dice = {
                 name = 'Warrior Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain a {C:green}reroll{}",
+                    "{C:green}#1# in #2#{} chance",
+                    "to gain a {C:green}reroll{}",
                     "when {C:attention}discarding{}",
                     "{C:green}#1# in #2#{} chance to gain a",
                     "{C:attention}temporary discard{}",
                     "when {C:green}rerolling{}"
+                }
+            },
+            j_sarc_witch_dice = {
+                name = 'Witch Dice',
+                text = {
+                    "#3#"
                 }
             },
         },
@@ -128,6 +145,9 @@ return {
             sarc_stolen = "Stolen!",
             sarc_yoink = "Yoink!",
             sarc_lucky6 = "Lucky 6!",
+            sarc_focus = "Focus!",
+            sarc_lucky = "Scrapped!",
+            sarc_throw = 'Throw!'
         }
     }
     --achievement_descriptions={},
