@@ -49,6 +49,15 @@ return {
                     "Rei previamente pontuado"
                 }
             },
+            j_sarc_jester_dice = {
+                name = 'Dado Bufão',
+                text = {
+                    "Chance de {C:green}#1# em #2#{} de ganhar",
+                    "{C:blue}+1{} mão quando jogando ou",
+                    "descartando cartas com",
+                    "a {C:attention}mesma classe{}"
+                }
+            },
             j_sarc_inventor_dice = {
                 name = 'Dado Inventor',
                 text = {
@@ -88,7 +97,7 @@ return {
                 }
             },
             j_sarc_robot_dice = {
-                name = 'Robot Dice',
+                name = 'Dado Robô',
                 text = {
                     "Este Curinga ganha {C:mult}#5#{} Multi quando",
                     "o valor da {C:attention}mão jogada{} totaliza {C:attention}#3#{}",
@@ -99,7 +108,7 @@ return {
                 }
             },
             j_sarc_thief_dice = {
-                name = 'Thief Dice',
+                name = 'Dado Ladrão',
                 text = {
                     "Chance de {C:green}#1# em #2#{} de ganhar um",
                     "Curinga {C:dark_edition}comum negativo perecível{}",
@@ -116,6 +125,16 @@ return {
                     "Chance de {C:green}#1# em #2#{} de",
                     "ganhar um {C:attention}descarte temporário{}",
                     "quando {C:green}atualizando{} a loja"
+                }
+            },
+            j_sarc_witch_dice = {
+                name = 'Dado Bruxo',
+                text = {
+                   "Chance de {C:green}#1# em #2#{} de adicionar",
+                    "{C:attention}#3#{} vezes as {C:chips}Fichas{} de",
+                    "cartas jogadas e descartadas",
+                    "à este curinga",
+                    "{C:inactive}(No momento {C:chips}#4#{} {C:inactive}Fichas{})"
                 }
             },
         },
@@ -146,7 +165,11 @@ return {
             sarc_plus_one_discard = "+1 Descarte!",
             sarc_stolen = "Roubado!",
             sarc_yoink = "Peguei!",
-            sarc_lucky6 = "6 sortudo!",
+            sarc_lucky6 = "6 da sorte!",
+            sarc_focus = "Foco!",
+            sarc_scrapped = "Reciclado!",
+            sarc_throw = 'Arremesso!',
+            sarc_snap = 'Estalo!'
         }
 
 

@@ -55,6 +55,14 @@ return {
                     "{C:inactive}(Must have space)"
                 }
             },
+            j_sarc_jester_dice = {
+                name = 'Jester Dice',
+                text = {
+                    "{C:green}#1# in #2#{} chance to gain",
+                    "{C:blue}+1{} hand when playing or discarding",
+                    "cards with {C:attention}matching ranks{}"
+                }
+            },
             j_sarc_labrys = {
                 name = 'Labrys',
                 text = {
@@ -83,10 +91,10 @@ return {
                 name = 'Robot Dice',
                 text = {
                     "This Joker gains {C:mult}#5#{} Mult when",
-                    "{C:attention}played hand{} value adds to",
-                    "{C:attention}#3#{} (Value Changes every hand)",
+                    "{C:attention}played hand{} value adds to {C:attention}#3#{}",
                     "{C:green}#1# in #2#{} to increase mult by {C:attention}6{} times more",
-                    "{C:inactive}(Currently {C:mult}#4#{} {C:inactive}Mult{})"
+                    "{C:inactive}(Currently {C:mult}#4#{} {C:inactive}Mult,{}",
+                    "{C:inactive}Value Changes every hand){}"
                 }
             },
             j_sarc_thief_dice = {
@@ -113,7 +121,11 @@ return {
             j_sarc_witch_dice = {
                 name = 'Witch Dice',
                 text = {
-                    "#3#"
+                   "{C:green}#1# in #2#{} chance to add",
+                    "{C:attention}#3#{} times the {C:chips}Chips{} of",
+                    "discarded and played cards",
+                    "to this joker",
+                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips{})"
                 }
             },
         },
@@ -146,8 +158,9 @@ return {
             sarc_yoink = "Yoink!",
             sarc_lucky6 = "Lucky 6!",
             sarc_focus = "Focus!",
-            sarc_lucky = "Scrapped!",
-            sarc_throw = 'Throw!'
+            sarc_scrapped = "Scrapped!",
+            sarc_throw = 'Throw!',
+            sarc_snap = 'Snap!'
         }
     }
     --achievement_descriptions={},
