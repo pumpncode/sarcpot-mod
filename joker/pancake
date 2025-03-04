@@ -16,6 +16,10 @@ SMODS.Joker {
 	pos = { x = 2, y = 1 },
 	cost = 6,
 	eternal_compat = false,
+	pools = {
+		Food = true
+	  },
+	
 	calculate = function(self, card, context)		
 
         if context.after and not context.blueprint then
