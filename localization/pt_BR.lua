@@ -169,7 +169,8 @@ return {
             sarc_focus = "Foco!",
             sarc_scrapped = "Reciclado!",
             sarc_throw = 'Arremesso!',
-            sarc_snap = 'Estalo!'
+            sarc_snap = 'Estalo!',
+            sarc_collapse = 'Collapso!'
         }
 
 

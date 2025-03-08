@@ -1,0 +1,56 @@
+SMODS.Consumable({
+    key = 'brittle_hollow',
+    set = 'Postcard',
+    atlas = 'sarcpot_atlas',
+    pos = {x=0, y=0},
+    discovered = true,
+    config = { extra = {odds = 1} },
+    loc_vars = function(self, info_queue)
+		info_queue[#info_queue+1] = {}
+	end,
+    calculate = function(self, card, context)
+        if context.ending_shop then
+            if pseudorandom('brittle_odds') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                G.E_MANAGER:add_event(Event({
+                    blockable = true,
+					trigger = 'after',
+					delay = 0.5,
+					func = function()
+						play_sound('tarot1')
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						card:start_dissolve()
+						card = nil
+                        
+                        local consumable = SMODS.create_card{area = G.consumeables,key = 'c_black_hole'}
+                consumable:add_to_deck()
+                G.consumeables:emplace(consumable)
+						return true
+				end}))
+                return {{
+                    message = localize('sarc_collapse'),
+                    colour = G.C.PURPLE,
+                }}
+            end
+        end
+
+    end,
+    can_use = function(self, card)
+		return true
+	end,
+    use = function(self, card, area, copier)
+        local _poker_hands = {}
+		for k, v in pairs(G.GAME.hands) do
+			if v.visible then _poker_hands[#_poker_hands+1] = k end
+		end
+        local random_hand = pseudorandom_element(_poker_hands, pseudoseed('brittle'))
+
+				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=random_hand,chips = G.GAME.hands[random_hand].chips, mult = G.GAME.hands[random_hand].mult, level=G.GAME.hands[random_hand].level})
+
+        level_up_hand(nil, random_hand, nil, 1)
+        update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
+    end
+
+})
