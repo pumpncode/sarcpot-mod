@@ -7,6 +7,9 @@ For now there are **14** implemented jokers and **2** vouchers with more to come
 
 (am amateur coder and artist, very tiny and dumb, please be nice to me somewhat(plz)) 
 
+Any bugs or just wanna say hi? Visit us on our [Discord Server!](https://discord.com/channels/1116389027176787968/1337498831809544233)
+
+
 ## First Wave: Queer Jokers!!!
 
 You like Balatro? You like G A Y ? Then these jokers are going to be just your vibe!
