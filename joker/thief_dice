@@ -17,7 +17,7 @@ SMODS.Joker {
 
 	calculate = function(self, card, context)
 		local trigger = nil
-		if context.end_of_round and context.cardarea == G.jokers then
+		if context.ending_shop and context.cardarea == G.jokers then
 			if pseudorandom('thief_dice_consumable') < G.GAME.probabilities.normal / card.ability.extra.odds then
 				local consumable = poll_consumable('thief_dice')
 				consumable:add_to_deck()

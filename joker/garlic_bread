@@ -21,27 +21,28 @@ SMODS.Joker {
 	
 	calculate = function(self, card, context)		
 
-		if context.first_hand_drawn and not context.blueprint then
+		if G.GAME.current_round.hands_played == 0 and not context.blueprint then
             local eval = function() return G.GAME.current_round.hands_played == 0 end
             juice_card_until(card, eval, true)
         end
 		
 
-		if context.individual and context.cardarea == G.play and next(context.poker_hands['High Card']) and G.GAME.current_round.hands_played == 0 then	
+	    if context.after and next(context.poker_hands['High Card']) 
+		and G.GAME.current_round.hands_played == 0 then	
+
+			local other_card = context.scoring_hand[1]
 			
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					blockable = true,
-					blocking = false,
-					delay = 2.3,
-					func = function()
-						card:juice_up(0.5, 0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after',
+				delay = 2.3,
+				blocking = true,
+				func = function()
+						other_card:juice_up(0.5, 0.5)
 						play_sound('card1')
-						assert(SMODS.change_base(card, nil, "Ace"))
-						
+						suit = other_card.base.suit
+						SMODS.change_base(other_card,nil,'Ace')
 						return true
-					end
-				}))
+					end}))
 		end	
 		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
 			
