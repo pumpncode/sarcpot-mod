@@ -3,7 +3,16 @@ return {
         --Back={},
         --Blind={},
         --Edition={},
-        --Enhanced={},
+        Enhanced={
+            m_sarc_strawberry = {
+                name = 'Strawberry Card',
+                text = {
+                    "Retriggers {C:attention}#1#{} times when",
+                    "scored in {C:attention}hand{}",
+                    "Needs to recharge after use",
+                }
+            }
+        },
         Joker = {
             j_sarc_garlic_bread = {
                 name = 'Garlic Bread',
@@ -125,7 +134,7 @@ return {
                     "{C:attention}#3#{} times the {C:chips}Chips{} of",
                     "discarded and played cards",
                     "to this joker",
-                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips{})"
+                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips){}"
                 }
             },
         },
@@ -160,7 +169,10 @@ return {
             sarc_focus = "Focus!",
             sarc_scrapped = "Scrapped!",
             sarc_throw = 'Throw!',
-            sarc_snap = 'Snap!'
+            sarc_snap = 'Snap!',
+            sarc_collapse = 'Collapse!',
+            sarc_dash = 'Dash!',
+           
         }
     }
     --achievement_descriptions={},

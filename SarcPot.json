@@ -1,13 +1,13 @@
 {
 	"id": "sarcpot",
-	"name": "sarcpot",
-	"display_name": "sarcpot",
+	"name": "Sarcpot",
+	"display_name": "Sarcpot",
 	"author": ["SarcasticPotato"],
-	"description": "A vanilla-balanced mod that adds 15 Jokers so far, with interesting effects",
+	"description": "A vanilla inspired mod with content for the Girls, Gays and Indie Game Fans!",
 	"prefix": "sarc",
 	"main_file": "sarcpot_main.lua",
 	"priority": 0,
-	"badge_colour": "30758D",
+	"badge_colour": "fab411",
 	"version": "0.1.0",
 	"dependencies": []
 }

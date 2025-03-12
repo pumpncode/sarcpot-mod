@@ -3,7 +3,6 @@ G.SP.C = {}
 G.SP.FUNCS = {}
 local sarcpot = SMODS.current_mod.path
 
-
 SMODS.Atlas {
 	key = "sarcpot_atlas",
 	path = "sarcpot_atlas.png",
@@ -17,8 +16,14 @@ SMODS.Atlas {
 	px = 71,
 	py = 95,
 }
+SMODS.Atlas {
+	key = "enhancements",
+	path = "enhancements.png",
+	px = 71,
+	py = 95,
+}
 G.SP.C.postcard_1 = HEX("DEB940")
-G.SP.C.postcard_2 = HEX("dbac1f")
+G.SP.C.postcard_2 = HEX("fab411")
 
 SMODS.ConsumableType({
     key = "Postcard",
@@ -51,9 +56,13 @@ for _,v in pairs(NFS.getDirectoryItems(path)) do
   assert(SMODS.load_file('vouchers/'..v))()
 end
 
-
 local path = SMODS.current_mod.path..'consumables/'
 for _,v in pairs(NFS.getDirectoryItems(path)) do
   assert(SMODS.load_file('consumables/'..v))()
+end
+
+local path = SMODS.current_mod.path..'enhancements/'
+for _,v in pairs(NFS.getDirectoryItems(path)) do
+  assert(SMODS.load_file('enhancements/'..v))()
 end
 
