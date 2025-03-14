@@ -112,7 +112,7 @@ return {
                     "{C:green}#1# in #2#{} chance to gain a",
                     "{C:dark_edition}negative perishable common{} Joker",
                     "or a random {C:attention}consumable{}",
-                    "at the end of the round",
+                    "when exiting the shop",
                     "{C:inactive}(Multiple effects may trigger)"
                 }
             },

@@ -113,6 +113,7 @@ return {
                     "Chance de {C:green}#1# em #2#{} de ganhar um",
                     "Curinga {C:dark_edition}comum negativo perecível{}",
                     "ou um {C:attention}consumível{} aleatório",
+                    "ao sair da loja",
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
