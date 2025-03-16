@@ -1,37 +1,53 @@
 SMODS.Consumable({
-    key = 'brittle_hollow',
-    set = 'Postcard',
-    atlas = 'sarcpot_atlas',
+    key = 't_brittle_hollow',
+    set = 'Travel',
+    atlas = 'consumables',
     pos = {x=0, y=0},
     discovered = true,
-    config = { extra = {odds = 1} },
+    config = {odds = 4 },
     loc_vars = function(self, info_queue)
-		info_queue[#info_queue+1] = {}
+		
+        return { vars = {G.GAME.probabilities.normal, self.config.odds} }
 	end,
+    cost = 3,
     calculate = function(self, card, context)
         if context.ending_shop then
-            if pseudorandom('brittle_odds') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if pseudorandom('brittle_odds') < G.GAME.probabilities.normal / self.config.odds then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+					delay = 0.5,
+                    func = function()
+                        return {{
+                            
+                            message = localize('sarc_collapse'),
+                            colour = G.C.PURPLE,
+                        }}
+                    end
+                }))
                 G.E_MANAGER:add_event(Event({
                     blockable = true,
 					trigger = 'after',
 					delay = 0.5,
 					func = function()
 						play_sound('tarot1')
-						card.T.r = -0.2
-						card:juice_up(0.3, 0.4)
-						card.states.drag.is = true
-						card.children.center.pinch.x = true
-						card:start_dissolve()
-						card = nil
+						self.T.r = -0.2
+						self:juice_up(0.3, 0.4)
+						self.states.drag.is = true
+						self.children.center.pinch.x = true
+						self:start_dissolve()
+						self = nil
                         
                         local consumable = SMODS.create_card{area = G.consumeables,key = 'c_black_hole'}
                 consumable:add_to_deck()
                 G.consumeables:emplace(consumable)
-						return true
+                return true
+               
 				end}))
+                
+            else
                 return {{
-                    message = localize('sarc_collapse'),
-                    colour = G.C.PURPLE,
+                    message = localize('sarc_crumbling'),
+                    colour = G.C.Yellow,
                 }}
             end
         end

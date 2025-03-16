@@ -17,23 +17,29 @@ SMODS.Atlas {
 	py = 95,
 }
 SMODS.Atlas {
+	key = "consumables",
+	path = "consumables.png",
+	px = 71,
+	py = 95,
+}
+SMODS.Atlas {
 	key = "enhancements",
 	path = "enhancements.png",
 	px = 71,
 	py = 95,
 }
-G.SP.C.postcard_1 = HEX("DEB940")
-G.SP.C.postcard_2 = HEX("fab411")
+G.SP.C.travel_1 = HEX("DEB940")
+G.SP.C.travel_2 = HEX("fab411")
 
 SMODS.ConsumableType({
-    key = "Postcard",
-    primary_colour = G.SP.C.postcard_1,
-    secondary_colour = G.SP.C.postcard_2,
+    key = "Travel",
+    primary_colour = G.SP.C.travel_1,
+    secondary_colour = G.SP.C.travel_2,
     loc_txt = {
-        name = "Postcard",
-        collection = "Postcards",
+        name = "Travel Card",
+        collection = "Travel Cards",
         undiscovered = {
-            name = 'Unknown PostCard',
+            name = 'Unknown Travel Card',
             text = {
                 'Find this card in an unseeded',
                 'run to find out what it does'
@@ -41,9 +47,11 @@ SMODS.ConsumableType({
         }
     },
     collection_rows = {4, 3},
-    shop_rate = 2,
+    shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
+
+
 
 
 local path = SMODS.current_mod.path..'joker/'

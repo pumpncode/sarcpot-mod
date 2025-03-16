@@ -26,13 +26,22 @@ SMODS.Joker {
           
             for k, v in ipairs(context.full_hand) do
                 if v.ability.name ~= "Wild Card" then
-                    v:set_ability(G.P_CENTERS.m_wild, nil, true)
+                    
                     G.E_MANAGER:add_event(Event({
 						trigger = 'after',
+						blockable = true,
 						delay = 0.1,
                         func = function()
 							play_sound('tarot1')
                             v:juice_up()
+							v:set_ability(G.P_CENTERS.m_wild, nil, true)
+							v:set_ability(G.P_CENTERS.m_wild, nil, false)
+                            return true
+                        end
+                    })) 
+					
+					G.E_MANAGER:add_event(Event({
+                        func = function()
                             return true
                         end
                     })) 

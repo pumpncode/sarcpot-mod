@@ -3,13 +3,33 @@ return {
         --Back={},
         --Blind={},
         --Edition={},
+        Travel = {
+            c_sarc_t_brittle_hollow = {
+                name = 'Tattered Postcard',
+                text = {
+                    "Level up a {C:attention}random hand{}",
+                    "{C:green}#1# in #2#{} chance to",
+                    "{C:purple}Collapse{} after",
+                    "exiting the shop"
+                }
+            },
+            c_sarc_t_celeste = {
+                name = 'Postcard from Mt.Celeste',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:red}Strawberry Cards{}"
+                }
+            }
+        },
         Enhanced={
             m_sarc_strawberry = {
                 name = 'Strawberry Card',
                 text = {
-                    "Retriggers {C:attention}#1#{} times when",
-                    "scored in {C:attention}hand{}",
-                    "Needs to recharge after use",
+                    "Retriggers {C:attention}#1#{} times",
+                    "when scored in {C:attention}hand{}",
+                    "Needs to recharge",
+                    "after use",
                 }
             }
         },
@@ -138,12 +158,7 @@ return {
                 }
             },
         },
-        --Other={},
-        --Planet={},
-        --Spectral={},
-        --Stake={},
-        --Tag={},
-        --Tarot={},
+      
         Voucher = {
             v_sarc_advantage = {
                 name = 'Advantage',
@@ -171,6 +186,7 @@ return {
             sarc_throw = 'Throw!',
             sarc_snap = 'Snap!',
             sarc_collapse = 'Collapse!',
+            sarc_crumbling = 'Crumbling...',
             sarc_dash = 'Dash!',
            
         }
