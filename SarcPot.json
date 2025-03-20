@@ -7,7 +7,7 @@
 	"prefix": "sarc",
 	"main_file": "sarcpot_main.lua",
 	"priority": 0,
-	"badge_colour": "fab411",
+	"badge_colour": "eb913c",
 	"version": "0.1.0",
 	"dependencies": []
 }

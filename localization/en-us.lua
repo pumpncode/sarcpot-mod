@@ -4,7 +4,7 @@ return {
         --Blind={},
         --Edition={},
         Travel = {
-            c_sarc_t_brittle_hollow = {
+            c_sarc_brittle_hollow = {
                 name = 'Tattered Postcard',
                 text = {
                     "Level up a {C:attention}random hand{}",
@@ -13,12 +13,20 @@ return {
                     "exiting the shop"
                 }
             },
-            c_sarc_t_celeste = {
+            c_sarc_celeste = {
                 name = 'Postcard from Mt.Celeste',
                 text = {
                     "Enhances {C:attention}#1#{}",
                     "selected cards to",
                     "{C:red}Strawberry Cards{}"
+                }
+            },
+            c_sarc_hollow_knight = {
+                name = '"Greenpath View"',
+                text = {
+                    "Transforms {C:attention}#1#{}",
+                    "selected cards to",
+                    "cards {C:attention}in your deck{}"
                 }
             }
         },
@@ -173,7 +181,17 @@ return {
                 },
             }
         },
+        Other = {
+
+        p_sarc_travel_small = {
+            name = "Travel Pack",
+            text = {
+              "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+              "{C:G.SP.C.travel_1}Travel{} cards",
+              
+            }
     },
+},
     misc = {
         dictionary = {
             sarc_combat_roll_ex = "Combat Roll!",
@@ -208,4 +226,5 @@ return {
     --  v_dictionary={},
     -- v_text={},
     --},
+}
 }

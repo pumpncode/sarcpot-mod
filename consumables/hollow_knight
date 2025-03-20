@@ -1,0 +1,56 @@
+SMODS.Consumable({
+    key = 'hollow_knight',
+    set = 'Travel',
+    atlas = 'consumables',
+    pos = { x = 2, y = 0 },
+    discovered = true,
+    config = { max_highlighted = 2 },
+    loc_vars = function(self, info_queue)
+        return { vars = { self.config.max_highlighted } }
+    end,
+    cost = 3,
+    calculate = function(self, card, context)
+    end,
+    can_use = function(self, card)
+        return #G.hand.highlighted <= card.ability.max_highlighted and #G.hand.highlighted >= 1
+    end,
+    use = function(self, card, area, copier)
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    G.hand.highlighted[i]:flip();
+                    play_sound('card1');
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3);
+
+                    return true
+                end
+            }))
+        end
+        for i = 1, #G.hand.highlighted do
+            local random_card = pseudorandom_element(G.playing_cards)
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                func = function()
+                    if G.hand.highlighted[i] ~= rightmost then
+                        copy_card(random_card, G.hand.highlighted[i])
+                    end
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+                func = function()
+                    G.hand.highlighted[i]:flip();
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3);
+
+                    return true
+                end
+            }))
+        end
+    end
+
+})

@@ -1,5 +1,5 @@
 SMODS.Consumable({
-    key = 't_brittle_hollow',
+    key = 'brittle_hollow',
     set = 'Travel',
     atlas = 'consumables',
     pos = {x=0, y=0},
@@ -30,12 +30,12 @@ SMODS.Consumable({
 					delay = 0.5,
 					func = function()
 						play_sound('tarot1')
-						self.T.r = -0.2
-						self:juice_up(0.3, 0.4)
-						self.states.drag.is = true
-						self.children.center.pinch.x = true
-						self:start_dissolve()
-						self = nil
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						card:start_dissolve()
+						card = nil
                         
                         local consumable = SMODS.create_card{area = G.consumeables,key = 'c_black_hole'}
                 consumable:add_to_deck()
@@ -66,6 +66,7 @@ SMODS.Consumable({
 				update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, {handname=random_hand,chips = G.GAME.hands[random_hand].chips, mult = G.GAME.hands[random_hand].mult, level=G.GAME.hands[random_hand].level})
 
         level_up_hand(nil, random_hand, nil, 1)
+        card:juice_up()
         update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = '', level = ''})
     end
 
