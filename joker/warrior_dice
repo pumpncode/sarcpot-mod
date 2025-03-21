@@ -13,6 +13,7 @@ SMODS.Joker {
 	atlas = 'sarcpot_atlas',
 	pos = { x = 0, y = 2 },
 	cost = 4,
+	
 	calculate = function(self, card, context)
 		if context.pre_discard then
 			if pseudorandom('warrior_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then

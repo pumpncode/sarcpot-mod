@@ -19,7 +19,7 @@ SMODS.Consumable({
                     func = function()
                         return {{
                             
-                            message = localize('sarc_collapse'),
+                            message = localize('k_collapse'),
                             colour = G.C.PURPLE,
                         }}
                     end
@@ -46,7 +46,7 @@ SMODS.Consumable({
                 
             else
                 return {{
-                    message = localize('sarc_crumbling'),
+                    message = localize('k_crumbling'),
                     colour = G.C.Yellow,
                 }}
             end

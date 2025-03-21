@@ -13,6 +13,7 @@ SMODS.Joker {
 	atlas = 'sarcpot_atlas',
 	pos = { x = 1, y = 3 },
 	cost = 5,
+	
 	calculate = function(self, card, context)
 		local count = {}
 				local found = false
@@ -55,7 +56,8 @@ SMODS.Joker {
 					if found then
 						ease_hands_played(1)
 						return {
-							message = localize('sarc_snap')
+							message = localize('sarc_snap'),
+							card = card
 						}
 					end
 				end

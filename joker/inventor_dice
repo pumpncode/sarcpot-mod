@@ -11,12 +11,7 @@ SMODS.Joker {
     atlas = 'sarcpot_atlas',
     pos = { x = 3, y = 2 },
     cost = 8,
-    add_to_deck = function(self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal + 0.5
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal - 0.5
-    end,
+    
     calculate = function(self, card, context)
         --Selects joker to the right
         local other_joker

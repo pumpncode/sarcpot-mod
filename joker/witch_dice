@@ -11,12 +11,6 @@ SMODS.Joker {
     atlas = 'sarcpot_atlas',
     pos = { x = 0, y = 3 },
     cost = 5,
-    add_to_deck = function(self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal + 0.5
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal - 0.5
-    end,
     calculate = function(self, card, context)
         if context.pre_discard and not context.blueprint then
             for _, v in pairs(context.full_hand) do
@@ -54,13 +48,14 @@ SMODS.Joker {
                         func = function()
                             card:juice_up(0.5, 0.5)
                             play_sound('other1')
-                            return true
+                            return{
+                                message = localize('sarc_throw'),
+                                colour = G.C.PURPLE,
+                   
+                            }
                         end
                     }))
-                    return{
-                        message = localize('sarc_throw'),
-                        colour = G.C.PURPLE,
-                    }
+                    
                 end
                 
             end

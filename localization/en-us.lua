@@ -147,18 +147,17 @@ return {
             j_sarc_warrior_dice = {
                 name = 'Warrior Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance",
-                    "to gain a {C:green}reroll{}",
-                    "when {C:attention}discarding{}",
-                    "{C:green}#1# in #2#{} chance to gain a",
-                    "{C:attention}temporary discard{}",
-                    "when {C:green}rerolling{}"
+                    "{C:green}#1# in #2#{} chance to gain ",
+                    "a {C:green}reroll{} when {C:attention}discarding{}",
+                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
+                    "discard{} when {C:green}rerolling{}",
+                    
                 }
             },
             j_sarc_witch_dice = {
                 name = 'Witch Dice',
                 text = {
-                   "{C:green}#1# in #2#{} chance to add",
+                    "{C:green}#1# in #2#{} chance to add",
                     "{C:attention}#3#{} times the {C:chips}Chips{} of",
                     "discarded and played cards",
                     "to this joker",
@@ -214,7 +213,6 @@ return {
     --blind_states={},
     -- challenge_names={},
     -- collabs={},
-    --dictionary={},
     --high_scores={},
     -- labels={},
     -- poker_hand_descriptions={},

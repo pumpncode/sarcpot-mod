@@ -168,18 +168,18 @@ return {
     },
     misc = {
         dictionary = {
-            sarc_combat_roll_ex = "Jogada de Batalha!",
-            sarc_plus_one_discard = "+1 Descarte!",
-            sarc_stolen = "Roubado!",
-            sarc_yoink = "Peguei!",
-            sarc_lucky6 = "6 da sorte!",
-            sarc_focus = "Foco!",
-            sarc_scrapped = "Reciclado!",
-            sarc_throw = 'Arremesso!',
-            sarc_snap = 'Estalo!',
-            sarc_collapse = 'Collapso!',
-            sarc_crumbling = 'Despedaçando...',
-            sarc_dash = 'Dash!',
+           sarc_combat_roll_ex = "Jogada de Batalha!",
+           sarc_plus_one_discard = "+1 Descarte!",
+           sarc_stolen = "Roubado!",
+           sarc_yoink = "Peguei!",
+           sarc_lucky6 = "6 da sorte!",
+           sarc_focus = "Foco!",
+           sarc_scrapped = "Reciclado!",
+           sarc_throw = 'Arremesso!',
+           sarc_snap = 'Estalo!',
+           sarc_collapse = 'Collapso!',
+           sarc_crumbling = 'Despedaçando...',
+           sarc_dash = 'Dash!',
         }
 
 
