@@ -1,0 +1,22 @@
+SMODS.Consumable({
+    key = 'plort',
+    set = 'Travel',
+    atlas = 'consumables',
+    pos = { x = 3, y = 0 },
+    config = { dollars = 2},
+    loc_vars = function(self, info_queue)
+        return { vars = { self.config.dollars}}
+    end,
+    cost = 2,
+    in_pool = function(self)
+		return false
+    end,
+    can_use = function(self, card)
+        return true;
+    end,
+    use = function(self, card, area, copier)
+        ease_dollars(self.config.dollars)
+    end
+
+
+})

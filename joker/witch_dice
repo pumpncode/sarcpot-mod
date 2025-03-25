@@ -11,6 +11,7 @@ SMODS.Joker {
     atlas = 'sarcpot_atlas',
     pos = { x = 0, y = 3 },
     cost = 5,
+
     calculate = function(self, card, context)
         if context.pre_discard and not context.blueprint then
             for _, v in pairs(context.full_hand) do
@@ -48,14 +49,13 @@ SMODS.Joker {
                         func = function()
                             card:juice_up(0.5, 0.5)
                             play_sound('other1')
-                            return{
-                                message = localize('sarc_throw'),
-                                colour = G.C.PURPLE,
-                   
-                            }
+                            return true
                         end
                     }))
-                    
+                    return{
+                        message = localize('sarc_throw'),
+                        colour = G.C.PURPLE,
+                    }
                 end
                 
             end
@@ -71,11 +71,3 @@ SMODS.Joker {
 
 
 }
-
---local play_on_discard = G.FUNCS.discard_cards_from_highlighted
---function G.FUNCS.discard_cards_from_highlighted()
---local ret = play_on_discard(self)
---if pseudorandom('witch_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
---G.FUNCS.play_cards_from_highlighted()
---end
---return ret

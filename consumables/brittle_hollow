@@ -19,7 +19,7 @@ SMODS.Consumable({
                     func = function()
                         return {{
                             
-                            message = localize('k_collapse'),
+                            message = localize('sarc_collapse'),
                             colour = G.C.PURPLE,
                         }}
                     end
@@ -37,7 +37,7 @@ SMODS.Consumable({
 						card:start_dissolve()
 						card = nil
                         
-                        local consumable = SMODS.create_card{area = G.consumeables,key = 'c_black_hole'}
+                        local consumable = create_card('Spectral',G.consumeables, nil, nil, nil, nil, 'c_black_hole')
                 consumable:add_to_deck()
                 G.consumeables:emplace(consumable)
                 return true
@@ -46,7 +46,7 @@ SMODS.Consumable({
                 
             else
                 return {{
-                    message = localize('k_crumbling'),
+                    message = localize('sarc_crumbling'),
                     colour = G.C.Yellow,
                 }}
             end

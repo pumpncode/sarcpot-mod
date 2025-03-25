@@ -14,7 +14,7 @@ SMODS.Booster {
     config = { extra = 3, choose = 1},
 
     create_card = function(self, card)
-        local card = create_card('Travel',G.consumeables,false, nil, true, true, nil, 'travel')
+        local card = create_card('Travel',G.consumeables,false, nil, false, true, nil, 'travel')
         return card
     end,
 

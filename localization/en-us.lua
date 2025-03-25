@@ -1,4 +1,17 @@
 return {
+    misc = {
+        dictionary = {
+            sarc_combat_roll_ex = "Combat Roll!",
+            sarc_plus_one_discard = "+1 Discard!",
+            sarc_stolen = "Stolen!",
+            sarc_yoink = "Yoink!",
+            sarc_lucky6 = "Lucky 6!",
+            sarc_focus = "Focus!",
+            sarc_scrapped = "Scrapped!",
+            sarc_throw = 'Throw!',
+            sarc_snap = 'Snap!'
+        }
+    },
     descriptions = {
         --Back={},
         --Blind={},
@@ -28,9 +41,47 @@ return {
                     "selected cards to",
                     "cards {C:attention}in your deck{}"
                 }
-            }
+            },
+            c_sarc_loop_hero = {
+                name = 'Memory of a Road',
+                text = {
+                    "Destroys up to {C:attention}#1#{}",
+                    "random cards in hand.",
+                    "Draw {C:attention}#1#{} cards"
+                }
+            },
+            c_sarc_plort = {
+                name = '"Pink Plort"',
+                text = {
+                    "+{C:money}#1#${} on use"
+                }
+            },
+            c_sarc_slay_the_spire = {
+                name = '"Top Tips to \nConquer the Spire!"',
+                text = {
+                    "Creates up to {C:attention}#1#{}",
+                    "{V:1}Travel{} Cards",
+                    "{C:inactive}(Must have room){}"
+                }
+            },
+            c_sarc_slime_rancher = {
+                name = 'Colorful Brochure',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:red}Slime Cards{}"
+                }
+            },
+            
         },
         Enhanced={
+            m_sarc_slime= {
+                name = 'Slime Card',
+                text = {
+                    "Create a {C:attention}Plort{}",
+                    "when scored"
+                }
+            },
             m_sarc_strawberry = {
                 name = 'Strawberry Card',
                 text = {
@@ -191,23 +242,6 @@ return {
             }
     },
 },
-    misc = {
-        dictionary = {
-            sarc_combat_roll_ex = "Combat Roll!",
-            sarc_plus_one_discard = "+1 Discard!",
-            sarc_stolen = "Stolen!",
-            sarc_yoink = "Yoink!",
-            sarc_lucky6 = "Lucky 6!",
-            sarc_focus = "Focus!",
-            sarc_scrapped = "Scrapped!",
-            sarc_throw = 'Throw!',
-            sarc_snap = 'Snap!',
-            sarc_collapse = 'Collapse!',
-            sarc_crumbling = 'Crumbling...',
-            sarc_dash = 'Dash!',
-           
-        }
-    }
     --achievement_descriptions={},
     -- achievement_names={},
     --blind_states={},
