@@ -51,7 +51,7 @@ return {
                 }
             },
             c_sarc_plort = {
-                name = '"Pink Plort"',
+                name = 'Pink Plort',
                 text = {
                     "+{C:money}#1#${} on use"
                 }
