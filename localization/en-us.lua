@@ -34,6 +34,14 @@ return {
                     "{C:red}Strawberry Cards{}"
                 }
             },
+            c_sarc_haven= {
+                name = 'Rusted Poster',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:blue}Flow Cards{}"
+                }
+            },
             c_sarc_hollow_knight = {
                 name = '"Greenpath View"',
                 text = {
@@ -53,14 +61,13 @@ return {
             c_sarc_plort = {
                 name = 'Pink Plort',
                 text = {
-                    "+{C:money}#1#${} on use"
+                    "{C:money}+#1#${} on use"
                 }
             },
             c_sarc_slay_the_spire = {
                 name = '"Top Tips to \nConquer the Spire!"',
                 text = {
-                    "Creates up to {C:attention}#1#{}",
-                    "{V:1}Travel{} Cards",
+                    "Creates up to {C:attention}#1#{} {V:1}Travel{} Cards",
                     "{C:inactive}(Must have room){}"
                 }
             },
@@ -75,6 +82,13 @@ return {
             
         },
         Enhanced={
+            m_sarc_flow= {
+                name = 'Flow Card',
+                text = {
+                    "{X:chips,C:white}X1.2{} Chips plus",
+                    "{X:chips,C:white}X0.1{} per {C:blue}Flow Card{} scored"
+                }
+            },
             m_sarc_slime= {
                 name = 'Slime Card',
                 text = {
@@ -232,15 +246,22 @@ return {
             }
         },
         Other = {
-
         p_sarc_travel_small = {
             name = "Travel Pack",
             text = {
               "Choose {C:attention}#1#{} of up to {C:attention}#2#",
               "{C:G.SP.C.travel_1}Travel{} cards",
               
-            }
-    },
+            },
+        },
+            p_sarc_travel_mega= {
+                name = "Travel Pack",
+                text = {
+                  "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                  "{C:G.SP.C.travel_1}Travel{} cards",
+                  
+                }
+              },
 },
     --achievement_descriptions={},
     -- achievement_names={},
@@ -259,4 +280,4 @@ return {
     -- v_text={},
     --},
 }
-}
+    }

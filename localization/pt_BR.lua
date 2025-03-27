@@ -1,9 +1,118 @@
 return {
+    misc = {
+        dictionary = {
+           sarc_combat_roll_ex = "Jogada de Batalha!",
+           sarc_plus_one_discard = "+1 Descarte!",
+           sarc_stolen = "Roubado!",
+           sarc_yoink = "Peguei!",
+           sarc_lucky6 = "6 da sorte!",
+           sarc_focus = "Foco!",
+           sarc_scrapped = "Reciclado!",
+           sarc_throw = 'Arremesso!',
+           sarc_snap = 'Estalo!',
+           sarc_collapse = 'Collapso!',
+           sarc_crumbling = 'Despedaçando...',
+           sarc_dash = 'Dash!',
+        }
+
+
+    },
     descriptions = {
         --Back={},
         --Blind={},
         --Edition={},
         --Enhanced={},
+        Travel = {
+            c_sarc_brittle_hollow = {
+                name = 'Cartão Desgastado',
+                text = {
+                    "Aprimore o nível de uma",
+                    "{C:attention}mão aleatória{}",
+                    "Chance de{C:green}#1# em #2#{} de",
+                    "{C:purple}Colapsar{} depois",
+                    "de sair da loja"
+                }
+            },
+            c_sarc_celeste = {
+                name = 'Cartão Postal de Mt.Celeste',
+                text = {
+                    "Aprimora {C:attention}#1#{}",
+                    "cartas selecionadas para",
+                    "{C:red}Cartas de Morango{}"
+                }
+            },
+            c_sarc_haven= {
+                name = 'Pôster Enferrujado',
+                text = {
+                    "Aprimora {C:attention}#1#{}",
+                    "cartas selecionadas para",
+                    "{C:blue}Cartas de Fluxo{}"
+                }
+            },
+            c_sarc_hollow_knight = {
+                name = '"Vista de Caminho Verde"',
+                text = {
+                    "Transforma {C:attention}#1#{}",
+                    "cartas selecionadas em",
+                    "cartas do{C:attention} seu baralho{}"
+                }
+            },
+            c_sarc_loop_hero = {
+                name = 'Memória de uma Estrada',
+                text = {
+                    "Destrói até{C:attention}#1#{}",
+                    "cartas aleatórias na mão.",
+                    "Compre {C:attention}#1#{} cartas"
+                }
+            },
+            c_sarc_plort = {
+                name = 'Plort',
+                text = {
+                    "{C:money}+#1#${} ao usar"
+                }
+            },
+            c_sarc_slay_the_spire = {
+                name = '"Top Dicas para Conquistar o Pináculo!"',
+                text = {
+                    "Cria até {C:attention}#1#{} {V:1}Cartas de Viagem{}",
+                    "{C:inactive}(Deve ter espaço){}"
+                }
+            },
+            c_sarc_slime_rancher = {
+                name = 'Brochura Colorida',
+                text = {
+                    "Aprimora {C:attention}#1#{}",
+                    "cartas selecionadas para",
+                    "{C:red}Cartas de Slime{}"
+                }
+            },
+            
+        },
+        Enhanced={
+            m_sarc_flow= {
+                name = 'Carta de Fluxo',
+                text = {
+                    "{X:chips,C:white}X1.2{} Fichas, mais {X:chips,C:white}X0.1{} por ",
+                    "{C:blue}Carta de Fluxo{} pontuada"
+                }
+            },
+            m_sarc_slime= {
+                name = 'Carta de Slime',
+                text = {
+                    "Crie um {C:attention}Plort{}",
+                    "quando pontuada"
+                }
+            },
+            m_sarc_strawberry = {
+                name = 'Carta de Morango',
+                text = {
+                    "Reativa {C:attention}#1#{} vezes",
+                    "Quando pontuada na {C:attention}mão{}",
+                    "Precisa recarregar",
+                    "depois de ser usada",
+                }
+            }
+        },
         Joker = {
             j_sarc_garlic_bread = {
                 name = "Pão de Alho",
@@ -145,7 +254,25 @@ return {
                 }
             },
         },
-        --Other={},
+        Other = {
+
+            p_sarc_travel_small = {
+                name = "Pacote de Viagem",
+                text = {
+                  "Escolha {C:attention}#1#{} de {C:attention}#2#",
+                  "{C:G.SP.C.travel_1}Cartas de Viagem{}",  
+                },
+            },
+                p_sarc_travel_mega= {
+                    name = "Pacote de Viagem Mega",
+                    text = {
+                      "Escolha {C:attention}#1#{} de {C:attention}#2#",
+                      "{C:G.SP.C.travel_1}Cartas de Viagem{}",
+                      
+                    }
+                }
+            }
+              },
         --Planet={},
         --Spectral={},
         --Stake={},
@@ -164,26 +291,9 @@ return {
                     "{C:attention}+1{} à todas as probabilidades listadas"
                 },
             }
-        },
     },
-    misc = {
-        dictionary = {
-           sarc_combat_roll_ex = "Jogada de Batalha!",
-           sarc_plus_one_discard = "+1 Descarte!",
-           sarc_stolen = "Roubado!",
-           sarc_yoink = "Peguei!",
-           sarc_lucky6 = "6 da sorte!",
-           sarc_focus = "Foco!",
-           sarc_scrapped = "Reciclado!",
-           sarc_throw = 'Arremesso!',
-           sarc_snap = 'Estalo!',
-           sarc_collapse = 'Collapso!',
-           sarc_crumbling = 'Despedaçando...',
-           sarc_dash = 'Dash!',
-        }
+}
 
-
-    }
     --achievement_descriptions={},
     -- achievement_names={},
     --blind_states={},
@@ -200,5 +310,5 @@ return {
     -- suits_singular={},
     --  v_dictionary={},
     -- v_text={},
-    --},
-}
+    --},]]--
+

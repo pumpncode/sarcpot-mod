@@ -1,8 +1,15 @@
+SMODS.current_mod.optional_features = { cardareas = { discard = true, deck = true } }
+
 G.SP = {}
 G.SP.C = {}
 G.SP.FUNCS = {}
 local sarcpot = SMODS.current_mod.path
-
+SMODS.Atlas {
+  key = 'modicon',
+  px = 32,
+  py = 32,
+  path = 'modicon.png'
+}
 SMODS.Atlas {
 	key = "sarcpot_atlas",
 	path = "sarcpot_atlas.png",
@@ -28,9 +35,16 @@ SMODS.Atlas {
 	px = 71,
 	py = 95,
 }
+SMODS.Atlas {
+	key = "boosters",
+	path = "boosters.png",
+	px = 71,
+	py = 95,
+}
 G.SP.C.travel_1 = HEX("DEB940")
 G.SP.C.travel_2 = HEX("fab411")
-
+G.SP.C.navy = HEX("2c2370")
+G.SP.C.light_navy = HEX("383c6b")
 SMODS.ConsumableType({
     key = "Travel",
     primary_colour = G.SP.C.travel_1,
@@ -46,7 +60,7 @@ SMODS.ConsumableType({
             }
         }
     },
-    collection_rows = {4, 3},
+    collection_rows = {4, 4},
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })

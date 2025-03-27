@@ -4,14 +4,14 @@ SMODS.Joker {
 	discovered = true,
 	key = 'labrys',
 
-	config = { extra = {mult = 4, prior_triggers = -1} },
+	config = { extra = {mult = 5, prior_triggers = -1} },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {card.ability.extra.mult} }
 	end,
 	rarity = 1,
 	atlas = 'sarcpot_atlas',
 	pos = { x = 1, y = 0 },
-	cost = 6,
+	cost = 4,
 	blueprint_compat = true,
 	calculate = function(self, card, context)
 

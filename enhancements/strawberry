@@ -5,23 +5,28 @@ SMODS.Enhancement({
     discovered = false,
     config = { extra = { retriggers = 2, active = true, played = false}},
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.retriggers} }
+        return { vars = { card.ability.extra.retriggers, 
+        card.ability.extra.active, 
+        card.ability.extra.played} }
     end,
     
     update = function(self, card, dt)
         if card.ability.extra.active == false then
             card.children.center:set_sprite_pos({x = 1, y = 0})
+        else
+            card.children.center:set_sprite_pos({x = 0, y = 0})
         end
     end,
         
 
     calculate = function(self, card, context)
-        if context.first_hand_drawn then
+        
+        if context.setting_blind then
             card.ability.extra.played = false
-        end
+        end 
+
         if card.ability.extra.active == true and context.repetition and context.scoring_hand then
             
-            card.ability.extra.played = true
             return {
                 message = localize('k_again_ex'),
                 repetitions = card.ability.extra.retriggers,
@@ -36,6 +41,7 @@ SMODS.Enhancement({
 				func = function()
 						card:juice_up(0.5, 0.5)
 						play_sound('button')
+                        card.ability.extra.played = true
                         card.ability.extra.active = false
 						return true
 					end}))
@@ -48,12 +54,14 @@ SMODS.Enhancement({
                             end}))
                           
         end
-        if context.end_of_round and not context.cardarea == G.hand then
-        if card.ability.extra.played == false  then
-            card.ability.extra.active = true
-            card.children.center:set_sprite_pos({x = 0, y = 0})
-           
-        end
+        if context.end_of_round then
+            if card.ability.extra.played == false then
+                card.ability.extra.active = true
+                card.children.center:set_sprite_pos({x = 0, y = 0})
+               
+            end
+        
+        
     end
 end
 })

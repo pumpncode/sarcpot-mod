@@ -5,6 +5,9 @@ SMODS.Consumable({
     pos = {x=0, y=0},
     discovered = true,
     config = {odds = 4 },
+    keep_on_use = function(self, card)
+        return true
+    end,
     loc_vars = function(self, info_queue)
 		
         return { vars = {G.GAME.probabilities.normal, self.config.odds} }
@@ -37,7 +40,7 @@ SMODS.Consumable({
 						card:start_dissolve()
 						card = nil
                         
-                        local consumable = create_card('Spectral',G.consumeables, nil, nil, nil, nil, 'c_black_hole')
+                        local consumable = create_card('Spectral',G.consumeables, nil, nil, false, nil, 'c_black_hole')
                 consumable:add_to_deck()
                 G.consumeables:emplace(consumable)
                 return true

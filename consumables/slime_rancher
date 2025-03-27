@@ -2,7 +2,7 @@ SMODS.Consumable({
     key = 'slime_rancher',
     set = 'Travel',
     atlas = 'consumables',
-    pos = {x=1, y=0},
+    pos = {x=0, y=1},
     discovered = true,
     config = {mod_conv = "m_sarc_slime", max_highlighted = 2},
     effect = 'Enhance',

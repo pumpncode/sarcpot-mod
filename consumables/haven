@@ -2,7 +2,7 @@ SMODS.Consumable({
     key = 'haven',
     set = 'Travel',
     atlas = 'consumables',
-    pos = {x=1, y=0},
+    pos = {x=3, y=1},
     discovered = true,
     config = {mod_conv = "m_sarc_flow", max_highlighted = 2},
     effect = 'Enhance',
