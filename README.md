@@ -3,7 +3,7 @@
 
 Sarcpot is a mod where i'm adding anything i want really. Will release it once i have a larger number of implemented content.
 
-For now there are **14** implemented jokers and **2** vouchers with more to come! I plan on making jokers based on some of my niche interests and hyperfixations soon!
+For now there are **14** implemented jokers, **2** vouchers, **7(ish)** of a brand new consumable type with **3** unique enhancements! I plan on making more content based on some of my niche interests and hyperfixations soon!
 
 (am amateur coder and artist, very tiny and dumb, please be nice to me somewhat(plz)) 
 
@@ -32,12 +32,55 @@ Gambling and Roguelikes, the perfect pair! Enjoy these _Dicey Dungeons_ inspired
 
 <details>
   <summary>Jokers</summary>
+  
       -Warrior Dice: Small chance to gain free rerolls when discarding and free discards when rerolling!<br/>
       -Thief Dice: Small chance to gain free consumables or temporary jokers on round end!<br/>
       -Robot Dice: Scaling mult if you manage to add your hands up to the jackpot, small chance to scale 6 times as much!<br/>
       -Inventor Dice: Scrap adjacent joker for consumables, chance to fill consumable slots instead!<br/>
       -Witch Dice: Discarded or played cards may add their chips to this joker!
       -Jester Dice: Chance to gain extra hands when discarding or playing matching ranks!
+      
+</details>
+
+<details>
+  <summary>Vouchers</summary>
+      -Advantage: +1 to all listed chances! Maybe now that Wheel of Fortune will hit?<br/>
+      -Nat 20!: +1 to all listed chances, again! S-Surely that Wheel of Fortune hits???<br/>
+  <details>
+     <summary>Spoilers</summary>
+    -Nope!   
+</details>
+</details>
+
+
+
+## Third Wave: Travel Cards!!!
+
+Ever wish you could visit the Hallownest's lush grounds of Greenpath? Prance through Slime Rancher's Rainbow Fields? Maybe fiercely conquer The Spire?
+
+Well, you can't, so here's the next best thing: **Travel Cards!**. These are based on many indie game locations, now in consumable form!
+
+<details>
+  <summary>Travel Cards</summary>
+  
+      -Tattered Post, from Outer Wilds: Level up a random hand, or wait for it to collapse, revealing its dark core...<br/>
+      -Postcard from Mt.Celeste, from Celeste: Upgrade your cards to Strawberry flavored ones! <br/>
+      -"Greenpath View", from Hollow Knight: Turn 2 cards into cards you already have in your deck!<br/>
+      -"Top Tips to Conquer the Spire!", from Slay the Spire: Collect your rewards, gaining 2 Travel Cards on use!<br/>
+      -Colorful Brochure, from Slime Rancher: Goo up to 2 cards into Slime Cards!
+      -Memory of a Road, from Loop Hero: 3 random cards are swallowed by oblivion... draw 3 cards to fill the emptiness...
+      -Rusted Poster, from Haven: Bop and turn up to 2 cards to Flow Cards!
+
+</details>
+
+As for the enhancements that accompany these beautiful consumables, they are:
+
+<details>
+  <summary>Enhancements</summary>
+      -Strawberry Cards: Retriggers twice, then deactivates. You'll need to let it catch it's breath by not playing it for one round<br/>
+      -Slime Cards: Create a Plort when scored, a tiny consumable that earns you $2 when used. Simple as that! <br/>
+      -Flow Cards: X1.2 Chips, plus X0.1 Chips for every other card you managed to flow in your hand<br/>
+
 </details>
 
 oke luv u by
