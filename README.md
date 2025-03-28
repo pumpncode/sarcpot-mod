@@ -62,7 +62,6 @@ Well, you can't, so here's the next best thing: **Travel Cards!**. These are bas
 
 <details>
   <summary>Travel Cards</summary>
-  
       -Tattered Post, from Outer Wilds: Level up a random hand, or wait for it to collapse, revealing its dark core...<br/>
       -Postcard from Mt.Celeste, from Celeste: Upgrade your cards to Strawberry flavored ones! <br/>
       -"Greenpath View", from Hollow Knight: Turn 2 cards into cards you already have in your deck!<br/>
@@ -70,7 +69,6 @@ Well, you can't, so here's the next best thing: **Travel Cards!**. These are bas
       -Colorful Brochure, from Slime Rancher: Goo up to 2 cards into Slime Cards!
       -Memory of a Road, from Loop Hero: 3 random cards are swallowed by oblivion... draw 3 cards to fill the emptiness...
       -Rusted Poster, from Haven: Bop and turn up to 2 cards to Flow Cards!
-
 </details>
 
 As for the enhancements that accompany these beautiful consumables, they are:
