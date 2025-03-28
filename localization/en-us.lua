@@ -1,6 +1,9 @@
 return {
     misc = {
         dictionary = {
+            sarc_travel_pack = "Travel Pack",
+
+
             sarc_combat_roll_ex = "Combat Roll!",
             sarc_plus_one_discard = "+1 Discard!",
             sarc_stolen = "Stolen!",
