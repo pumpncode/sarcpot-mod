@@ -6,7 +6,7 @@ SMODS.Consumable({
     discovered = true,
     config = {odds = 4 },
     keep_on_use = function(self, card)
-        return true
+        return false
     end,
     loc_vars = function(self, info_queue)
 		
