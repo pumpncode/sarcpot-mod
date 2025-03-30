@@ -26,11 +26,8 @@ SMODS.Joker {
 
 
         --juices if it is at its max rarity
-        if card.ability.extra.current_rarity == "Rare" then
-            local eval = function() return card.ability.extra.current_rarity == "Rare" end
-            juice_card_until(card, eval, true)
-        end
-
+      
+       
 
         if context.end_of_round and not context.blueprint and not context.individual and not context.repetition then
             if card.ability.extra.rounds < 6 then
@@ -40,7 +37,12 @@ SMODS.Joker {
                 card.ability.extra.current_rarity = "Uncommon"
             elseif card.ability.extra.rounds == 6 then
                 card.ability.extra.current_rarity = "Rare"
+                
+                    local eval = function(card) return not card.REMOVED end
+                    juice_card_until(card, eval, true)
+            
             end   
+
         end
 
         if context.selling_self and other_joker ~= nil then

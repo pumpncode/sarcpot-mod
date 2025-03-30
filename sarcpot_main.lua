@@ -92,5 +92,3 @@ local path = SMODS.current_mod.path..'boosters/'
 for _,v in pairs(NFS.getDirectoryItems(path)) do
   assert(SMODS.load_file('boosters/'..v))()
 end
-
-
