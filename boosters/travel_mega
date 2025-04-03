@@ -13,8 +13,9 @@ SMODS.Booster {
     end,
     config = { extra = 4, choose = 2},
 
+    
     create_card = function(self, card)
-        local card = create_card('Travel',G.consumeables,false, nil, false, true, nil, 'travel')
+        local card = create_card('Travel',G.consumeables,false, nil, true, true, nil, 'travel')
         return card
     end,
 
@@ -37,10 +38,12 @@ SMODS.Booster {
         ease_colour(G.C.DYN_UI.MAIN, G.SP.C.navy)
         ease_background_colour{new_colour = G.SP.C.light_navy, special_colour = G.SP.C.navy, contrast = 2}
     end,
-    
+
+   
+
     weight = 0.25,
 
-    cost = 4,
+    cost = 8,
 
     in_pool = function() return true end
 }
