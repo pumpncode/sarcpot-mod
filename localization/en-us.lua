@@ -258,7 +258,7 @@ return {
             },
         },
             p_sarc_travel_mega= {
-                name = "Travel Pack",
+                name = "Mega Travel Pack",
                 text = {
                   "Choose {C:attention}#1#{} of up to {C:attention}#2#",
                   "{C:G.SP.C.travel_1}Travel{} cards",
