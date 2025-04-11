@@ -25,8 +25,7 @@ return {
                 text = {
                     "Level up a {C:attention}random hand{}",
                     "{C:green}#1# in #2#{} chance to",
-                    "{C:purple}Collapse{} after",
-                    "exiting the shop"
+                    "{C:purple}Collapse{} instead"
                 }
             },
             c_sarc_celeste = {

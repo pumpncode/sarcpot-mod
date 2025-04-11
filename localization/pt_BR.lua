@@ -29,8 +29,7 @@ return {
                     "Aprimore o nível de uma",
                     "{C:attention}mão aleatória{}",
                     "Chance de{C:green}#1# em #2#{} de",
-                    "{C:purple}Colapsar{} depois",
-                    "de sair da loja"
+                    "{C:purple}Colapsar{} ao invés"
                 }
             },
             c_sarc_celeste = {
