@@ -19,7 +19,8 @@ SMODS.Booster {
         return card
     end,
 
-    select_card = 'consumeables',
+    draw_hand = true,
+    
 
     particles = function(self)
         G.booster_pack_sparkles = Particles(1, 1, 0,0, {

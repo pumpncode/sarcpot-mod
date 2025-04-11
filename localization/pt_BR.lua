@@ -259,14 +259,14 @@ return {
                 name = "Pacote de Viagem",
                 text = {
                   "Escolha {C:attention}#1#{} de {C:attention}#2#",
-                  "{C:G.SP.C.travel_1}Cartas de Viagem{}",  
+                  "{C:G.SP.C.travel_1}Cartas de Viagem{} para usar",  
                 },
             },
                 p_sarc_travel_mega= {
                     name = "Pacote de Viagem Mega",
                     text = {
                       "Escolha {C:attention}#1#{} de {C:attention}#2#",
-                      "{C:G.SP.C.travel_1}Cartas de Viagem{}",
+                      "{C:G.SP.C.travel_1}Cartas de Viagem{} para usar",
                       
                     }
                 }

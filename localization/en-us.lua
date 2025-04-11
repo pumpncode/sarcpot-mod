@@ -252,7 +252,7 @@ return {
             name = "Travel Pack",
             text = {
               "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-              "{C:G.SP.C.travel_1}Travel{} cards",
+              "{C:G.SP.C.travel_1}Travel{} cards to use",
               
             },
         },
@@ -260,7 +260,7 @@ return {
                 name = "Mega Travel Pack",
                 text = {
                   "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-                  "{C:G.SP.C.travel_1}Travel{} cards",
+                  "{C:G.SP.C.travel_1}Travel{} cards to use",
                   
                 }
               },
