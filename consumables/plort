@@ -8,6 +8,7 @@ SMODS.Consumable({
         return { vars = { self.config.dollars}}
     end,
     cost = 2,
+    no_collection = true,
     in_pool = function(self)
 		return false
     end,

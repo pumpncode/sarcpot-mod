@@ -1,7 +1,7 @@
 SMODS.Enhancement({
     key = "luminice",
     atlas = "enhancements",
-    pos = {x = 3, y = 0},
+    pos = {x = 0, y = 1},
     discovered = false,
     no_rank = true,
   no_suit = true,
@@ -15,26 +15,28 @@ SMODS.Enhancement({
     calculate = function(self, card, context)
        if context.cardarea == G.play and context.after then
         for k, v in ipairs(context.scoring_hand) do
-            
-                
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     blockable = true,
                     blocking = true,
-                    delay = 0.1,
+                    delay = 0.2,
                     func = function()
                         play_sound('tarot1')
                         v:juice_up()
+                        SMODS.calculate_effect({
+                            message = localize('k_upgrade_ex')
+                        }, v)
                         v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.permamult
                         v.ability.perma_bonus = (v.ability.perma_bonus or 0) + card.ability.extra.permachips
-            
+                       
+                       
                         return true
-                    end
+                         end
+                    
                 })) 
                 
             end
             return {
-                message = localize('k_eaten_ex'),
             
             }
        end

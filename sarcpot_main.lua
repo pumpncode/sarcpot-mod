@@ -11,6 +11,12 @@ SMODS.Atlas {
   path = 'modicon.png'
 }
 SMODS.Atlas {
+  key = 'tags',
+  px = 32,
+  py = 32,
+  path = 'tags.png'
+}
+SMODS.Atlas {
 	key = "sarcpot_atlas",
 	path = "sarcpot_atlas.png",
 	px = 71,
@@ -81,6 +87,11 @@ end
 local path = SMODS.current_mod.path..'consumables/'
 for _,v in pairs(NFS.getDirectoryItems(path)) do
   assert(SMODS.load_file('consumables/'..v))()
+end
+
+local path = SMODS.current_mod.path..'tags/'
+for _,v in pairs(NFS.getDirectoryItems(path)) do
+  assert(SMODS.load_file('tags/'..v))()
 end
 
 local path = SMODS.current_mod.path..'enhancements/'

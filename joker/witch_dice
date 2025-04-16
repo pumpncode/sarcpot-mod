@@ -1,6 +1,6 @@
 SMODS.Joker {
 
-    discovered = true,
+
     key = 'witch_dice',
 
     config = { extra = { odds = 6, chips = 0, nominal_mod = 2} },
