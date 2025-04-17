@@ -1,10 +1,10 @@
 SMODS.Consumable({
-    key = 'haven',
+    key = 'wildfrost',
     set = 'Travel',
     atlas = 'consumables',
-    pos = {x=3, y=1},
+    pos = {x=1, y=2},
     discovered = false,
-    config = {mod_conv = "m_sarc_flow", max_highlighted = 2},
+    config = {mod_conv = "m_sarc_luminice", max_highlighted = 2},
     effect = 'Enhance',
     cost = 3,
     loc_vars = function(self, info_queue)

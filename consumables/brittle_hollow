@@ -3,7 +3,7 @@ SMODS.Consumable({
     set = 'Travel',
     atlas = 'consumables',
     pos = {x=0, y=0},
-    discovered = true,
+    discovered = false,
     config = {odds = 6},
     keep_on_use = function(self, card)
         return false
@@ -22,15 +22,10 @@ SMODS.Consumable({
         if pseudorandom('brittle_odds') < G.GAME.probabilities.normal / self.config.odds then
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
-                delay = 0.5,
-                func = function()
-                    return {{
-                        
-                        message = localize('sarc_collapse'),
-                        colour = G.C.PURPLE,
-                    }}
-                end
+                delay = 0.4,
+                blocking = true
             }))
+            SMODS.calculate_effect({ message = localize('sarc_collapse'), colour = G.C.PURPLE}, card)
             
             G.E_MANAGER:add_event(Event({
                 blockable = true,

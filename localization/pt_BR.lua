@@ -10,9 +10,8 @@ return {
            sarc_scrapped = "Reciclado!",
            sarc_throw = 'Arremesso!',
            sarc_snap = 'Estalo!',
-           sarc_collapse = 'Collapso!',
-           sarc_crumbling = 'Despedaçando...',
-           sarc_dash = 'Dash!',
+           sarc_collapse = 'Colapso!',
+            sarc_exhausted = 'Exaurido...',
         }
 
 
