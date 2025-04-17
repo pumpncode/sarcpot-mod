@@ -13,19 +13,18 @@ SMODS.Enhancement({
     end,
 
     calculate = function(self, card, context)
-       if context.cardarea == G.play and context.after then
+       if context.cardarea == G.play and context.after and not context.debuffed_hand then
+       
         for k, v in ipairs(context.scoring_hand) do
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     blockable = true,
                     blocking = true,
-                    delay = 0.2,
                     func = function()
                         play_sound('tarot1')
                         v:juice_up()
-                        SMODS.calculate_effect({
-                            message = localize('k_upgrade_ex')
-                        }, v)
+                      
+                      
                         v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.permamult
                         v.ability.perma_bonus = (v.ability.perma_bonus or 0) + card.ability.extra.permachips
                        
@@ -34,11 +33,22 @@ SMODS.Enhancement({
                          end
                     
                 })) 
-                
+                card:juice_up()
+                SMODS.calculate_effect({ message = localize('k_upgrade_ex'), colour = G.C.BLUE}, card)
             end
-            return {
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                    blockable = true,
+                    blocking = true,
+                    delay = 0.1,
+                    func = function()
             
-            }
+                return true
+                    end
+            }))
+            
+            
        end
+      
 end
 })
