@@ -45,6 +45,7 @@ SMODS.Enhancement({
                         card.ability.extra.active = false
 						return true
 					end}))
+                    SMODS.calculate_effect({ message = localize('sarc_exhausted'), colour = G.C.BLUE}, card)
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         blocking = true,

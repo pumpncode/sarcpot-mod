@@ -12,7 +12,9 @@ return {
             sarc_focus = "Focus!",
             sarc_scrapped = "Scrapped!",
             sarc_throw = 'Throw!',
-            sarc_snap = 'Snap!'
+            sarc_snap = 'Snap!',
+            sarc_collapse = 'Collapse!',
+            sarc_exhausted = 'Exhausted...',
         }
     },
     descriptions = {
