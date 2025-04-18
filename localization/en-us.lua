@@ -54,6 +54,13 @@ return {
                     "cards {C:attention}in your deck{}"
                 }
             },
+            c_sarc_kingdom = {
+                name = "Monarch's Funds",
+                text = {
+                    "Gain {C:money}+#1#${} per ante",
+                    "{C:inactive}(Max of {C:money}#2#${}){}"
+                }
+            },
             c_sarc_loop_hero = {
                 name = 'Memory of a Road',
                 text = {
@@ -83,6 +90,14 @@ return {
                     "{C:red}Slime Cards{}"
                 }
             },
+            c_sarc_wildfrost = {
+                name = 'Frozen Diary',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:blue}Luminice Cards{}"
+                }
+            },
             
         },
         Enhanced={
@@ -91,6 +106,14 @@ return {
                 text = {
                     "{X:chips,C:white}X1.2{} Chips plus",
                     "{X:chips,C:white}X0.1{} per {C:blue}Flow Card{} scored"
+                }
+            },
+            m_sarc_flow= {
+                name = 'Luminice Card',
+                text = {
+                    "Always scores, no rank or suit",
+                    "Gives {C:mult}+#1#{} Mult and",
+                    "{C:chips}+#2#{} Chips to scored cards"
                 }
             },
             m_sarc_slime= {

@@ -6,7 +6,7 @@ SMODS.Consumable({
         x = 3,
         y = 0
     },
-    discovered = true,
+    discovered = false,
     config = {
         consumable_number = 2
     },

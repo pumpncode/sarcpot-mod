@@ -55,6 +55,13 @@ return {
                     "cartas do{C:attention} seu baralho{}"
                 }
             },
+            c_sarc_kingdom = {
+                name = "Fundos do Monarca",
+                text = {
+                    "Ganhe {C:money}+#1#${} por ante",
+                    "{C:inactive}(Máximo de {C:money}#2#${}){}"
+                }
+            },
             c_sarc_loop_hero = {
                 name = 'Memória de uma Estrada',
                 text = {
@@ -84,6 +91,15 @@ return {
                     "{C:red}Cartas de Slime{}"
                 }
             },
+            c_sarc_wildfrost = {
+                name = 'Diário Congelado',
+                text = {
+                    "Aprimora {C:attention}#1#{}",
+                    "cartas selecionadas para",
+                    "{C:blue}Cartas Geluminadas{}"
+                }
+            },
+            
             
         },
         Enhanced={
@@ -92,6 +108,14 @@ return {
                 text = {
                     "{X:chips,C:white}X1.2{} Fichas, mais {X:chips,C:white}X0.1{} por ",
                     "{C:blue}Carta de Fluxo{} pontuada"
+                }
+            },
+            m_sarc_flow= {
+                name = 'Carta Geluminada',
+                text = {
+                    "Sempre pontua, sem naipe e classe",
+                    "Dá {C:mult}+#1#{} Multi e",
+                    "{C:chips}+#2#{} Fichas à cartas pontuadas"
                 }
             },
             m_sarc_slime= {
@@ -159,7 +183,7 @@ return {
             j_sarc_jester_dice = {
                 name = 'Dado Bufão',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                     "Chance de {C:green}#1# em #2#{} de ganhar",
                     "{C:blue}+1{} mão quando jogando ou",
                     "descartando cartas com",
@@ -169,7 +193,7 @@ return {
             j_sarc_inventor_dice = {
                 name = 'Dado Inventor',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                     "Destrua Curinga à direita",
                     "após sair da loja para ganhar",
                     "{C:attention}+2{} consumíveis aleatórios",
@@ -208,7 +232,7 @@ return {
             j_sarc_robot_dice = {
                 name = 'Dado Robô',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                     "Este Curinga ganha {C:mult}#5#{} Multi quando",
                     "o valor da {C:attention}mão jogada{} totaliza {C:attention}#3#{}",
                     "Chance de {C:green}#1# em #2#{} de aumentar multi",
@@ -220,7 +244,7 @@ return {
             j_sarc_thief_dice = {
                 name = 'Dado Ladrão',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                     "Chance de {C:green}#1# em #2#{} de ganhar um",
                     "Curinga {C:dark_edition}comum negativo perecível{}",
                     "ou um {C:attention}consumível{} aleatório",
@@ -231,7 +255,7 @@ return {
             j_sarc_warrior_dice = {
                 name = 'Dado Guerreiro',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                     "Chance de {C:green}#1# em #2#{} de",
                     "ganhar uma {C:green}atualização grátis{}",
                     "quando {C:attention}descartando{}",
@@ -243,7 +267,7 @@ return {
             j_sarc_witch_dice = {
                 name = 'Dado Bruxo',
                 text = {
-                    "{C:green}+0.5{} à todas as chances listadas",
+                   
                    "Chance de {C:green}#1# em #2#{} de adicionar",
                     "{C:attention}#3#{} vezes as {C:chips}Fichas{} de",
                     "cartas jogadas e descartadas",

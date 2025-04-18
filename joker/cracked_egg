@@ -1,6 +1,6 @@
 SMODS.Joker {
 
-    discovered = true,
+
     key = 'cracked_egg',
 
     config = { extra = { current_rarity = "Common", rounds = 0 } },
