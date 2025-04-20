@@ -3,7 +3,7 @@
 
 Sarcpot is a mod where i'm adding anything i want really. Will release it once i have a larger number of implemented content.
 
-For now there are **14** implemented jokers, **2** vouchers, **7(ish)** of a brand new consumable type with **3** unique enhancements! I plan on making more content based on some of my niche interests and hyperfixations soon!
+For now there are **14** implemented jokers, **2** vouchers, **11(ish)** of a brand new consumable type with **4** unique enhancements! I plan on making more content based on some of my niche interests and hyperfixations soon!
 
 (am amateur coder and artist, very tiny and dumb, please be nice to me somewhat(plz)) 
 
@@ -64,11 +64,15 @@ Well, you can't, so here's the next best thing: **Travel Cards!**. These are bas
   <summary>Travel Cards</summary>
       -Tattered Post, from Outer Wilds: Level up a random hand, or wait for it to collapse, revealing its dark core...<br/>
       -Postcard from Mt.Celeste, from Celeste: Upgrade your cards to Strawberry flavored ones! <br/>
-      -"Greenpath View", from Hollow Knight: Turn 2 cards into cards you already have in your deck!<br/>
+      -"Greenpath View", from Hollow Knight: Start your journey! Create 2 Common Jokers<br/>
       -"Top Tips to Conquer the Spire!", from Slay the Spire: Collect your rewards, gaining 2 Travel Cards on use!<br/>
       -Colorful Brochure, from Slime Rancher: Goo up to 2 cards into Slime Cards!
       -Memory of a Road, from Loop Hero: 3 random cards are swallowed by oblivion... draw 3 cards to fill the emptiness...
       -Rusted Poster, from Haven: Bop and turn up to 2 cards to Flow Cards!
+      -Grey Memento, from Death's Door: Pay respects and turn 2 cards into cards you already have in your deck
+      -Frozen Diary, from Wildfrost: Resist the cold! Enhance 2 Cards into Luminice Cards!
+      -Monarch's Funds, from Kingdom: Grow your kingdom. Gain money for every ante you've endured
+      -Wartorn Journal, from Magic Survival: Fight against the horde. Enhance cards for every ante you survive!
 </details>
 
 As for the enhancements that accompany these beautiful consumables, they are:
@@ -77,6 +81,7 @@ As for the enhancements that accompany these beautiful consumables, they are:
   <summary>Enhancements</summary>
       -Strawberry Cards: Retriggers twice, then deactivates. You'll need to let it catch it's breath by not playing it for one round<br/>
       -Slime Cards: Create a Plort when scored, a tiny consumable that earns you $2 when used. Simple as that! <br/>
+      -Luminice Cards: They don't do much on their own, but upgrade every card with permanent mult and chips when scored!  <br/>
       -Flow Cards: X1.2 Chips, plus X0.1 Chips for every other card you managed to flow in your hand<br/>
 
 </details>
