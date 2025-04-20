@@ -279,7 +279,7 @@ return {
                 name = "Cardinal Tag",
                 text = {
                     "Gives a free",
-                    "{V:1}Mega Travel Pack"
+                    "Mega Travel Pack"
                 }
             }
         },
