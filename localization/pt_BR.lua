@@ -78,6 +78,15 @@ return {
                     "Compre {C:attention}#1#{} cartas"
                 }
             },
+            c_sarc_magic_survival = {
+                name = 'Registros Devastados',
+                text = {
+                    "Aprimora até {C:attention}#2#{}",
+                    "carta(s) na mão com aprimoramentos aleatórios",
+                    "Número aumenta a cada ante",
+                    "{C:inactive}(Máximo de #1#){}"
+                }
+            },
             c_sarc_plort = {
                 name = 'Plort',
                 text = {
@@ -118,7 +127,7 @@ return {
                     "{C:blue}Carta de Fluxo{} pontuada"
                 }
             },
-            m_sarc_flow= {
+            m_sarc_luminice= {
                 name = 'Carta Geluminada',
                 text = {
                     "Sempre pontua, sem naipe e classe",
@@ -149,8 +158,9 @@ return {
                 text = {
                     "Se a primeira mão da rodada é uma {C:attention}Carta Alta{}",
                     "converta cartas pontuadas em {C:attention}Ases{}",
-                    "Chance de {C:green}#1# em #2#{} desta carta ser destruída no",
-                    "fim da rodada"
+                    "Chance de {C:green}#1# em #2#{} desta carta",
+                    "ser destruída no fim da rodada",
+                    
                 }
 
             },
@@ -214,8 +224,8 @@ return {
                 name = 'Lábris',
                 text = {
                     "Rainhas pontuadas dão",
-                    "{C:mult}+#1#{} Multi para cada",
-                    "Rainha previamente pontuada"
+                    "{C:mult}+#1#{} Multi para cada Rainha",
+                    "previamente pontuada"
                 }
             },
             j_sarc_none_of_the_above = {
@@ -308,6 +318,14 @@ return {
         --Stake={},
         --Tag={},
         --Tarot={},
+        Tag = {
+            tag_sarc_cardinal = {
+                name = "Marca Cardinal",
+                text = {
+                    "Dá um {V:1}Pacote de Viagem Mega{}"
+                }
+            }
+        },
         Voucher = {
             v_sarc_advantage = {
                 name = 'Vantagem',

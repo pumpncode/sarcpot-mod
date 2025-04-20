@@ -81,7 +81,8 @@ return {
                 name = 'Wartorn Journal',
                 text = {
                     "Enhances up to {C:attention}#2#{}",
-                    "cards in hand. Increases with each ante",
+                    "cards in han with random enhancements",
+                    "Increases with each ante",
                     "{C:inactive}(Max of #1#){}"
                 }
             },
@@ -124,7 +125,7 @@ return {
                     "{X:chips,C:white}X0.1{} per {C:blue}Flow Card{} scored"
                 }
             },
-            m_sarc_flow= {
+            m_sarc_luminice= {
                 name = 'Luminice Card',
                 text = {
                     "Always scores, no rank or suit",

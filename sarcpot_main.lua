@@ -66,7 +66,7 @@ SMODS.ConsumableType({
             }
         }
     },
-    collection_rows = {4, 4},
+    collection_rows = {4, 4, 4},
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
