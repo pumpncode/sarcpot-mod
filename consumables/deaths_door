@@ -1,8 +1,8 @@
 SMODS.Consumable({
-    key = 'hollow_knight',
+    key = 'deaths_door',
     set = 'Travel',
     atlas = 'consumables',
-    pos = { x = 2, y = 0 },
+    pos = { x = 0, y = 2 },
     discovered = false,
     config = { max_highlighted = 2 },
     loc_vars = function(self, info_queue)

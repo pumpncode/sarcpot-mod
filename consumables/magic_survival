@@ -1,0 +1,52 @@
+SMODS.Consumable({
+    key = 'magic_survival',
+    set = 'Travel',
+    atlas = 'consumables',
+    pos = { x =3, y = 2 },
+    discovered = false,
+    config = { limit = 5, ante = 0 },
+    loc_vars = function(self, info_queue)
+        self.config.ante = math.min(self.config.limit,G.GAME.round_resets.ante)
+        return { vars = { self.config.limit, self.config.ante  } }
+    end,
+    cost = 3,
+    calculate = function(self, card, context)
+
+            
+
+    end,
+    can_use = function(self, card)
+        return #G.hand.cards > 0
+    end,
+
+    use = function(self, card, area, copier)
+        local unenhanced = 0
+        for i = 1,#G.hand.cards do
+            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
+                unenhanced = unenhanced+1
+            end
+        end
+        --Gets the lowest out of the limit, the hand size and the current ante
+        NumTargets = math.min(unenhanced,self.config.limit,G.GAME.round_resets.ante) 
+        for i = 1,#G.hand.cards do
+            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') and NumTargets>0 then
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    blocking = true,
+                    delay = 0.2,
+                    func = function()
+                        play_sound('tarot1')
+                        G.hand.cards[i]:juice_up()
+                        local new_enhancement = SMODS.poll_enhancement({guaranteed = true, key = 'magic_survival'})
+                        G.hand.cards[i]:set_ability(G.P_CENTERS[new_enhancement])
+                        return true
+                    end
+                }))
+                
+                NumTargets = NumTargets-1
+            end
+        end
+       
+    end
+
+})

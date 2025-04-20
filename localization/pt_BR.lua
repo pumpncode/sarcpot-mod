@@ -39,6 +39,21 @@ return {
                     "{C:red}Cartas de Morango{}"
                 }
             },
+            c_sarc_deaths_door = {
+                name = 'Lembrança Acinzentada',
+                text = {
+                    "Transforma {C:attention}#1#{}",
+                    "cartas selecionadas em",
+                    "cartas do{C:attention} seu baralho{}"
+                }
+            },
+            c_sarc_greenpath = {
+                name = '"Vista de Caminho Verde"',
+                text = {
+                    "Crie {C:attention}#1#{} Curingas {C:common}Comuns{}",
+                  
+                }
+            },
             c_sarc_haven= {
                 name = 'Pôster Enferrujado',
                 text = {
@@ -47,14 +62,7 @@ return {
                     "{C:blue}Cartas de Fluxo{}"
                 }
             },
-            c_sarc_hollow_knight = {
-                name = '"Vista de Caminho Verde"',
-                text = {
-                    "Transforma {C:attention}#1#{}",
-                    "cartas selecionadas em",
-                    "cartas do{C:attention} seu baralho{}"
-                }
-            },
+            
             c_sarc_kingdom = {
                 name = "Fundos do Monarca",
                 text = {

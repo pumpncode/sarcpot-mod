@@ -38,6 +38,21 @@ return {
                     "{C:red}Strawberry Cards{}"
                 }
             },
+            c_sarc_deaths_door = {
+                name = 'Grey Memento',
+                text = {
+                    "Transforms {C:attention}#1#{}",
+                    "selected cards to",
+                    "cards {C:attention}in your deck{}"
+                }
+            },
+            c_sarc_greenpath = {
+                name = '"View from Greenpath"',
+                text = {
+                    "Creates {C:attention}#1#{} {C:common}Common{} Jokers",
+                  
+                }
+            },
             c_sarc_haven= {
                 name = 'Rusted Poster',
                 text = {
@@ -46,14 +61,7 @@ return {
                     "{C:blue}Flow Cards{}"
                 }
             },
-            c_sarc_hollow_knight = {
-                name = '"Greenpath View"',
-                text = {
-                    "Transforms {C:attention}#1#{}",
-                    "selected cards to",
-                    "cards {C:attention}in your deck{}"
-                }
-            },
+            
             c_sarc_kingdom = {
                 name = "Monarch's Funds",
                 text = {
@@ -67,6 +75,14 @@ return {
                     "Destroys up to {C:attention}#1#{}",
                     "random cards in hand.",
                     "Draw {C:attention}#1#{} cards"
+                }
+            },
+            c_sarc_magic_survival = {
+                name = 'Wartorn Journal',
+                text = {
+                    "Enhances up to {C:attention}#2#{}",
+                    "cards in hand. Increases with each ante",
+                    "{C:inactive}(Max of #1#){}"
                 }
             },
             c_sarc_plort = {
@@ -257,7 +273,15 @@ return {
                 }
             },
         },
-      
+        Tag = {
+            tag_sarc_cardinal = {
+                name = "Cardinal Tag",
+                text = {
+                    "Gives a free",
+                    "{V:1}Mega Travel Pack"
+                }
+            }
+        },
         Voucher = {
             v_sarc_advantage = {
                 name = 'Advantage',
