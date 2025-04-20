@@ -81,7 +81,7 @@ return {
                 name = 'Wartorn Journal',
                 text = {
                     "Enhances up to {C:attention}#2#{}",
-                    "cards in han with random enhancements",
+                    "cards in hand with random enhancements",
                     "Increases with each ante",
                     "{C:inactive}(Max of #1#){}"
                 }

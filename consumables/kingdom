@@ -1,5 +1,5 @@
 SMODS.Consumable({
-    key = 'kindom',
+    key = 'kingdom',
     set = 'Travel',
     atlas = 'consumables',
     pos = { x = 2, y = 2},
