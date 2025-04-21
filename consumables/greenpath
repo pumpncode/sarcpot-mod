@@ -1,0 +1,45 @@
+SMODS.Consumable({
+    key = 'greenpath',
+    set = 'Travel',
+    atlas = 'consumables',
+    pos = { x = 2, y = 0 },
+    discovered = false,
+    config = { quantity = 2 },
+    loc_vars = function(self, info_queue)
+        return { vars = { self.config.quantity } }
+    end,
+    cost = 3,
+    calculate = function(self, card, context)
+    end,
+    can_use = function(self, card)
+        return G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)>=1
+    end,
+    use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            blockable = true,
+            func = function()
+                return true
+            end
+        }))
+        for i=1, self.config.quantity do
+            if G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)>=1 then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.2,
+            
+                func = function()
+                    G.GAME.joker_buffer = G.GAME.joker_buffer+1
+                SMODS.add_card({ area = G.jokers, set = 'Joker', rarity = 0})
+                G.GAME.joker_buffer = G.GAME.joker_buffer-1
+                    return true
+                end
+            }))
+                
+            end
+        end
+
+    end
+
+})

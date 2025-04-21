@@ -38,6 +38,21 @@ return {
                     "{C:red}Strawberry Cards{}"
                 }
             },
+            c_sarc_deaths_door = {
+                name = 'Grey Memento',
+                text = {
+                    "Transforms {C:attention}#1#{}",
+                    "selected cards to",
+                    "cards {C:attention}in your deck{}"
+                }
+            },
+            c_sarc_greenpath = {
+                name = '"View from Greenpath"',
+                text = {
+                    "Creates {C:attention}#1#{} {C:common}Common{} Jokers",
+                  
+                }
+            },
             c_sarc_haven= {
                 name = 'Rusted Poster',
                 text = {
@@ -46,12 +61,12 @@ return {
                     "{C:blue}Flow Cards{}"
                 }
             },
-            c_sarc_hollow_knight = {
-                name = '"Greenpath View"',
+            
+            c_sarc_kingdom = {
+                name = "Monarch's Funds",
                 text = {
-                    "Transforms {C:attention}#1#{}",
-                    "selected cards to",
-                    "cards {C:attention}in your deck{}"
+                    "Gain {C:money}+#1#${} per ante",
+                    "{C:inactive}(Max of {C:money}#2#${}){}"
                 }
             },
             c_sarc_loop_hero = {
@@ -60,6 +75,15 @@ return {
                     "Destroys up to {C:attention}#1#{}",
                     "random cards in hand.",
                     "Draw {C:attention}#1#{} cards"
+                }
+            },
+            c_sarc_magic_survival = {
+                name = 'Wartorn Journal',
+                text = {
+                    "Enhances up to {C:attention}#2#{}",
+                    "cards in hand with random enhancements",
+                    "Increases with each ante",
+                    "{C:inactive}(Max of #1#){}"
                 }
             },
             c_sarc_plort = {
@@ -83,6 +107,14 @@ return {
                     "{C:red}Slime Cards{}"
                 }
             },
+            c_sarc_wildfrost = {
+                name = 'Frozen Diary',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:blue}Luminice Cards{}"
+                }
+            },
             
         },
         Enhanced={
@@ -91,6 +123,14 @@ return {
                 text = {
                     "{X:chips,C:white}X1.2{} Chips plus",
                     "{X:chips,C:white}X0.1{} per {C:blue}Flow Card{} scored"
+                }
+            },
+            m_sarc_luminice= {
+                name = 'Luminice Card',
+                text = {
+                    "Always scores, no rank or suit",
+                    "Gives {C:mult}+#1#{} Mult and",
+                    "{C:chips}+#2#{} Chips to scored cards"
                 }
             },
             m_sarc_slime= {
@@ -234,7 +274,15 @@ return {
                 }
             },
         },
-      
+        Tag = {
+            tag_sarc_cardinal = {
+                name = "Cardinal Tag",
+                text = {
+                    "Gives a free",
+                    "Mega Travel Pack"
+                }
+            }
+        },
         Voucher = {
             v_sarc_advantage = {
                 name = 'Advantage',

@@ -1,6 +1,6 @@
 SMODS.Joker {
 
-    discovered = true,
+
     key = 'double_crescent',
 
    
@@ -41,7 +41,7 @@ SMODS.Joker {
               trigger = 'before',
               delay = 0.0,
               func = function()
-                local card = create_card('Planet', G.consumeables, nil, nil, nil, nil, nil, 'double crescent')
+                local card = create_card('Planet', G.consumeables, nil, nil, false, nil, nil, 'double crescent')
                 card:add_to_deck()
                 G.consumeables:emplace(card)
                 G.GAME.consumeable_buffer = 0

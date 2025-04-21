@@ -3,7 +3,7 @@
 	"name": "Sarcpot",
 	"display_name": "Sarcpot",
 	"author": ["SarcasticPotato"],
-	"description": "A vanilla inspired mod with content for the Girls, Gays and Indie Game Fans!",
+	"description": "A chocolate mod with content for the Girls, Gays and Indie Game Fans!",
 	"prefix": "sarc",
 	"main_file": "sarcpot_main.lua",
 	"priority": 0,

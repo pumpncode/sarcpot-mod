@@ -1,6 +1,6 @@
 SMODS.Joker {
 
-    discovered = true,
+
     key = 'inventor_dice',
 
     config = { extra = { odds = 6 } },
