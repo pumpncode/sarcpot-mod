@@ -25,12 +25,14 @@ SMODS.Consumable({
         }))
         for i=1, self.config.quantity do
             if G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)>=1 then
+                G.GAME.joker_buffer = G.GAME.joker_buffer+1
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
+                blockable = true,
             
                 func = function()
-                    G.GAME.joker_buffer = G.GAME.joker_buffer+1
+                   
                 SMODS.add_card({ area = G.jokers, set = 'Joker', rarity = 0})
                 G.GAME.joker_buffer = G.GAME.joker_buffer-1
                     return true
