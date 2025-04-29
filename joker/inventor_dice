@@ -5,70 +5,67 @@ SMODS.Joker {
 
     config = { extra = { odds = 6 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, colours = {G.SP.C.travel_2}}}
     end,
-    rarity = 3,
+    rarity = 2,
     atlas = 'sarcpot_atlas',
     pos = { x = 3, y = 2 },
-    cost = 8,
+    cost = 6,
     
     calculate = function(self, card, context)
-        --Selects joker to the right
-        local other_joker
+        local target = pseudorandom_element(G.consumeables.cards, pseudoseed('inventor_dice'))
 
-        for i = 1, #G.jokers.cards do
-            if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] or nil end
-        end
 
-        if context.ending_shop and not context.blueprint and other_joker ~= nil and not other_joker.ability.eternal then
-            G.E_MANAGER:add_event(Event({
-
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    other_joker:start_dissolve()
+        if context.ending_shop and not context.blueprint and target ~= nil then 
+               
+                    target:remove()
                     play_sound('crumple1')
 
-                    return true
-                end
-            }))
-            if #G.consumeables.cards < G.consumeables.config.card_limit then
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                local set = ''
                 if pseudorandom('inventor_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    for i = 1, G.consumeables.config.card_limit do
-                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    set = 'Spectral'
 
-                            local consumable = poll_consumable('inventor_dice')
-                            consumable:add_to_deck()
-                            G.consumeables:emplace(consumable)
-                            G.GAME.consumeable_buffer = 0
-                        end
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = after,
+                    delay = 0.4,
+                    func = function()
+                        local card = SMODS.create_card{set = set, area = G.consumeables}
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                        return true
+                        
                     end
-                   
-                    return {
-                        message = localize('sarc_focus')
-                    }
-                else
                     
-                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                }))
+                return {message = localize('sarc_scrapped'), colour = G.C.SECONDARY_SET.Spectral}
+                else
+                    local types = {'Tarot','Planet', 'Travel'}
+                    set = pseudorandom_element(types, pseudoseed('inventor_dice'))
 
-                            local consumable = poll_consumable('inventor_dice')
-                            consumable:add_to_deck()
-                            G.consumeables:emplace(consumable)
-                            G.GAME.consumeable_buffer = 0
-                        end
-                  
-                    return {
-                        message = localize('sarc_scrapped')
-                    }
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    trigger = after,
+                    delay = 0.4,
+                    func = function()
+                        local card = SMODS.create_card{set = set, area = G.consumeables}
+                        card:add_to_deck()
+                        G.consumeables:emplace(card)
+                        G.GAME.consumeable_buffer = 0
+                        return true
+                    end
+                }))
+                return {message = localize('sarc_scrapped'), colour = G.C.FILTER}
                 end
-            end
+                
         end
     end
+end
 }
 
-function poll_consumable(seed)
+--[[function poll_consumable(seed)
     local types = {}
     local blacklist = {'Spectral', 'Cine'}
 
@@ -85,4 +82,4 @@ function poll_consumable(seed)
         area = G.consumables,
         key_append = seed,
     }
-end
+end]]--

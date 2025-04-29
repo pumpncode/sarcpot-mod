@@ -187,18 +187,18 @@ return {
             j_sarc_green_carnation = {
                 name = 'Green Carnation',
                 text = {
-                    "Scored Kings give {C:chips}+#1#{} Chips for every",
+                    "Scored Kings", 
+                    "give {C:chips}+#1#{} Chips for every",
                     "previously scored King"
                 }
             },
             j_sarc_inventor_dice = {
                 name = 'Inventor Dice',
                 text = {
-                    "Destroy Joker to the right",
-                    "when exiting the shop to gain",
-                    "{C:attention}+1{} random consumable",
-                    "{C:green}#1# in #2#{} to instead fill {C:attention}all{} slots",
-                    "{C:inactive}(Must have space)"
+                    "Destroy a consumable when ",
+                    "exiting the shop to create a",
+                    "{C:tarot}Tarot{}, {C:planet}Planet{} or {V:1}Travel{} Card",
+                    "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
                 }
             },
             j_sarc_jester_dice = {
@@ -212,7 +212,8 @@ return {
             j_sarc_labrys = {
                 name = 'Labrys',
                 text = {
-                    "Scored Queens give {C:mult}+#1#{} Mult for every",
+                    "Scored Queens",
+                    "give {C:mult}+#1#{} Mult for every",
                     "previously scored Queen"
                 }
             },

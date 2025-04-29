@@ -36,7 +36,7 @@ Gambling and Roguelikes, the perfect pair! Enjoy these _Dicey Dungeons_ inspired
       -Warrior Dice: Small chance to gain free rerolls when discarding and free discards when rerolling!<br/>
       -Thief Dice: Small chance to gain free consumables or temporary jokers on round end!<br/>
       -Robot Dice: Scaling mult if you manage to add your hands up to the jackpot, small chance to scale 6 times as much!<br/>
-      -Inventor Dice: Scrap adjacent joker for consumables, chance to fill consumable slots instead!<br/>
+      -Inventor Dice: Recycle your consumables for new ones, chance to gain Spectral cards!<br/>
       -Witch Dice: Discarded or played cards may add their chips to this joker!
       -Jester Dice: Chance to gain extra hands when discarding or playing matching ranks!
       
