@@ -167,7 +167,8 @@ return {
             j_sarc_artemis = {
                 name = 'Ártemis',
                 text = {
-                    "Cartas de {C:hearts}Copas{} recebem {C:attention}desvantagem{},",
+                    "Cartas de {C:hearts}Copas{}",
+                    "recebem {C:attention}desvantagem{},",
                     "Dá {X:mult,C:white}X#1#{} Multi por cada carta",
                     "com desvantagem",
                     "{C:inactive}(No momento {X:mult,C:white}X#2#{} {C:inactive}Mult)"
@@ -212,12 +213,11 @@ return {
                 name = 'Dado Inventor',
                 text = {
                    
-                    "Destrua Curinga à direita",
-                    "após sair da loja para ganhar",
-                    "{C:attention}+2{} consumíveis aleatórios",
-                    "Chance de {C:green}#1# em#2#{} de lotar espaços de consumíveis",
-                    "e dar mais +2 {C:attention}consumíveis{}",
-                    "{C:inactive}(Deve ter espaço)"
+                    "Destrua um consumível ao sair",
+                    "da loja para criar uma",
+                    "carta de {C:tarot}Tarô{}, {C:planet}Planeta{} ou {V:1}Viagem{}",
+                    "Chance de {C:green}#1# em #2#{} de ganhar uma",
+                    "carta {C:spectral}Espectral{} ao invés",
                 }
             },
             j_sarc_labrys = {
