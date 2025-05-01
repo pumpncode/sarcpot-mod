@@ -244,6 +244,14 @@ return {
                     "{C:inactive}Value Changes every hand){}"
                 }
             },
+            j_sarc_rocky_geode = {
+                name = 'Rocky Geode',
+                text = {
+                    "Gives Mult equal to the number of",
+                    "{C:hearts}Hearts{} and {C:attention}Stone{} Cards in your deck",
+                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Thief Dice',
                 text = {

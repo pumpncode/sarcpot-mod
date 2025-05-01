@@ -259,6 +259,14 @@ return {
                     "{C:inactive}Valor muda a cada mão)"
                 }
             },
+            j_sarc_rocky_geode = {
+                name = 'Geodo Rochoso',
+                text = {
+                    "Dá Multi igual ao número de",
+                    "cartas de {C:hearts}Copas{} e de {C:attention}Pedra{} em seu baralho",
+                    "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Dado Ladrão',
                 text = {
