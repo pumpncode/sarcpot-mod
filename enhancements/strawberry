@@ -34,15 +34,14 @@ SMODS.Enhancement({
                 
             }
         end
-        if context.after and context.cardarea == G.play then
+        if context.after and context.cardarea == G.play and card.config.center == G.P_CENTERS.m_sarc_strawberry then
             G.E_MANAGER:add_event(Event({
 				trigger = 'after',
 				blockable = true,
 				func = function()
 						card:juice_up(0.5, 0.5)
 						play_sound('button')
-                        card.ability.extra.played = true
-                        card.ability.extra.active = false
+                       
 						return true
 					end}))
                     SMODS.calculate_effect({ message = localize('sarc_exhausted'), colour = G.C.BLUE}, card)
@@ -51,6 +50,11 @@ SMODS.Enhancement({
                         blocking = true,
                         delay = 0.5,
                         func = function()
+                            if card.config.center == G.P_CENTERS.m_sarc_strawberry  then
+                                card.ability.extra.played = true
+                    card.ability.extra.active = false
+                            end
+                            
                                 return true
                             end}))
                           

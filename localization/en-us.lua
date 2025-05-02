@@ -176,6 +176,14 @@ return {
                     "{C:inactive}(Currently {C:attention}#2#{C:inactive}/6)"
                 }
             },
+            j_sarc_crash_message = {
+                name = 'Crash Message',
+                text = {
+                    "Gives #1# Mult equal to the number of",
+                    "{C:attention}Rankless{} cards in your deck",
+                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                }
+            },
             j_sarc_double_crescent = {
                 name = 'Double Crescent',
                 text = {
