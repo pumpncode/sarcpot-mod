@@ -267,6 +267,14 @@ return {
                     "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
                 }
             },
+            j_sarc_stray_pixel = {
+                name = "Stray Pixel",
+                text = {
+                    "Quando obtido, ganha",
+                    "edição {C:dark_edition}Policromática{}",
+                    "se não possui uma edição",
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Dado Ladrão',
                 text = {
