@@ -27,7 +27,8 @@ SMODS.Joker {
     soul_pos = nil,
     
     update = function(self, card, dt)
-        card.ability.extra.valid_suits = 0
+        if G.playing_cards then
+            card.ability.extra.valid_suits = 0
         local suits = {}
         local wilds = 0
         for _, v in ipairs(G.playing_cards) do
@@ -72,6 +73,8 @@ SMODS.Joker {
         end
         card.ability.extra.mult = card.ability.extra.valid_suits*card.ability.extra.mult_mod
         -- print("Valid Suits = " .. card.ability.extra.valid_suits)
+        
+        end
         
     end,
 

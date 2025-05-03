@@ -17,6 +17,9 @@ return {
             sarc_exhausted = 'Exhausted...',
             sarc_chips = 'Chips',
             sarc_mult = 'Mult',
+            sarc_common = 'Common',
+            sarc_uncommon = 'Uncommon',
+            sarc_rare = 'Rare',
         }
     },
     descriptions = {
@@ -172,10 +175,11 @@ return {
             j_sarc_cracked_egg = {
                 name = 'Cracked Egg',
                 text = {
-                    "When sold, transform joker to the right",
-                    "to a {C:green}#1#{} Joker",
-                    "Rarity increases every {C:attention}Three{} rounds",
-                    "{C:inactive}(Currently {C:attention}#2#{C:inactive}/6)"
+                    "When sold, transform joker",
+                    " to the right into a {C:attention}#1#{} Joker",
+                    "Rarity increases every",
+                    "{C:attention}Boss Blind{} defeated",
+                    "{C:inactive}(Currently {C:attention}#2#{C:inactive}/2)"
                 }
             },
             j_sarc_crash_message = {
