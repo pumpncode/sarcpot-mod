@@ -15,6 +15,8 @@ return {
             sarc_snap = 'Snap!',
             sarc_collapse = 'Collapse!',
             sarc_exhausted = 'Exhausted...',
+            sarc_chips = 'Chips',
+            sarc_mult = 'Mult',
         }
     },
     descriptions = {
@@ -258,6 +260,23 @@ return {
                     "Gives Mult equal to the number of",
                     "{C:hearts}Hearts{} and {C:attention}Stone{} Cards in your deck",
                     "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                }
+            },
+            j_sarc_strange_fluid = {
+                name = "Strange Fluid",
+                text = {
+                    "{C:chips}#1#{} #2# {C:mult}#3#{} #4#",
+                    "Effect changes",
+                    "based on whether",
+                    "{C:blue}Hands{} or {C:red}Discards are higher"
+                }
+            },
+            j_sarc_stray_pixel = {
+                name = "Stray Pixel",
+                text = {
+                    "When obtained, gains",
+                    "{C:dark_edition}Polychrome{} edition",
+                    "if it doesn't have an edition",
                 }
             },
             j_sarc_thief_dice = {
