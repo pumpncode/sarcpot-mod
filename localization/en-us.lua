@@ -186,6 +186,14 @@ return {
                     "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
+            j_sarc_diversity = {
+                name = 'Diversity',
+                text = {
+                    "{C:mult}+#1#{} Mult per suit with",
+                    "{C:attention}#2#{} cards or more in your deck",
+                    "{C:inactive}Currently {C:mult}+#3#{} {C:inactive}Mult){}",
+                }
+            },
             j_sarc_double_crescent = {
                 name = 'Double Crescent',
                 text = {

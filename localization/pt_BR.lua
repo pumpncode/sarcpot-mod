@@ -183,6 +183,14 @@ return {
                     "{C:inactive}(No momento {C:attention}#2#{C:inactive}/6)"
                 }
             },
+            j_sarc_diversity = {
+                name = 'Diversity',
+                text = {
+                    "{C:mult}+#1#{} Multi por naipe com",
+                    "{C:attention}#2#{} cartas ou mais no baralho",
+                    "{C:inactive}No momento {C:mult}+#3#{} {C:inactive}Multi){}",
+                }
+            },
             j_sarc_double_crescent = {
                 name = 'Luas Duplas',
                 text = {
