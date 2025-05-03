@@ -13,7 +13,7 @@ SMODS.Joker {
         else 
             rarity = localize('sarc_rare')
         end
-        return { vars = {rarity, card.ability.extra.boss_blinds } }
+        return { vars = {rarity, card.ability.extra.boss_blinds} }
     end,
     rarity = 1,
     atlas = 'sarcpot_atlas',

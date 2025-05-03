@@ -5,6 +5,9 @@ SMODS.Enhancement({
     discovered = false,
     config = { extra = { retriggers = 2, active = true, played = false}},
     loc_vars = function(self, info_queue, card)
+        if card.ability.extra.active == false then
+            info_queue[#info_queue + 1] = { key = "sarc_strawberry_deactivated", set = "Other" }
+        end
         return { vars = { card.ability.extra.retriggers, 
         card.ability.extra.active, 
         card.ability.extra.played} }

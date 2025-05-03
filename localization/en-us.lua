@@ -38,9 +38,10 @@ return {
             c_sarc_celeste = {
                 name = 'Postcard from Mt.Celeste',
                 text = {
-                    "Enhances {C:attention}#1#{}",
-                    "selected cards to",
-                    "{C:red}Strawberry Cards{}"
+                    "Enhances {C:attention}#1#{} selected",
+                    "cards to {C:red}Strawberry Cards{}",
+                    "{s:0.8,C:inactive}(Strawberry cards recharge by{}",
+                    "{s:0.8,C:inactive}not being played for a round){}"
                 }
             },
             c_sarc_deaths_door = {
@@ -346,6 +347,21 @@ return {
             }
         },
         Other = {
+            sarc_strawberry_deactivated = {
+                name = "Deactivated",
+                text = {
+                    "Don't play this card",
+                    "for {C:attention}1{} round to",
+                    "recharge it"
+                },
+            },
+            sarc_collapse_tip = {
+                name = "Collapsing...",
+                text = {
+                    "Destroys itself to",
+                    "give a {C:spectral}Black Hole{}"
+                },
+            },
         p_sarc_travel_small = {
             name = "Travel Pack",
             text = {

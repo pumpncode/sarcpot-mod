@@ -9,7 +9,8 @@ SMODS.Consumable({
         return false
     end,
     loc_vars = function(self, info_queue)
-		
+        info_queue[#info_queue + 1] = { key = "sarc_collapse_tip", set = "Other" }
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
         return { vars = {G.GAME.probabilities.normal, self.config.odds} }
 	end,
     cost = 3,

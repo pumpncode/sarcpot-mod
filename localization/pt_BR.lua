@@ -39,9 +39,10 @@ return {
             c_sarc_celeste = {
                 name = 'Cartão Postal de Mt.Celeste',
                 text = {
-                    "Aprimora {C:attention}#1#{}",
-                    "cartas selecionadas para",
-                    "{C:red}Cartas de Morango{}"
+                    "Aprimora {C:attention}#1#{} cartas ",
+                    "selecionadas para {C:red}Cartas de Morango{}",
+                    "{s:0.8,C:inactive}Cartas de Morango recarregam se{}",
+                    "{s:0.8,C:inactive}não forem jogadas por uma rodada{}"
                 }
             },
             c_sarc_deaths_door = {
@@ -344,7 +345,21 @@ return {
             },
         },
         Other = {
-
+            sarc_strawberry_deactivated = {
+                name = "Desativada",
+                text = {
+                    "Não jogue esta carta",
+                    "por {C:attention}1{} rodada para",
+                    "recarregá-la"
+                },
+            },
+            sarc_collapse_tip = {
+                name = "Colapsando...",
+                text = {
+                    "Se destrói e pode criar",
+                    "um {C:spectral}Buraco Negro{}"
+                },
+            },
             p_sarc_travel_small = {
                 name = "Pacote de Viagem",
                 text = {
