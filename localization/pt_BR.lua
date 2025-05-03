@@ -12,6 +12,11 @@ return {
            sarc_snap = 'Estalo!',
            sarc_collapse = 'Colapso!',
             sarc_exhausted = 'Exaurido...',
+            sarc_chips = 'Fichas',
+            sarc_mult = 'Multi',
+            sarc_common = 'Comum',
+            sarc_uncommon = 'Incomum',
+            sarc_rare = 'Raro',
         }
 
 
@@ -177,14 +182,24 @@ return {
             j_sarc_cracked_egg = {
                 name = 'Ovo Rachado',
                 text = {
-                    "Quando vendido, transforme o Curinga à direita",
-                    "em um curinga {C:green}#1#{}",
-                    "Raridade aumenta a cada {C:attention}Três{} rodadas",
-                    "{C:inactive}(No momento {C:attention}#2#{C:inactive}/6)"
+                    "Quando vendido, transforme",
+                    "Curinga à direita em um",
+                    "Curinga {C:attention}#1#{}",
+                    "Raridade aumenta à cada",
+                    "{C:attention}Chefe{} derrrotado",
+                    "{C:inactive}(No momento {C:attention}#2#{C:inactive}/2)"
+                }
+            },
+            j_sarc_crash_message = {
+                name = 'Mensagem de Erro',
+                text = {
+                    "Dá #1# Multi igual ao número de",
+                    "Cartas {C:attention}Sem Classe{} no seu baralho",
+                    "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
                 }
             },
             j_sarc_diversity = {
-                name = 'Diversity',
+                name = 'Diversidade',
                 text = {
                     "{C:mult}+#1#{} Multi por naipe com",
                     "{C:attention}#2#{} cartas ou mais no baralho",
@@ -275,8 +290,18 @@ return {
                     "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
                 }
             },
+            j_sarc_strange_fluid = {
+                name = "Fluido Estranho",
+                text = {
+                    "{C:chips}#1#{} #2# {C:mult}#3#{} #4#",
+                    "Efeito muda dependendo",
+                    "se você possui mais",
+                    "{C:blue}Mãos{} ou {C:red}Descartes",
+                  
+                }
+            },
             j_sarc_stray_pixel = {
-                name = "Stray Pixel",
+                name = "Pixel Desviado",
                 text = {
                     "Quando obtido, ganha",
                     "edição {C:dark_edition}Policromática{}",

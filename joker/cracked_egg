@@ -3,14 +3,22 @@ SMODS.Joker {
 
     key = 'cracked_egg',
 
-    config = { extra = { current_rarity = "Common", rounds = 0 } },
+    config = { extra = { current_rarity = 0, boss_blinds = 0 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.current_rarity, card.ability.extra.rounds } }
+        local rarity = ''
+        if card.ability.extra.current_rarity == 0 then
+            rarity = localize('sarc_common')
+        elseif card.ability.extra.current_rarity == 1 then
+            rarity = localize('sarc_uncommon')
+        else 
+            rarity = localize('sarc_rare')
+        end
+        return { vars = {rarity, card.ability.extra.boss_blinds } }
     end,
-    rarity = 2,
+    rarity = 1,
     atlas = 'sarcpot_atlas',
     pos = { x = 0, y = 1 },
-    cost = 6,
+    cost = 2,
     eternal_compat = false,
     pools = {
         Food = true
@@ -29,14 +37,14 @@ SMODS.Joker {
       
        
 
-        if context.end_of_round and not context.blueprint and not context.individual and not context.repetition then
-            if card.ability.extra.rounds < 6 then
-                card.ability.extra.rounds = card.ability.extra.rounds + 1
+        if context.end_of_round and G.GAME.blind.boss and not context.blueprint and not context.individual and not context.repetition then
+            if card.ability.extra.boss_blinds < 2 then
+                card.ability.extra.boss_blinds = card.ability.extra.boss_blinds + 1
             end
-            if card.ability.extra.rounds >= 3 and card.ability.extra.rounds <= 5 then
-                card.ability.extra.current_rarity = "Uncommon"
-            elseif card.ability.extra.rounds == 6 then
-                card.ability.extra.current_rarity = "Rare"
+            if card.ability.extra.boss_blinds == 1 then
+                card.ability.extra.current_rarity = 1
+            elseif card.ability.extra.boss_blinds >= 2 then
+                card.ability.extra.current_rarity = 2
                 
                     local eval = function(card) return not card.REMOVED end
                     juice_card_until(card, eval, true)
@@ -58,12 +66,19 @@ SMODS.Joker {
                             other_joker.insert(stickers, k)
                         end
                     end
-
+                    local rarity = ''
+                    if card.ability.extra.current_rarity == 0 then
+                        rarity = "Common"
+                    elseif card.ability.extra.current_rarity == 1 then
+                        rarity = "Uncommon"
+                    else
+                        rarity = "Rare"
+                    end
                     other_joker:start_dissolve()
                     local new_joker = SMODS.create_card({
                         area = G.jokers,
                         set = 'Joker',
-                        rarity = card.ability.extra.current_rarity,
+                        rarity = rarity,
                         edition =
                             edition,
                         stickers = stickers
