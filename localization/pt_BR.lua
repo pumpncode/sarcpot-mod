@@ -162,10 +162,11 @@ return {
             j_sarc_garlic_bread = {
                 name = "Pão de Alho",
                 text = {
-                    "Se a primeira mão da rodada é uma {C:attention}Carta Alta{}",
-                    "converta cartas pontuadas em {C:attention}Ases{}",
-                    "Chance de {C:green}#1# em #2#{} desta carta",
-                    "ser destruída no fim da rodada",
+                    "Se a primeira mão da rodada",
+                    "é {C:attention}Carta Alta{}, converta",
+                    "cartas pontuadas em {C:attention}Áses{}",
+                    "Chance de{C:green}#1# em #2#{} de ser",
+                    "consumido no fim da rodada",
                     
                 }
 

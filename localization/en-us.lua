@@ -161,9 +161,11 @@ return {
             j_sarc_garlic_bread = {
                 name = 'Garlic Bread',
                 text = {
-                    "If the first hand of the round is a {C:attention}High Card{}",
-                    "convert scoring cards to {C:attention}Aces{}",
-                    "{C:green}#1# in #2#{} chance this card is destroyed at end of round"
+                    "If first hand of round",
+                    "is {C:attention}High Card{}, convert",
+                    "scored cards to {C:attention}Aces{}",
+                    "{C:green}#1# in #2#{} chance this card is",
+                    "consumed at end of round",
                 }
             },
             j_sarc_artemis = {
