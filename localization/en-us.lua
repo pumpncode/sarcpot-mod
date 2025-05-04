@@ -20,6 +20,7 @@ return {
             sarc_common = 'Common',
             sarc_uncommon = 'Uncommon',
             sarc_rare = 'Rare',
+            sarc_2_random_hands = "2 Random Hands"
         }
     },
     descriptions = {
@@ -30,9 +31,9 @@ return {
             c_sarc_brittle_hollow = {
                 name = 'Tattered Postcard',
                 text = {
-                    "Level up a {C:attention}random hand{}",
-                    "{C:green}#1# in #2#{} chance to",
-                    "{C:purple}Collapse{} instead"
+                    "Level up {C:attention}#1#{} random hands",
+                    "After {C:attention}#3#{} uses, {C:purple}Collapse{",
+                    "{C:inactive}(Currently #2#/#3#){}"
                 }
             },
             c_sarc_celeste = {

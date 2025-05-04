@@ -17,6 +17,7 @@ return {
             sarc_common = 'Comum',
             sarc_uncommon = 'Incomum',
             sarc_rare = 'Raro',
+            sarc_2_random_hands = "2 Mãos Aleatórias"
         }
 
 
@@ -30,10 +31,9 @@ return {
             c_sarc_brittle_hollow = {
                 name = 'Cartão Desgastado',
                 text = {
-                    "Aprimore o nível de uma",
-                    "{C:attention}mão aleatória{}",
-                    "Chance de{C:green}#1# em #2#{} de",
-                    "{C:purple}Colapsar{} ao invés"
+                    "Aprimore {C:attention}#1#{} mãos aleatórias",
+                    "Depois de {C:attention}#3#{} usos, {C:purple}Colapse{}",
+                    "{C:inactive}(No Momento #2#/#3#){}"
                 }
             },
             c_sarc_celeste = {
@@ -356,7 +356,7 @@ return {
             sarc_collapse_tip = {
                 name = "Colapsando...",
                 text = {
-                    "Se destrói e pode criar",
+                    "Se destrói e cria",
                     "um {C:spectral}Buraco Negro{}"
                 },
             },
