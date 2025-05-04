@@ -1,77 +1,98 @@
-
 SMODS.Joker {
 
-	discovered = true,
-	key = 'garlic_bread',
+    discovered = true,
+    key = 'garlic_bread',
 
-	
+    config = {
+        extra = {
+            odds = 6
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {G.GAME.probabilities.normal, card.ability.extra.odds}
+        }
+    end,
+    rarity = 2,
+    atlas = 'sarcpot_atlas',
+    pos = {
+        x = 0,
+        y = 0
+    },
+    cost = 7,
+    eternal_compat = false,
+    pools = {
+        Food = true
+    },
 
-	config = { extra = {odds = 6} },
-	loc_vars = function(self, info_queue, card)
-		return { vars = {G.GAME.probabilities.normal, card.ability.extra.odds} }
-	end,
-	rarity = 2,
-	atlas = 'sarcpot_atlas',
-	pos = { x = 0, y = 0 },
-	cost = 7,
-	eternal_compat = false,
-	pools = {
-		Food = true
-	  },
-	
-	calculate = function(self, card, context)		
+    calculate = function(self, card, context)
 
-		if G.GAME.current_round.hands_played == 0 and not context.blueprint then
-            local eval = function() return G.GAME.current_round.hands_played == 0 end
-            juice_card_until(card, eval, true)
-        end
+
+		if context.setting_blind then
+			local eval = function()
+				return G.GAME.current_round.hands_played == 0
+			end
+			juice_card_until(card, eval, true)
+		end
 		
 
-	    if context.after and next(context.poker_hands['High Card']) 
-		and G.GAME.current_round.hands_played == 0 then	
+        if context.after and next(context.poker_hands['High Card']) and not context.blueprint and
+            G.GAME.current_round.hands_played == 0 then
 
-			local other_card = context.scoring_hand[1]
-			
-			G.E_MANAGER:add_event(Event({
-				trigger = 'after',
-				delay = 2.3,
-				blocking = true,
-				func = function()
-						other_card:juice_up(0.5, 0.5)
-						play_sound('card1')
-						suit = other_card.base.suit
-						SMODS.change_base(other_card,nil,'Ace')
-						return true
-					end}))
-		end	
-		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
-			
-			if pseudorandom('garlic_bread') < G.GAME.probabilities.normal / card.ability.extra.odds then
-			
-				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					delay = 0.7,
-					func = function()
-						play_sound('tarot1')
-						card.T.r = -0.2
-						card:juice_up(0.3, 0.4)
-						card.states.drag.is = true
-						card.children.center.pinch.x = true
-						card:start_dissolve()
-						card = nil
-						return true
-				end}))
-				return {
-					message = localize('k_eaten_ex'),
-				
-				}
-			else
-				return {
-					card = card,
-					message = localize('k_safe_ex'),
-					
-				}
-			end
-		end
-	end
+            local other_card = context.scoring_hand[1]
+
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                blocking = true,
+                func = function()
+                    play_sound('tarot1')
+                    other_card:juice_up()
+                    suit = other_card.base.suit
+                    SMODS.change_base(other_card, nil, 'Ace')
+                    return true
+                end
+            }))
+
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                blocking = true,
+                func = function()
+                    
+                    return true
+                end
+            }))
+        end
+        if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
+
+            if pseudorandom('garlic_bread') < G.GAME.probabilities.normal / card.ability.extra.odds then
+
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.7,
+                    func = function()
+                        play_sound('tarot1')
+                        card.T.r = -0.2
+                        card:juice_up(0.3, 0.4)
+                        card.states.drag.is = true
+                        card.children.center.pinch.x = true
+                        card:start_dissolve()
+                        card = nil
+                        return true
+                    end
+                }))
+                return {
+                    message = localize('k_eaten_ex')
+
+                }
+            else
+                return {
+                    card = card,
+                    message = localize('k_safe_ex')
+
+                }
+            end
+        end
+    end
 }

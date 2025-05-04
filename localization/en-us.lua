@@ -20,6 +20,7 @@ return {
             sarc_common = 'Common',
             sarc_uncommon = 'Uncommon',
             sarc_rare = 'Rare',
+            sarc_2_random_hands = "2 Random Hands"
         }
     },
     descriptions = {
@@ -30,9 +31,9 @@ return {
             c_sarc_brittle_hollow = {
                 name = 'Tattered Postcard',
                 text = {
-                    "Level up a {C:attention}random hand{}",
-                    "{C:green}#1# in #2#{} chance to",
-                    "{C:purple}Collapse{} instead"
+                    "Level up {C:attention}#1#{} random hands",
+                    "After {C:attention}#3#{} uses, {C:purple}Collapse{",
+                    "{C:inactive}(Currently #2#/#3#){}"
                 }
             },
             c_sarc_celeste = {
@@ -160,9 +161,11 @@ return {
             j_sarc_garlic_bread = {
                 name = 'Garlic Bread',
                 text = {
-                    "If the first hand of the round is a {C:attention}High Card{}",
-                    "convert scoring cards to {C:attention}Aces{}",
-                    "{C:green}#1# in #2#{} chance this card is destroyed at end of round"
+                    "If first hand of round",
+                    "is {C:attention}High Card{}, convert",
+                    "scored cards to {C:attention}Aces{}",
+                    "{C:green}#1# in #2#{} chance this card is",
+                    "consumed at end of round",
                 }
             },
             j_sarc_artemis = {
@@ -249,6 +252,15 @@ return {
                     "{C:inactive}(Multiple effects may trigger)"
                 }
             },
+            j_sarc_orchid = {
+                name = 'Orchid',
+                text = {
+                    "This Joker gains {C:mult}+#1#{} Mult per",
+                    "hand played with a",
+                    "scoring {C:attention}Jack{}",
+                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult){}"
+                }
+            },
             j_sarc_pancake = {
                 name = 'Pancake',
                 text = {
@@ -309,6 +321,14 @@ return {
                     "a {C:green}reroll{} when {C:attention}discarding{}",
                     "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
                     "discard{} when {C:green}rerolling{}",
+                    
+                }
+            },
+            j_sarc_watermelon_candy = {
+                name = 'Watermelon Candy',
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "Consumed after {C:attention}#2#{} round(s)"
                     
                 }
             },

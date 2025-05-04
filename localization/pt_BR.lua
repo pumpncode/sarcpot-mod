@@ -17,6 +17,7 @@ return {
             sarc_common = 'Comum',
             sarc_uncommon = 'Incomum',
             sarc_rare = 'Raro',
+            sarc_2_random_hands = "2 Mãos Aleatórias"
         }
 
 
@@ -30,10 +31,9 @@ return {
             c_sarc_brittle_hollow = {
                 name = 'Cartão Desgastado',
                 text = {
-                    "Aprimore o nível de uma",
-                    "{C:attention}mão aleatória{}",
-                    "Chance de{C:green}#1# em #2#{} de",
-                    "{C:purple}Colapsar{} ao invés"
+                    "Aprimore {C:attention}#1#{} mãos aleatórias",
+                    "Depois de {C:attention}#3#{} usos, {C:purple}Colapse{}",
+                    "{C:inactive}(No Momento #2#/#3#){}"
                 }
             },
             c_sarc_celeste = {
@@ -162,10 +162,11 @@ return {
             j_sarc_garlic_bread = {
                 name = "Pão de Alho",
                 text = {
-                    "Se a primeira mão da rodada é uma {C:attention}Carta Alta{}",
-                    "converta cartas pontuadas em {C:attention}Ases{}",
-                    "Chance de {C:green}#1# em #2#{} desta carta",
-                    "ser destruída no fim da rodada",
+                    "Se a primeira mão da rodada",
+                    "é {C:attention}Carta Alta{}, converta",
+                    "cartas pontuadas em {C:attention}Áses{}",
+                    "Chance de{C:green}#1# em #2#{} de ser",
+                    "consumido no fim da rodada",
                     
                 }
 
@@ -262,6 +263,15 @@ return {
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
+            j_sarc_orchid = {
+                name = 'Orchid',
+                text = {
+                    "Este Curinga ganha {C:mult}+#1#{} Multi",
+                    "por mão jogada com um",
+                    "{C:attention}Valete{} pontuante",
+                    "{C:inactive}(No momenti {C:mult}+#2#{}{C:inactive} Multi){}"
+                }
+            },
             j_sarc_pancake = {
                 name = 'Panqueca',
                 text = {
@@ -332,6 +342,14 @@ return {
                     "quando {C:green}atualizando{} a loja"
                 }
             },
+            j_sarc_watermelon_candy = {
+                name = 'Doce de Melancia',
+                text = {
+                    "{C:mult}+#1#{} Multi",
+                    "Consumido depois de {C:attention}#2#{} rodada(s)"
+                    
+                }
+            },
             j_sarc_witch_dice = {
                 name = 'Dado Bruxo',
                 text = {
@@ -356,7 +374,7 @@ return {
             sarc_collapse_tip = {
                 name = "Colapsando...",
                 text = {
-                    "Se destrói e pode criar",
+                    "Se destrói e cria",
                     "um {C:spectral}Buraco Negro{}"
                 },
             },
