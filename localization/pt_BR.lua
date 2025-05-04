@@ -263,6 +263,15 @@ return {
                     "{C:inactive}(Vários efeitos podem ativar)"
                 }
             },
+            j_sarc_orchid = {
+                name = 'Orchid',
+                text = {
+                    "Este Curinga ganha {C:mult}+#1#{} Multi",
+                    "por mão jogada com um",
+                    "{C:attention}Valete{} pontuante",
+                    "{C:inactive}(No momenti {C:mult}+#2#{}{C:inactive} Multi){}"
+                }
+            },
             j_sarc_pancake = {
                 name = 'Panqueca',
                 text = {
@@ -331,6 +340,14 @@ return {
                     "Chance de {C:green}#1# em #2#{} de",
                     "ganhar um {C:attention}descarte temporário{}",
                     "quando {C:green}atualizando{} a loja"
+                }
+            },
+            j_sarc_watermelon_candy = {
+                name = 'Doce de Melancia',
+                text = {
+                    "{C:mult}+#1#{} Multi",
+                    "Consumido depois de {C:attention}#2#{} rodada(s)"
+                    
                 }
             },
             j_sarc_witch_dice = {

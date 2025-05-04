@@ -252,6 +252,15 @@ return {
                     "{C:inactive}(Multiple effects may trigger)"
                 }
             },
+            j_sarc_orchid = {
+                name = 'Orchid',
+                text = {
+                    "This Joker gains {C:mult}+#1#{} Mult per",
+                    "hand played with a",
+                    "scoring {C:attention}Jack{}",
+                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult){}"
+                }
+            },
             j_sarc_pancake = {
                 name = 'Pancake',
                 text = {
@@ -312,6 +321,14 @@ return {
                     "a {C:green}reroll{} when {C:attention}discarding{}",
                     "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
                     "discard{} when {C:green}rerolling{}",
+                    
+                }
+            },
+            j_sarc_watermelon_candy = {
+                name = 'Watermelon Candy',
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "Consumed after {C:attention}#2#{} round(s)"
                     
                 }
             },
