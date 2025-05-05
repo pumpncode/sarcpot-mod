@@ -3,11 +3,11 @@
 	"name": "Sarcpot",
 	"display_name": "Sarcpot",
 	"author": ["SarcasticPotato"],
-	"description": "A chocolate mod with content for the Girls, Gays and Indie Game Fans!",
+	"description": "A mocca mod with content for the Girls, Gays and Indie Game Fans!",
 	"prefix": "sarc",
 	"main_file": "sarcpot_main.lua",
 	"priority": 0,
 	"badge_colour": "eb913c",
-	"version": "0.1.9f",
+	"version": "0.1.10",
 	"dependencies": []
 }
