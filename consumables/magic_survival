@@ -20,31 +20,33 @@ SMODS.Consumable({
     end,
 
     use = function(self, card, area, copier)
+        
         local unenhanced = 0
+        local enhanced_list = {}
         for i = 1,#G.hand.cards do
             if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
                 unenhanced = unenhanced+1
+            else
+                table.insert(enhanced_list, i)
             end
         end
-        --Gets the lowest out of the limit, the hand size and the current ante
-        NumTargets = math.min(unenhanced,self.config.limit,G.GAME.round_resets.ante) 
-        for i = 1,#G.hand.cards do
-            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') and NumTargets>0 then
+        local num_targets = math.min(unenhanced,self.config.limit,G.GAME.round_resets.ante) 
+        local random_indexes = SARC.get_rand_hand_index(num_targets, enhanced_list)
+        for _,v in pairs(random_indexes) do
+         
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     blocking = true,
                     delay = 0.2,
                     func = function()
-                        play_sound('tarot1')
-                        G.hand.cards[i]:juice_up()
+                        play_sound('tarot1',(math.random(8,12)/10))
+                        G.hand.cards[v]:juice_up()
                         local new_enhancement = SMODS.poll_enhancement({guaranteed = true, key = 'magic_survival'})
-                        G.hand.cards[i]:set_ability(G.P_CENTERS[new_enhancement])
+                        G.hand.cards[v]:set_ability(G.P_CENTERS[new_enhancement])
                         return true
                     end
                 }))
-                
-                NumTargets = NumTargets-1
-            end
+         
         end
        
     end

@@ -23,7 +23,7 @@ SMODS.Consumable({
     end,
     use = function(self, card, area, copier)
 
-        local random_indexes = SARC.get_rand_hand_index(math.min(self.config.targets, #G.hand.cards))
+        local random_indexes = SARC.get_rand_hand_index(math.min(self.config.targets, #G.hand.cards),nil)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.2,
