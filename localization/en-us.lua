@@ -81,14 +81,16 @@ return {
                 text = {
                     "Destroys up to {C:attention}#1#{}",
                     "random cards in hand.",
-                    "Draw {C:attention}#1#{} cards"
+                    "Draw the same number",
+                    "of destroyed cards"
                 }
             },
             c_sarc_magic_survival = {
                 name = 'Wartorn Journal',
                 text = {
                     "Enhances up to {C:attention}#2#{}",
-                    "cards in hand with random enhancements",
+                    "random cards in hand",
+                    "with random enhancements",
                     "Increases with each ante",
                     "{C:inactive}(Max of #1#){}"
                 }
