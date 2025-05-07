@@ -34,7 +34,6 @@ SMODS.Joker {
 			end
 			juice_card_until(card, eval, true)
 		end
-		
 
         if context.after and next(context.poker_hands['High Card']) and not context.blueprint and
             G.GAME.current_round.hands_played == 0 then

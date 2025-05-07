@@ -81,14 +81,16 @@ return {
                 text = {
                     "Destrói até{C:attention}#1#{}",
                     "cartas aleatórias na mão.",
-                    "Compre {C:attention}#1#{} cartas"
+                    "Compre o número de",
+                    "cartas destruídas"
                 }
             },
             c_sarc_magic_survival = {
                 name = 'Registros Devastados',
                 text = {
                     "Aprimora até {C:attention}#2#{}",
-                    "carta(s) na mão com aprimoramentos aleatórios",
+                    "carta(s) aleatórias na mão com",
+                    "aprimoramentos aleatórios",
                     "Número aumenta a cada ante",
                     "{C:inactive}(Máximo de #1#){}"
                 }

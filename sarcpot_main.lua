@@ -202,7 +202,35 @@ function SARC.level_up(card, hand,levels)
         level = ''
     })
 end
+function SARC.get_rand_hand_index(amount, exclude)
+    local available_indexes = {}
+    local random_indexes = {}
+    local exclude_set = {} 
 
+    if exclude then
+        for _, index in pairs(exclude) do
+            exclude_set[index] = true
+        end
+    end
+
+    for i = 1, #G.hand.cards do
+        if not exclude_set[i] then
+            table.insert(available_indexes, i)
+        end
+    end
+    for i = 1, amount do
+        if #available_indexes == 0 then
+            break
+        end
+        local rand_index_in_available = math.random(1, #available_indexes)
+
+        local selected_index = available_indexes[rand_index_in_available]
+        table.insert(random_indexes, selected_index)
+
+        table.remove(available_indexes, rand_index_in_available)
+    end
+    return random_indexes
+end
 function SARC.level_up_multiple(card, hand_list,custom_hand_text, levels)
   levels = levels or 1
   update_hand_text({

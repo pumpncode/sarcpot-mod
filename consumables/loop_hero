@@ -2,11 +2,18 @@ SMODS.Consumable({
     key = 'loop_hero',
     set = 'Travel',
     atlas = 'consumables',
-    pos = { x = 2, y = 1 },
+    pos = {
+        x = 2,
+        y = 1
+    },
     discovered = false,
-    config = { extra = 3 },
+    config = {
+        targets = 3
+    },
     loc_vars = function(self, info_queue)
-        return { vars = { self.config.extra } }
+        return {
+            vars = {self.config.targets}
+        }
     end,
     cost = 3,
     calculate = function(self, card, context)
@@ -15,27 +22,46 @@ SMODS.Consumable({
         return #G.hand.cards > 0
     end,
     use = function(self, card, area, copier)
-        for i = 1, self.config.extra do
-            
-                G.E_MANAGER:add_event(Event({
-                    trigger = 'after',
 
-                    delay = 0.2,
-                    func = function()
-                        if #G.hand.cards > 0 then
-                        local random_card = math.random(1, #G.hand.cards)
-                        play_sound('crumple1')
+        local random_indexes = SARC.get_rand_hand_index(math.min(self.config.targets, #G.hand.cards),nil)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            blocking = true,
+            func = function()
+      
+                return true
+            end
+        }))
+        for _, v in pairs(random_indexes) do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
 
-                        G.hand.cards[random_card]:remove()
+                delay = 0.05,
+                func = function()
 
-                        return true
-                    end
+                    play_sound('crumple1')
+
+                    G.hand.cards[v]:start_dissolve()
+
                     return true
-                    end
-                }))
-          
+                end
+            }))
+
         end
-        for i = 1, self.config.extra do
+        for i = 1, #G.jokers.cards do
+            G.jokers.cards[i]:calculate_joker({remove_playing_cards = true, removed = random_indexes})
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            blocking = true,
+            func = function()
+      
+                return true
+            end
+        }))
+        for i = 1, #random_indexes do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
@@ -43,7 +69,7 @@ SMODS.Consumable({
                     draw_card(G.deck, G.hand, i * 100 / 2, 'up', true)
                     return true
                 end
-                
+
             }))
         end
     end
