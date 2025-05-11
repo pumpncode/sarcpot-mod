@@ -174,7 +174,8 @@ return {
                 name = 'Artemis',
                 text = {
                     "{C:attention}Debuffs{} all {C:hearts}Hearts{} cards,",
-                    "Gives {X:mult,C:white}X#1#{} Mult per card debuffed",
+                    "Gives {X:mult,C:white}X#1#{} Mult",
+                    "per card debuffed",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 }
             },
@@ -182,7 +183,8 @@ return {
                 name = 'Cracked Egg',
                 text = {
                     "When sold, transform joker",
-                    " to the right into a {C:attention}#1#{} Joker",
+                    " to the right into",
+                    "a {C:attention}#1#{} Joker",
                     "Rarity increases every",
                     "{C:attention}Boss Blind{} defeated",
                     "{C:inactive}(Currently {C:attention}#2#{C:inactive}/2)"
@@ -223,7 +225,7 @@ return {
             j_sarc_inventor_dice = {
                 name = 'Inventor Dice',
                 text = {
-                    "Destroy a consumable when ",
+                    "Destroy a consumable when",
                     "exiting the shop to create a",
                     "{C:tarot}Tarot{}, {C:planet}Planet{} or {V:1}Travel{} Card",
                     "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
@@ -295,7 +297,7 @@ return {
                     "{C:chips}#1#{} #2# {C:mult}#3#{} #4#",
                     "Effect changes",
                     "based on whether",
-                    "{C:blue}Hands{} or {C:red}Discards are higher"
+                    "{C:blue}Hands{} or {C:red}Discards{} are higher"
                 }
             },
             j_sarc_stray_pixel = {
@@ -330,7 +332,8 @@ return {
                 name = 'Watermelon Candy',
                 text = {
                     "{C:mult}+#1#{} Mult",
-                    "Consumed after {C:attention}#2#{} round(s)"
+                    "Consumed after",
+                    "{C:attention}#2#{} round(s)"
                     
                 }
             },
@@ -338,10 +341,10 @@ return {
                 name = 'Witch Dice',
                 text = {
                     "{C:green}#1# in #2#{} chance to add",
-                    "{C:attention}#3#{} times the {C:chips}Chips{} of",
+                    "the {C:chips}Chips{} value of",
                     "discarded and played cards",
                     "to this joker",
-                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips){}"
+                    "{C:inactive}(Currently {C:chips}#3#{} {C:inactive}Chips){}"
                 }
             },
         },
