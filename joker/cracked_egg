@@ -62,7 +62,7 @@ SMODS.Joker {
                     local edition = other_joker.edition and other_joker.edition.key or nil
                     local stickers = {}
                     for k, v in pairs(SMODS.Stickers) do
-                        if card.ability[k] then
+                        if other_joker.ability[k] then
                             other_joker.insert(stickers, k)
                         end
                     end

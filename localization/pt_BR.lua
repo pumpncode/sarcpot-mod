@@ -357,10 +357,10 @@ return {
                 text = {
                    
                    "Chance de {C:green}#1# em #2#{} de adicionar",
-                    "{C:attention}#3#{} vezes as {C:chips}Fichas{} de",
-                    "cartas jogadas e descartadas",
+                    "as {C:chips}Fichas{} de cartas",
+                    " jogadas e descartadas",
                     "à este curinga",
-                    "{C:inactive}(No momento {C:chips}#4#{} {C:inactive}Fichas{})"
+                    "{C:inactive}(No momento {C:chips}#3#{} {C:inactive}Fichas{})"
                 }
             },
         },

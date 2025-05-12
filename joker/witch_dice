@@ -5,7 +5,7 @@ SMODS.Joker {
 
     config = { extra = { odds = 6, chips = 0, nominal_mod = 2} },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.nominal_mod, card.ability.extra.chips } }
+        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, card.ability.extra.chips } }
     end,
     rarity = 1,
     atlas = 'sarcpot_atlas',
@@ -17,7 +17,7 @@ SMODS.Joker {
             for _, v in pairs(context.full_hand) do
                 local nominal = v.base.nominal
                 if pseudorandom('witch_dice_discard') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.ability.extra.chips = card.ability.extra.chips + (nominal * card.ability.extra.nominal_mod)
+                    card.ability.extra.chips = card.ability.extra.chips + (nominal)
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         blockable = true,
@@ -40,7 +40,7 @@ SMODS.Joker {
             for _, v in pairs(context.full_hand) do
                 local nominal = v.base.nominal
                 if pseudorandom('witch_dice_play') < G.GAME.probabilities.normal / card.ability.extra.odds then
-                    card.ability.extra.chips = card.ability.extra.chips + (nominal * card.ability.extra.nominal_mod)
+                    card.ability.extra.chips = card.ability.extra.chips + (nominal)
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         blockable = true,
