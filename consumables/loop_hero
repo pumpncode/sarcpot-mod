@@ -24,6 +24,10 @@ SMODS.Consumable({
     use = function(self, card, area, copier)
 
         local random_indexes = SARC.get_rand_hand_index(math.min(self.config.targets, #G.hand.cards),nil)
+        local random_cards= {}
+        for _, v in pairs(random_indexes) do
+            table.insert(random_cards, G.hand.cards[v])
+        end
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.2,
@@ -49,9 +53,11 @@ SMODS.Consumable({
             }))
 
         end
-        for i = 1, #G.jokers.cards do
-            G.jokers.cards[i]:calculate_joker({remove_playing_cards = true, removed = random_indexes})
-        end
+
+            for i = 1, #G.jokers.cards do
+                G.jokers.cards[i]:calculate_joker({remove_playing_cards = true, removed = random_cards})
+            end
+
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.1,
