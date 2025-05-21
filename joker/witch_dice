@@ -15,7 +15,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.pre_discard and not context.blueprint then
             for _, v in pairs(context.full_hand) do
-                local nominal = v.base.nominal
+                local nominal = v:get_chip_bonus()
                 if pseudorandom('witch_dice_discard') < G.GAME.probabilities.normal / card.ability.extra.odds then
                     card.ability.extra.chips = card.ability.extra.chips + (nominal)
                     G.E_MANAGER:add_event(Event({
@@ -38,7 +38,7 @@ SMODS.Joker {
         end
         if context.before and not context.blueprint then
             for _, v in pairs(context.full_hand) do
-                local nominal = v.base.nominal
+                local nominal = v:get_chip_bonus()
                 if pseudorandom('witch_dice_play') < G.GAME.probabilities.normal / card.ability.extra.odds then
                     card.ability.extra.chips = card.ability.extra.chips + (nominal)
                     G.E_MANAGER:add_event(Event({
