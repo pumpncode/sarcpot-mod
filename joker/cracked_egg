@@ -63,7 +63,7 @@ SMODS.Joker {
                     local stickers = {}
                     for k, v in pairs(SMODS.Stickers) do
                         if other_joker.ability[k] then
-                            other_joker.insert(stickers, k)
+                            table.insert(stickers, k)
                         end
                     end
                     local rarity = ''

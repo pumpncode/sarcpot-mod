@@ -42,7 +42,7 @@ SMODS.Joker {
 function poll_consumable(seed)
 	local types = {}
 
-	for k, v in pairs(SMODS.ConsumableTypes) do
+	for _, k in ipairs(SMODS.ConsumableType.ctype_buffer) do
 		types[#types + 1] = k
 	end
 

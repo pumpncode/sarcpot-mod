@@ -50,7 +50,8 @@ SMODS.Consumable({
     
         local _poker_hands = {}
         local random_hands = {}
-		for k, v in pairs(G.GAME.hands) do
+		for _, k in ipairs(G.handlist) do
+            local v = G.GAME.hands[k]
 			if v.visible then _poker_hands[#_poker_hands+1] = k end
 		end
         for i=1, self.config.level_up_triggers do
