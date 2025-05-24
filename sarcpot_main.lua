@@ -113,13 +113,14 @@ function Game:init_game_object()
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
-	
-	G.GAME.brittle_hollow_count = 0
-	
+	if run_start == true then
+        G.GAME.brittle_hollow_count = 0
+    end
 end
 
 
-function SARC.level_up(card, hand,levels)
+function SARC.level_up(card, hand, levels)
+    print(G.GAME.brittle_hollow_count)
   levels = levels or 1
     update_hand_text({
         sound = 'button',
