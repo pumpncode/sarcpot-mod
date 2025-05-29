@@ -361,13 +361,13 @@ return {
             v_sarc_advantage = {
                 name = 'Advantage',
                 text = {
-                    "{C:attention}+1{} to all listed probabilities"
+                    "{C:attention}X2{} to all listed probabilities"
                 },
             },
             v_sarc_nat_20 = {
                 name = 'Nat 20!',
                 text = {
-                    "{C:attention}+1{} to all listed probabilities"
+                    "{C:attention}X1.5{} to all listed probabilities"
                 },
             }
         },
