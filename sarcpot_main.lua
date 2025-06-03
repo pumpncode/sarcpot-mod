@@ -107,21 +107,20 @@ end
 
 local igo = Game.init_game_object
 function Game:init_game_object()
-	local ret = igo(self)
-	ret.brittle_hollow_count = 0
-	return ret
+    local ret = igo(self)
+    ret.brittle_hollow_count = 0
+    return ret
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
-	if run_start == true then
+    if run_start == true then
         G.GAME.brittle_hollow_count = 0
     end
 end
 
-
 function SARC.level_up(card, hand, levels)
     print(G.GAME.brittle_hollow_count)
-  levels = levels or 1
+    levels = levels or 1
     update_hand_text({
         sound = 'button',
         volume = 0.7,
@@ -203,20 +202,36 @@ function SARC.level_up(card, hand, levels)
         level = ''
     })
 end
-function SARC.get_rand_hand_index(amount, exclude)
+function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_seal, exclude_edition)
     local available_indexes = {}
     local random_indexes = {}
-    local exclude_set = {} 
+    local exclude_set = {}
 
     if exclude then
         for _, index in pairs(exclude) do
             exclude_set[index] = true
         end
     end
-
+    
     for i = 1, #G.hand.cards do
+        if exclude_enhancement then
+            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_seal then
+            if G.hand.cards[i].seal then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_edition then
+            if G.hand.cards[i].edition then
+                exclude_set[i] = true
+            end
+        end
         if not exclude_set[i] then
             table.insert(available_indexes, i)
+           
         end
     end
     for i = 1, amount do
@@ -232,88 +247,88 @@ function SARC.get_rand_hand_index(amount, exclude)
     end
     return random_indexes
 end
-function SARC.level_up_multiple(card, hand_list,custom_hand_text, levels)
-  levels = levels or 1
-  update_hand_text({
-      sound = 'button',
-      volume = 0.7,
-      pitch = 0.8,
-      delay = 0.3
-  }, {
-      handname = custom_hand_text,
-      chips = "..." ,
-      mult = "..." ,
-      level = "...",
-  })
-for i = 1,#hand_list do
-  level_up_hand(nil, hand_list[i], true, levels)
-  
-end
-G.E_MANAGER:add_event(Event({
-  trigger = 'after',
-  delay = 0.2,
-  func = function()
-      play_sound('tarot1')
-      if card then
-          card:juice_up(0.8, 0.5)
-      end
-      G.TAROT_INTERRUPT_PULSE = true
-      return true
-  end
-}))
-  update_hand_text({
-      delay = 0
-  }, {
-      mult = "+",
-      StatusText = true
-  })
-  G.E_MANAGER:add_event(Event({
-      trigger = 'after',
-      delay = 0.9,
-      func = function()
-          play_sound('tarot1')
-          if card then
-              card:juice_up(0.8, 0.5)
-          end
-          return true
-      end
-  }))
-  update_hand_text({
-      delay = 0
-  }, {
-      chips = "+",
-      StatusText = true
-  })
-  G.E_MANAGER:add_event(Event({
-      trigger = 'after',
-      delay = 0.9,
-      func = function()
-          play_sound('tarot1')
-          if card then
-              card:juice_up(0.8, 0.5)
-          end
-          G.TAROT_INTERRUPT_PULSE = nil
-          return true
-      end
-  }))
-  update_hand_text({
-      sound = 'button',
-      volume = 0.7,
-      pitch = 0.9,
-      delay = 0
-  }, {
-      level = "+"..levels
-  })
-  delay(1.3)
-  update_hand_text({
-      sound = 'button',
-      volume = 0.7,
-      pitch = 1.1,
-      delay = 0
-  }, {
-      mult = 0,
-      chips = 0,
-      handname = '',
-      level = ''
-  })
+function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
+    levels = levels or 1
+    update_hand_text({
+        sound = 'button',
+        volume = 0.7,
+        pitch = 0.8,
+        delay = 0.3
+    }, {
+        handname = custom_hand_text,
+        chips = "...",
+        mult = "...",
+        level = "..."
+    })
+    for i = 1, #hand_list do
+        level_up_hand(nil, hand_list[i], true, levels)
+
+    end
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            play_sound('tarot1')
+            if card then
+                card:juice_up(0.8, 0.5)
+            end
+            G.TAROT_INTERRUPT_PULSE = true
+            return true
+        end
+    }))
+    update_hand_text({
+        delay = 0
+    }, {
+        mult = "+",
+        StatusText = true
+    })
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.9,
+        func = function()
+            play_sound('tarot1')
+            if card then
+                card:juice_up(0.8, 0.5)
+            end
+            return true
+        end
+    }))
+    update_hand_text({
+        delay = 0
+    }, {
+        chips = "+",
+        StatusText = true
+    })
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.9,
+        func = function()
+            play_sound('tarot1')
+            if card then
+                card:juice_up(0.8, 0.5)
+            end
+            G.TAROT_INTERRUPT_PULSE = nil
+            return true
+        end
+    }))
+    update_hand_text({
+        sound = 'button',
+        volume = 0.7,
+        pitch = 0.9,
+        delay = 0
+    }, {
+        level = "+" .. levels
+    })
+    delay(1.3)
+    update_hand_text({
+        sound = 'button',
+        volume = 0.7,
+        pitch = 1.1,
+        delay = 0
+    }, {
+        mult = 0,
+        chips = 0,
+        handname = '',
+        level = ''
+    })
 end

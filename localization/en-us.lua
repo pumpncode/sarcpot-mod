@@ -36,6 +36,13 @@ return {
                     "{C:inactive}(Currently #2#/#3#){}"
                 }
             },
+            c_sarc_brutal_orchestra = {
+                name = 'Vandalized Conscription',
+                text = {
+                    "{C:attention}Add{} a {C:red}Red{}, {C:blue}Blue{}, {C:purple}Purple{} or {C:gold}Gold{} seal" ,
+                    "to {C:attention}#1#{} selected card in your hand",
+                }
+            },
             c_sarc_celeste = {
                 name = 'Postcard from Mt.Celeste',
                 text = {
@@ -114,6 +121,14 @@ return {
                     "Enhances {C:attention}#1#{}",
                     "selected cards to",
                     "{C:red}Slime Cards{}"
+                }
+            },
+            c_sarc_ultrakill = {
+                name = 'Divine Intervention',
+                text = {
+                    "Destroy {C:attention}#1#{} selected card," ,
+                    "If it has a {C:attention}Seal{}, give it to",
+                    "{C:attention}#2#{} random cards in hand"
                 }
             },
             c_sarc_wildfrost = {
