@@ -1,0 +1,65 @@
+SMODS.Consumable({
+    key = 'ultrakill',
+    set = 'Travel',
+    atlas = 'consumables',
+    pos = {
+        x = 1,
+        y = 3
+    },
+    discovered = false,
+    config = {
+        max_highlighted = 1, cards_sealed = 2
+    },
+    keep_on_use = function(self, card)
+        return false
+    end,
+    loc_vars = function(self, info_queue)
+         return {
+            vars = {self.config.max_highlighted, self.config.cards_sealed}
+        }
+    end,
+    cost = 3,
+    can_use = function(self, card)
+        return #G.hand.highlighted <= card.ability.max_highlighted and #G.hand.highlighted >= 1
+    end,
+
+    use = function(self, card, area, copier)
+        if G.hand.highlighted[1].seal then
+            local seal = G.hand.highlighted[1].seal
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 1,
+                func = function()
+                    G.hand.highlighted[1]:shatter()
+                    return true
+                end
+            }))
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.1,
+                blockable = true;
+                func = function()
+                    
+                    local targets = SARC.get_rand_hand_index(2, nil ,nil, true)
+
+                    for _, v in ipairs(targets) do
+                        G.hand.cards[v]:juice_up()
+                        G.hand.cards[v]:set_seal(seal,true,true)
+                    end
+                    return true
+                end
+            }))
+
+        else
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 1,
+                func = function()
+                    G.hand.highlighted[1]:shatter()
+                    return true
+                end
+            }))
+        end
+
+    end
+})

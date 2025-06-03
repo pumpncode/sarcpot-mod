@@ -35,7 +35,7 @@ SMODS.Joker {
 			juice_card_until(card, eval, true)
 		end
 
-        if context.after and next(context.poker_hands['High Card']) and not context.blueprint and
+        if context.after and context.scoring_name == 'High Card' and not context.blueprint and
             G.GAME.current_round.hands_played == 0 then
 
             local other_card = context.scoring_hand[1]
@@ -49,6 +49,7 @@ SMODS.Joker {
                     other_card:juice_up()
                     suit = other_card.base.suit
                     SMODS.change_base(other_card, nil, 'Ace')
+                    delay(0.5)
                     return true
                 end
             }))
