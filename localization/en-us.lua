@@ -52,6 +52,15 @@ return {
                     "{s:0.8,C:inactive}not being played for a round){}"
                 }
             },
+            c_sarc_chicory = {
+                name = 'Coloring Card',
+                text = {
+                    "Converts up to {C:attention}#1#{}",
+                    "selected cards into",
+                    "{C:attention}distinct{} suits",
+                    "Gain {C:money}#2#${} per card converted"
+                }
+            },
             c_sarc_deaths_door = {
                 name = 'Grey Memento',
                 text = {
@@ -80,7 +89,7 @@ return {
                 name = "Monarch's Funds",
                 text = {
                     "Gain {C:money}+#1#${} per ante",
-                    "{C:inactive}(Max of {C:money}#2#${}){}"
+                    "{C:inactive}(Max of {C:money}#2#${}{C:inactive}){}"
                 }
             },
             c_sarc_loop_hero = {

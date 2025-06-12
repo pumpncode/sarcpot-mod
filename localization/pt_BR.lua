@@ -45,6 +45,15 @@ return {
                     "{s:0.8,C:inactive}não forem jogadas por uma rodada{}"
                 }
             },
+            c_sarc_chicory = {
+                name = 'Coloring Card',
+                text = {
+                    "Converta até {C:attention}#1#{}",
+                    "cartas selecionadas em",
+                    "naipes {C:attention}distintos{}",
+                    "Ganhe {C:money}#2#${} por carta convertida"
+                }
+            },
             c_sarc_deaths_door = {
                 name = 'Lembrança Acinzentada',
                 text = {

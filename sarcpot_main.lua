@@ -105,6 +105,12 @@ for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('boosters/' .. v))()
 end
 
+local path = SMODS.current_mod.path .. 'sarcpot_utils/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('sarcpot_utils/' .. v))()
+end
+
+
 local igo = Game.init_game_object
 function Game:init_game_object()
     local ret = igo(self)
@@ -212,7 +218,7 @@ function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_
             exclude_set[index] = true
         end
     end
-    
+
     for i = 1, #G.hand.cards do
         if exclude_enhancement then
             if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
@@ -231,7 +237,7 @@ function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_
         end
         if not exclude_set[i] then
             table.insert(available_indexes, i)
-           
+
         end
     end
     for i = 1, amount do
@@ -331,4 +337,24 @@ function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
         handname = '',
         level = ''
     })
+end
+function SARC.get_available_suits()
+    local suits = {}
+    for _, v in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(v) and not SMODS.has_any_suit(v) then
+            if not suits[v.base.suit] then
+                suits[v.base.suit] = true
+            end
+        end
+    end
+    local size = SARC.get_table_size(suits)
+    return suits, size
+end
+
+ function SARC.get_table_size(tbl)
+    local count = 0
+    for _ in pairs(tbl) do -- Iterate over all key-value pairs
+        count = count + 1
+    end
+    return count
 end
