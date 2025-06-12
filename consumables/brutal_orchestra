@@ -33,6 +33,7 @@ SMODS.Consumable({
                 trigger = 'after',
                 delay = 1,
                 func = function()
+                    play_sound('tarot1')
                     local random_seal = SMODS.poll_seal({guaranteed = true, options = {'Red','Blue','Gold','Purple'}})
                     G.hand.highlighted[i]:set_seal(random_seal,false, true)
                     delay(0.5)
