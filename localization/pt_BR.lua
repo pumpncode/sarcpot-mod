@@ -65,7 +65,7 @@ return {
             c_sarc_greenpath = {
                 name = '"Vista de Caminho Verde"',
                 text = {
-                    "Crie {C:attention}#1#{} Curingas {C:common}Comuns{}",
+                    "Crie uma {C:uncommon}Marca Incomum{}",
                   
                 }
             },

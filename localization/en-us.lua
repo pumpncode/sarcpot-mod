@@ -72,7 +72,7 @@ return {
             c_sarc_greenpath = {
                 name = '"View from Greenpath"',
                 text = {
-                    "Creates {C:attention}#1#{} {C:common}Common{} Jokers",
+                    "Create an {C:uncommon}Uncommon Tag{} ",
                   
                 }
             },

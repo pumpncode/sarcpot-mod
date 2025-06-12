@@ -4,17 +4,30 @@ SMODS.Consumable({
     atlas = 'consumables',
     pos = { x = 2, y = 0 },
     discovered = false,
-    config = { quantity = 2 },
+    config = {},
     loc_vars = function(self, info_queue)
-        return { vars = { self.config.quantity } }
+        info_queue[#info_queue+1] = {key = 'tag_uncommon', set = 'Tag'}
+        return { vars = {} }
     end,
     cost = 3,
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)>=1
+        return true
+        --return G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer)>=1
     end,
+
     use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function()
+            play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+			play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+            card:juice_up(0.3, 0.5)
+            add_tag(Tag('tag_uncommon'))
+        return true end }))
+    end
+
+
+    --[[use = function(self, card, area, copier)
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.2,
@@ -42,6 +55,6 @@ SMODS.Consumable({
             end
         end
 
-    end
+    end]]
 
 })
