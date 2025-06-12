@@ -26,6 +26,18 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
     
+    in_pool = function (self, args)
+        if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if not SMODS.has_no_suit(G.playing_cards[i]) then
+                    return true
+                end
+            end
+        end
+
+        return false
+    end,
+
     update = function(self, card, dt)
         if G.playing_cards then
             card.ability.extra.valid_suits = 0
