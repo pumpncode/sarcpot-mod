@@ -31,25 +31,25 @@ SMODS.Consumable({
                 delay = 1,
                 func = function()
                     G.hand.highlighted[1]:shatter()
-                    return true
-                end
-            }))
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.1,
-                blockable = true;
-                func = function()
-                    
                     local targets = SARC.get_rand_hand_index(2, nil ,nil, true)
-
                     for _, v in ipairs(targets) do
-                        G.hand.cards[v]:juice_up()
-                        G.hand.cards[v]:set_seal(seal,true,true)
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            delay = 0.5,
+                            blockable = true;
+                            func = function()
+                                play_sound('tarot1',(0.8 + _/10))
+                                G.hand.cards[v]:juice_up()
+                                G.hand.cards[v]:set_seal(seal,true,true)
+                                return true
+                            end
+                        }))
                     end
                     return true
                 end
             }))
 
+            
         else
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
