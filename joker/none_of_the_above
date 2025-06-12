@@ -1,10 +1,7 @@
-
 SMODS.Joker {
-
 	discovered = true,
 	key = 'none_of_the_above',
 
-	
 	config = { extra = {odds = 2,mult = 4,chips = 30,money = 5,xmult = 1.2,retriggers = 1,} },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue+1] = G.P_CENTERS.m_wild
@@ -15,6 +12,17 @@ SMODS.Joker {
 	atlas = 'sarcpot_atlas',
 	pos = { x = 1, y = 1},
 	cost = 5,
+	in_pool = function (self, args)
+		if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if G.playing_cards[i].config.center.key == 'm_wild' then
+                    return true
+                end
+            end
+        end
+
+        return false
+	end,
 	calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
           if context.other_card.ability.name == "Wild Card" then

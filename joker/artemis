@@ -20,13 +20,25 @@ SMODS.Joker {
     eternal_compat = true,
     soul_pos = nil,
 
+    in_pool = function (self, args)
+        local total_hearts = 0
+        if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if G.playing_cards[i]:is_suit("Hearts") then
+                    total_hearts = total_hearts + 1
+                end
+            end
+        end
+
+        if total_hearts >= 5 then return true
+        else return false end
+    end,
+
     add_to_deck = function(self, card, from_debuff)
         for k, v in ipairs(G.playing_cards) do
             G.GAME.blind:debuff_card(v)
         end
     end,
-
-    
 
     update = function(self, card, dt)
       

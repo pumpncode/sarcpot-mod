@@ -1,10 +1,6 @@
-
 SMODS.Joker {
-
 	discovered = true,
 	key = 'green_carnation',
-
-	
 
 	config = { extra = {chips = 50,prior_triggers = -1} },
 	loc_vars = function(self, info_queue, card)
@@ -15,12 +11,19 @@ SMODS.Joker {
 	pos = { x = 2, y = 0 },
 	cost = 4,
 	blueprint_compat = true,
-	calculate = function(self, card, context)
+	in_pool = function (self, args)
+		if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if G.playing_cards[i]:get_id() == 13 then
+                    return true
+                end
+            end
+        end
 
-		
+        return false
+	end,
+	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play and not context.blueprint and context.other_card:get_id() == 13 then
-            
-            
             card.ability.extra.prior_triggers = card.ability.extra.prior_triggers+1
 				if card.ability.extra.prior_triggers>0 then
 					return {
