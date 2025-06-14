@@ -20,7 +20,7 @@ SMODS.DrawStep{
     order = 777,
     func  = function(card, layer)
         local duration = 12
-        if card.ability and card.ability.extra and card.ability.extra.shooting then
+        if card.ability and (type(card.ability.extra) == "table") and card.ability.extra and card.ability.extra.shooting then
             if G.SPEEDFACTOR >= 4 then card.ability.extra.line_progress = card.ability.extra.line_progress + 0.5*G.SPEEDFACTOR
             else card.ability.extra.line_progress = card.ability.extra.line_progress + 1 end
             local line = G.SHADERS["sarc_ultra_killma_cards"]

@@ -69,11 +69,19 @@ return {
                     "cards {C:attention}in your deck{}"
                 }
             },
+            c_sarc_going_under = {
+                name = 'Soulless Marketing',
+                text = {
+                    "Create a {C:attention}Voucher Tag{}",
+                    "Gain {C:money}+#1#${}"
+                  
+                }
+            },
             c_sarc_greenpath = {
                 name = '"View from Greenpath"',
                 text = {
                     "Create an {C:uncommon}Uncommon Tag{} ",
-                  
+                    
                 }
             },
             c_sarc_haven= {

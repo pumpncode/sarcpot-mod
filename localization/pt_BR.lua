@@ -62,6 +62,14 @@ return {
                     "cartas do{C:attention} seu baralho{}"
                 }
             },
+            c_sarc_going_under = {
+                name = 'Marketing Sem Alma',
+                text = {
+                    "Crie uma {C:attention}Marca de Cupom{}",
+                    "Ganhe {C:money}+#1#${}"
+                  
+                }
+            },
             c_sarc_greenpath = {
                 name = '"Vista de Caminho Verde"',
                 text = {
