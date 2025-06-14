@@ -320,7 +320,7 @@ return {
                 text = {
                     "Gives Mult equal to the number of",
                     "{C:hearts}Hearts{} and {C:attention}Stone{} Cards in your deck",
-                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                    "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
             j_sarc_strange_fluid = {

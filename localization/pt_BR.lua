@@ -317,7 +317,7 @@ return {
                 text = {
                     "Dá Multi igual ao número de",
                     "cartas de {C:hearts}Copas{} e de {C:attention}Pedra{} em seu baralho",
-                    "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
+                    "{C:inactive}(No momento {C:mult}+#2#{} {C:inactive}Multi){}"
                 }
             },
             j_sarc_strange_fluid = {
