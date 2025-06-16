@@ -65,6 +65,8 @@ SMODS.Consumable({
 
     use = function(self, card, area, copier)
         play_sound('sarc_coin')
+        local removed = {G.hand.highlighted[1]}
+        SMODS.calculate_context({remove_playing_cards = true, removed = removed})
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 1,
@@ -74,12 +76,16 @@ SMODS.Consumable({
                 card.ability.extra.pos2.x = (G.hand.highlighted[1].T.x + G.CARD_W/2 + 1.44) / (22.88) * love.graphics.getWidth()
                 card.ability.extra.pos2.y = (G.hand.highlighted[1].T.y + G.CARD_H/2 + 0.66) / (12.82) * love.graphics.getHeight()
                 card.ability.extra.shooting = true
+                
                 card:shatter()
                 G.hand.highlighted[1]:shatter()
                 play_sound('sarc_revolver')
+               
                 return true
             end
         }))
+        
+        
         --G.E_MANAGER:add_event(Event({
         --    trigger = 'after',
         --    delay = 0.11 * G.SPEEDFACTOR,
@@ -116,6 +122,7 @@ SMODS.Consumable({
                     return true
                 end
             }))
+            
         end
     end
 })
