@@ -27,6 +27,17 @@ end,
     blueprint_compat = true,
     eternal_compat = true,
     soul_pos = nil,
+    in_pool = function (self, args)
+        if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if G.playing_cards[i]:is_suit("Hearts") then
+                    return true
+                end
+            end
+        end
+
+        return false
+    end,
     calculate = function(self, card, context)
         
         if context.joker_main then

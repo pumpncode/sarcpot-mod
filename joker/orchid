@@ -21,6 +21,17 @@ SMODS.Joker {
         y = 5
     },
     cost = 5,
+    in_pool = function (self, args)
+		if G.playing_cards then
+            for i=1 , #G.playing_cards do
+                if G.playing_cards[i]:get_id() == 11 then
+                    return true
+                end
+            end
+        end
+
+        return false
+	end,
     calculate = function(self, card, context)
         if context.before and context.scoring_hand and not context.blueprint then
             local found = false

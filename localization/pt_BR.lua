@@ -45,6 +45,15 @@ return {
                     "{s:0.8,C:inactive}não forem jogadas por uma rodada{}"
                 }
             },
+            c_sarc_chicory = {
+                name = 'Coloring Card',
+                text = {
+                    "Converta até {C:attention}#1#{}",
+                    "cartas selecionadas em",
+                    "naipes {C:attention}distintos{}",
+                    "Ganhe {C:money}#2#${} por carta convertida"
+                }
+            },
             c_sarc_deaths_door = {
                 name = 'Lembrança Acinzentada',
                 text = {
@@ -53,10 +62,18 @@ return {
                     "cartas do{C:attention} seu baralho{}"
                 }
             },
+            c_sarc_going_under = {
+                name = 'Marketing Sem Alma',
+                text = {
+                    "Crie uma {C:attention}Marca de Cupom{}",
+                    "Ganhe {C:money}+#1#${}"
+                  
+                }
+            },
             c_sarc_greenpath = {
                 name = '"Vista de Caminho Verde"',
                 text = {
-                    "Crie {C:attention}#1#{} Curingas {C:common}Comuns{}",
+                    "Crie uma {C:uncommon}Marca Incomum{}",
                   
                 }
             },
@@ -300,7 +317,7 @@ return {
                 text = {
                     "Dá Multi igual ao número de",
                     "cartas de {C:hearts}Copas{} e de {C:attention}Pedra{} em seu baralho",
-                    "{C:inactive}No momento {C:mult}+#2#{} {C:inactive}Multi){}"
+                    "{C:inactive}(No momento {C:mult}+#2#{} {C:inactive}Multi){}"
                 }
             },
             j_sarc_strange_fluid = {

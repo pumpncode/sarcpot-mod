@@ -52,6 +52,15 @@ return {
                     "{s:0.8,C:inactive}not being played for a round){}"
                 }
             },
+            c_sarc_chicory = {
+                name = 'Coloring Card',
+                text = {
+                    "Converts up to {C:attention}#1#{}",
+                    "selected cards into",
+                    "{C:attention}distinct{} suits",
+                    "Gain {C:money}#2#${} per card converted"
+                }
+            },
             c_sarc_deaths_door = {
                 name = 'Grey Memento',
                 text = {
@@ -60,11 +69,19 @@ return {
                     "cards {C:attention}in your deck{}"
                 }
             },
+            c_sarc_going_under = {
+                name = 'Soulless Marketing',
+                text = {
+                    "Create a {C:attention}Voucher Tag{}",
+                    "Gain {C:money}+#1#${}"
+                  
+                }
+            },
             c_sarc_greenpath = {
                 name = '"View from Greenpath"',
                 text = {
-                    "Creates {C:attention}#1#{} {C:common}Common{} Jokers",
-                  
+                    "Create an {C:uncommon}Uncommon Tag{} ",
+                    
                 }
             },
             c_sarc_haven= {
@@ -80,7 +97,7 @@ return {
                 name = "Monarch's Funds",
                 text = {
                     "Gain {C:money}+#1#${} per ante",
-                    "{C:inactive}(Max of {C:money}#2#${}){}"
+                    "{C:inactive}(Max of {C:money}#2#${}{C:inactive}){}"
                 }
             },
             c_sarc_loop_hero = {
@@ -303,7 +320,7 @@ return {
                 text = {
                     "Gives Mult equal to the number of",
                     "{C:hearts}Hearts{} and {C:attention}Stone{} Cards in your deck",
-                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                    "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
             j_sarc_strange_fluid = {
