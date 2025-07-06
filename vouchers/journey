@@ -8,7 +8,6 @@ SMODS.Voucher {
     loc_vars = function(self, info_queue)
         return {
             vars = {
-                self.config.consumable_number,
                 colours = {G.SP.C.travel_2}
             }
         }

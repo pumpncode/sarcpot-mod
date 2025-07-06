@@ -32,6 +32,7 @@ return {
         text = {
           "Start run with the",
           "{C:attention,T:v_sarc_compass}#1#{} Voucher",
+          "{C:attention}+#2#{} consumable slot",
         }
       },
     },

@@ -12,7 +12,6 @@ SMODS.Voucher {
         info_queue[#info_queue + 1] = G.P_TAGS.tag_sarc_cardinal
         return {
             vars = {
-                self.config.consumable_number,
                 colours = {G.SP.C.travel_2}
             }
         }
