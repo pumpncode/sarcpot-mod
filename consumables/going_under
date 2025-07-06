@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'going_under',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {
         x = 3,

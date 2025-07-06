@@ -6,15 +6,15 @@ SMODS.Booster {
     
 
     group_key = "sarc_travel_pack",
-    kind = "Travel",
+    kind = "travel",
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.choose, card.ability.extra } }
     end,
-    config = { extra = 2, choose = 1},
+    config = { extra = 3, choose = 1},
 
     create_card = function(self, card)
-        local card = create_card('Travel',G.consumeables,false, nil, true, true, nil, 'travel')
+        local card = create_card('travel',G.consumeables,false, nil, true, true, nil, 'travel')
         return card
     end,
 
@@ -41,7 +41,7 @@ SMODS.Booster {
 
    
 
-    weight = 2,
+    weight = 4,
 
     cost = 4,
 

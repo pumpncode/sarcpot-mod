@@ -1,17 +1,17 @@
 SMODS.Consumable({
     key = 'brittle_hollow',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {x=0, y=0},
     discovered = false,
-    config = {count = 5, level_up_triggers = 2},
+    config = {count = 2, level_up_triggers = 2},
     keep_on_use = function(self, card)
         return false
     end,
     loc_vars = function(self, info_queue)
         info_queue[#info_queue + 1] = { key = "sarc_collapse_tip", set = "Other" }
         info_queue[#info_queue + 1] = G.P_CENTERS.c_black_hole
-        return { vars = {self.config.level_up_triggers, G.GAME.brittle_hollow_count, self.config.count } }
+        return { vars = {self.config.level_up_triggers, G.GAME.brittle_hollow_count, self.config.count+1} }
 	end,
     cost = 3,
     can_use = function(self, card)

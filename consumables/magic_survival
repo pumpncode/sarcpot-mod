@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'magic_survival',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = { x =3, y = 2 },
     discovered = false,

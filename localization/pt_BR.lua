@@ -27,12 +27,12 @@ return {
         --Blind={},
         --Edition={},
         --Enhanced={},
-        Travel = {
+        travel = {
             c_sarc_brittle_hollow = {
                 name = 'Cartão Desgastado',
                 text = {
                     "Aprimore {C:attention}#1#{} mãos aleatórias",
-                    "Depois de {C:attention}#3#{} usos, {C:purple}Colapse{}",
+                    "Após {C:attention}#3#{} usos, {C:purple}Colapse{}",
                     "{C:inactive}(No Momento #2#/#3#){}"
                 }
             },
@@ -57,9 +57,8 @@ return {
             c_sarc_deaths_door = {
                 name = 'Lembrança Acinzentada',
                 text = {
-                    "Transforma {C:attention}#1#{}",
-                    "cartas selecionadas em",
-                    "cartas do{C:attention} seu baralho{}"
+                   "Crie {C:attention}#1{} cartas aleatórias com",
+                    "o seu {C:attention}naipe mais popular{}"
                 }
             },
             c_sarc_going_under = {
@@ -112,6 +111,13 @@ return {
                     "{C:inactive}(Máximo de #1#){}"
                 }
             },
+            c_sarc_obra_dinn = {
+                name = 'Relógio de Bolso Mórbido',
+                text = {
+                    "Crie {C:attention}#1{} carta aprimorada com",
+                    "a sua {C:attention}classe mais popular{}"
+                }
+            },
             c_sarc_plort = {
                 name = 'Plort',
                 text = {
@@ -131,6 +137,23 @@ return {
                     "Aprimora {C:attention}#1#{}",
                     "cartas selecionadas para",
                     "{C:red}Cartas de Slime{}"
+                }
+            },
+            c_sarc_ultrakill = {
+                name = 'Intervenção Divina',
+                text = {
+                    "Destrua {C:attention}#1#{} carta selecionada," ,
+                    "Se possuir um {C:attention}Selo{}, dê o à",
+                    "{C:attention}#2#{} cartas aleatórias em mão"
+                }
+            },
+            c_sarc_undertale = {
+                name = "...It's Still You",
+                text = {
+                    "Após {C:attention}#3#{} usos, {C:attention}-1 Ante{}",
+                    "{C:inactive}(No momento #1#/#3#){}",
+                    "{C:inactive}(Usos necessários aumentam em {C:attention}#2#{}",
+                    "{C:inactive}ao ativar){}"
                 }
             },
             c_sarc_wildfrost = {

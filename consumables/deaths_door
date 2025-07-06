@@ -1,35 +1,60 @@
 SMODS.Consumable({
     key = 'deaths_door',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
-    pos = { x = 0, y = 2 },
+    pos = {
+        x = 0,
+        y = 2
+    },
     discovered = false,
-    config = { max_highlighted = 2 },
+    config = {
+        amount = 2
+    },
     loc_vars = function(self, info_queue)
-        return { vars = { self.config.max_highlighted } }
+        return {
+            vars = {self.config.amount}
+        }
     end,
     cost = 3,
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return #G.hand.highlighted <= card.ability.max_highlighted and #G.hand.highlighted >= 1
+        return true
     end,
     use = function(self, card, area, copier)
-        for i = 1, #G.hand.highlighted do
+
+        --[[for _,v in ipairs(G.playing_cards) do
+            if v:is_suit(suit)
+        end]]
+        local selected_suit = SARC.get_popular_suit()
+        G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.5,
+                func = function()
+                    return true
+                end
+            }))
+        for i = 1, self.config.amount do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
-                delay = 0.2,
+                delay = 0.1,
                 func = function()
-                    G.hand.highlighted[i]:flip();
-                    play_sound('card1');
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3);
-
+                    SMODS.add_card({
+                        play_sound('cardSlide1',(math.random(8,12)/10)),
+                        set = "Playing Card",
+                        enhancement = SMODS.poll_enhancement({mod = 0.5}),
+                        seal = SMODS.poll_seal(),
+                        suit = selected_suit
+                    })
                     return true
                 end
             }))
         end
-        for i = 1, #G.hand.highlighted do
-            local random_card = pseudorandom_element(G.playing_cards)
+
+        --[[for i = 1, #G.hand.highlighted do
+            local random_index = math.random(1, #filtered_playing_cards)
+            local random_card = filtered_playing_cards[random_index]
+
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.1,
@@ -50,7 +75,7 @@ SMODS.Consumable({
                     return true
                 end
             }))
-        end
+        end]] --
     end
 
 })

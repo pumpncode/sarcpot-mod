@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'loop_hero',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {
         x = 2,

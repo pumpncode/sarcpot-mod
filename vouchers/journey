@@ -1,0 +1,24 @@
+SMODS.Voucher {
+    key = 'journey',
+    atlas = 'vouchers',
+    pos = {
+        x = 3,
+        y = 0
+    },
+    loc_vars = function(self, info_queue)
+        return {
+            vars = {
+                self.config.consumable_number,
+                colours = {G.SP.C.travel_2}
+            }
+        }
+    end,
+    unlocked = true,
+    discovered = false,
+    available = true,
+    requires = {'v_sarc_compass'},
+    redeem = function(self, card)
+
+        G.GAME.travel_rate = 3
+    end
+}

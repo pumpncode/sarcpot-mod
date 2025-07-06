@@ -20,14 +20,24 @@ return {
             sarc_common = 'Common',
             sarc_uncommon = 'Uncommon',
             sarc_rare = 'Rare',
-            sarc_2_random_hands = "2 Random Hands"
+            sarc_2_random_hands = "2 Random Hands",
+            sarc_plus_rerolls = '+3 Rerolls',
+            sarc_minus_ante = "-1 Ante"
         }
     },
     descriptions = {
-        --Back={},
+    Back = {
+        b_sarc_travelling = {
+        name = "Travelling Deck",
+        text = {
+          "Start run with the",
+          "{C:attention,T:v_sarc_compass}#1#{} Voucher",
+        }
+      },
+    },
         --Blind={},
         --Edition={},
-        Travel = {
+        travel = {
             c_sarc_brittle_hollow = {
                 name = 'Tattered Postcard',
                 text = {
@@ -64,9 +74,8 @@ return {
             c_sarc_deaths_door = {
                 name = 'Grey Memento',
                 text = {
-                    "Transforms {C:attention}#1#{}",
-                    "selected cards to",
-                    "cards {C:attention}in your deck{}"
+                    "Creates {C:attention}#1#{} random cards with",
+                    "your {C:attention}most popular suit{}"
                 }
             },
             c_sarc_going_under = {
@@ -92,7 +101,12 @@ return {
                     "{C:blue}Flow Cards{}"
                 }
             },
-            
+            c_sarc_isaac = {
+                name = "Kid's Drawing",
+                text = {
+                    "{C:green}+#1#{} Free Rerolls"
+                }
+            },
             c_sarc_kingdom = {
                 name = "Monarch's Funds",
                 text = {
@@ -117,6 +131,13 @@ return {
                     "with random enhancements",
                     "Increases with each ante",
                     "{C:inactive}(Max of #1#){}"
+                }
+            },
+            c_sarc_obra_dinn = {
+                name = 'Morbid Pocketwatch',
+                text = {
+                    "Creates {C:attention}#1#{} enhanced card with",
+                    "your {C:attention}most popular rank{}"
                 }
             },
             c_sarc_plort = {
@@ -146,6 +167,15 @@ return {
                     "Destroy {C:attention}#1#{} selected card," ,
                     "If it has a {C:attention}Seal{}, give it to",
                     "{C:attention}#2#{} random cards in hand"
+                }
+            },
+            c_sarc_undertale = {
+                name = "...It's Still You",
+                text = {
+                    "After {C:attention}#3#{} uses, {C:attention}-1 Ante{}",
+                    "{C:inactive}(Currently #1#/#3#){}",
+                    "{C:inactive}(Required uses increases by {C:attention}#2#{}",
+                    "{C:inactive}after triggering){}"
                 }
             },
             c_sarc_wildfrost = {
@@ -400,6 +430,20 @@ return {
                 name = 'Nat 20!',
                 text = {
                     "{C:attention}X1.5{} to all listed probabilities"
+                },
+            },
+             v_sarc_compass = {
+                name = 'Compass',
+                text = {
+                    "Create a {V:1}Cardinal Tag{} after",
+                    "defeating the {C:attention}Boss Blind{}"
+                },
+            },
+            v_sarc_journey= {
+                name = 'Journey',
+                text = {
+                    "{V:1}Travel{} cards now appear",
+                    "in the shop"
                 },
             }
         },

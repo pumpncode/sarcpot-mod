@@ -54,12 +54,18 @@ SMODS.Atlas {
     px = 71,
     py = 95
 }
+SMODS.Atlas {
+    key = 'decks',
+    px = 71,
+    py = 95,
+    path = 'decks.png'
+}
 G.SP.C.travel_1 = HEX("DEB940")
 G.SP.C.travel_2 = HEX("fab411")
 G.SP.C.navy = HEX("484a85")
 G.SP.C.light_navy = HEX("515796")
 SMODS.ConsumableType({
-    key = "Travel",
+    key = "travel",
     primary_colour = G.SP.C.travel_1,
     secondary_colour = G.SP.C.travel_2,
     loc_txt = {
@@ -70,7 +76,7 @@ SMODS.ConsumableType({
             text = {'Find this card in an unseeded', 'run to find out what it does'}
         }
     },
-    collection_rows = {4, 4, 4},
+    collection_rows = {5,4},
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
@@ -110,22 +116,36 @@ for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('sarcpot_utils/' .. v))()
 end
 
+local path = SMODS.current_mod.path .. 'decks/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('decks/' .. v))()
+end
+
+
 
 local igo = Game.init_game_object
 function Game:init_game_object()
     local ret = igo(self)
     ret.brittle_hollow_count = 0
+    ret.undertale_count = 0
+    ret.undertale_limit = 2
+  
     return ret
 end
+
+
 
 function SMODS.current_mod.reset_game_globals(run_start)
     if run_start == true then
         G.GAME.brittle_hollow_count = 0
+        G.GAME.undertale_count = 0
+        G.GAME.undertale_limit = 2
+       
     end
 end
 
 function SARC.level_up(card, hand, levels)
-    print(G.GAME.brittle_hollow_count)
+    --print(G.GAME.brittle_hollow_count)
     levels = levels or 1
     update_hand_text({
         sound = 'button',
@@ -357,4 +377,62 @@ end
         count = count + 1
     end
     return count
+end
+
+function SARC.get_popular_suit()
+    local suits = {}
+    local current_max = 0
+    local popular_suits = {}
+    local selected_suit
+    for _, v in ipairs(G.playing_cards) do
+        if not SMODS.has_no_suit(v) then
+                if suits[v.base.suit] then
+                    suits[v.base.suit] = suits[v.base.suit] + 1
+                else
+                    suits[v.base.suit] = 1
+                end
+            end
+    end
+    for _,v in pairs(suits) do
+        if v > current_max then
+            current_max = v
+        end
+    end
+    for k,v in pairs(suits) do
+        if v == current_max then
+            table.insert(popular_suits,k)
+        end
+    end
+        selected_suit = popular_suits[math.random(#popular_suits)]
+    return selected_suit
+end
+
+
+function SARC.get_popular_rank()
+    local rank = {}
+    local current_max = 0
+    local popular_ranks = {}
+    local selected_rank
+    for k, v in ipairs(G.playing_cards) do
+       -- print(v.base.value)
+        if not SMODS.has_no_rank(v) == true then
+                if rank[v.base.value] then
+                    rank[v.base.value] = rank[v.base.value] + 1
+                else
+                    rank[v.base.value] = 1
+                end
+            end
+    end
+    for _,v in pairs(rank) do
+        if v > current_max then
+            current_max = v
+        end
+    end
+    for k,v in pairs(rank) do
+        if v == current_max then
+            table.insert(popular_ranks,k)
+        end
+    end
+        selected_rank = popular_ranks[math.random(#popular_ranks)]
+    return selected_rank
 end

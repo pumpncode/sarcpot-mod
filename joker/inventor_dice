@@ -42,7 +42,7 @@ SMODS.Joker {
                 }))
                 return {message = localize('sarc_scrapped'), colour = G.C.SECONDARY_SET.Spectral}
                 else
-                    local types = {'Tarot','Planet', 'Travel'}
+                    local types = {'Tarot','Planet', 'travel'}
                     set = pseudorandom_element(types, pseudoseed('inventor_dice'))
 
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1

@@ -40,7 +40,7 @@ SMODS.DrawStep{
 
 SMODS.Consumable({
     key = 'ultrakill',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {
         x = 1,
