@@ -5,9 +5,10 @@ SMODS.Joker {
 
    
 
-    config = { extra = { odds = 2 } },
+    config = { extra = { n = 1, d = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
+      local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'double_crescent')
+        return { vars = { n, d } }
     end,
     rarity = 2,
     atlas = 'sarcpot_atlas',
@@ -33,7 +34,7 @@ SMODS.Joker {
                 end
             end
         end  
-        if pseudorandom("Double Crescent") < G.GAME.probabilities.normal / card.ability.extra.odds 
+        if SMODS.pseudorandom_probability(card, 'double_crescent', card.ability.extra.n, card.ability.extra.d, 'double_crescent')
         and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit 
         and found == true then
             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1

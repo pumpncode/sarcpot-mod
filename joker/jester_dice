@@ -5,10 +5,18 @@ SMODS.Joker {
 
 
 
-	config = { extra = { odds = 6 } },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
-	end,
+	 config = {
+        extra = {
+            n = 1,
+            d = 6
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'jester_dice')
+        return {
+            vars = {n, d}
+        }
+    end,
 	rarity = 1,
 	atlas = 'sarcpot_atlas',
 	pos = { x = 1, y = 3 },
@@ -19,7 +27,7 @@ SMODS.Joker {
 				local found = false
 		
 			if context.before and context.scoring_hand then
-				if pseudorandom('jester_dice_play') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				 if SMODS.pseudorandom_probability(card, 'jester_dice_play', card.ability.extra.n, card.ability.extra.d, 'jester_dice') then
 
 				for _, v in pairs(context.full_hand) do
 					if not SMODS.has_enhancement(v, "m_stone") then
@@ -41,7 +49,7 @@ SMODS.Joker {
 			end
 		end
 			if context.pre_discard then
-				if pseudorandom('jester_dice_discard') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			 if SMODS.pseudorandom_probability(card, 'jester_dice_discard', card.ability.extra.n, card.ability.extra.d, 'jester_dice') then
 				for _, v in pairs(context.full_hand) do
 
 					if not SMODS.has_enhancement(v, "m_stone") then

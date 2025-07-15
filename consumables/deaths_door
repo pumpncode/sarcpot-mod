@@ -19,14 +19,14 @@ SMODS.Consumable({
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return true
+        return #G.hand.highlighted == 1
     end,
     use = function(self, card, area, copier)
 
         --[[for _,v in ipairs(G.playing_cards) do
             if v:is_suit(suit)
         end]]
-        local selected_suit = SARC.get_popular_suit()
+        local selected_suit = G.hand.highlighted[1].base.suit
         G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.5,
@@ -37,12 +37,12 @@ SMODS.Consumable({
         for i = 1, self.config.amount do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
-                delay = 0.1,
+                delay = 0.2,
                 func = function()
                     SMODS.add_card({
                         play_sound('cardSlide1',(math.random(8,12)/10)),
                         set = "Playing Card",
-                        enhancement = SMODS.poll_enhancement({mod = 0.5}),
+                        enhancement = SMODS.poll_enhancement({mod = 0.6}),
                         seal = SMODS.poll_seal(),
                         suit = selected_suit
                     })

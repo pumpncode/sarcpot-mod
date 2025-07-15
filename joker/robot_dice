@@ -5,11 +5,13 @@ SMODS.Joker {
 
 
 
-	config = { extra = {previous_play = 0,current_jackpot = 21, mult = 0, mult_mod = 2, odds = 6} },
+	config = { extra = {previous_play = 0,current_jackpot = 21, mult = 0, mult_mod = 2,  n = 1, d = 6,} },
 	loc_vars = function(self, info_queue, card)
+		local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'robot_dice')
 		return { vars = {
-		G.GAME.probabilities.normal,
-		card.ability.extra.odds,
+
+		n,
+		d,
 		card.ability.extra.current_jackpot,
 		card.ability.extra.mult,
 		card.ability.extra.mult_mod,
@@ -30,7 +32,7 @@ SMODS.Joker {
 				is_jackpot = true
 			end
 			if is_jackpot then			
-				if pseudorandom('robot_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				 if SMODS.pseudorandom_probability(card, 'robot_dice', card.ability.extra.n, card.ability.extra.d, 'robot_dice') then
 					card.ability.extra.mult = card.ability.extra.mult + (card.ability.extra.mult_mod*6)
 					return{
 						message = localize('sarc_lucky6')

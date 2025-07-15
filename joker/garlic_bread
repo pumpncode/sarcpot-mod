@@ -5,12 +5,14 @@ SMODS.Joker {
 
     config = {
         extra = {
-            odds = 6
+            n = 1,
+            d = 6
         }
     },
     loc_vars = function(self, info_queue, card)
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'garlic_bread')
         return {
-            vars = {G.GAME.probabilities.normal, card.ability.extra.odds}
+            vars = {n, d}
         }
     end,
     rarity = 2,
@@ -66,7 +68,7 @@ SMODS.Joker {
         end
         if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
 
-            if pseudorandom('garlic_bread') < G.GAME.probabilities.normal / card.ability.extra.odds then
+           if SMODS.pseudorandom_probability(card, 'garlic_bread', card.ability.extra.n, card.ability.extra.d, 'garlic_bread') then
 
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',

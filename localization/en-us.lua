@@ -76,7 +76,7 @@ return {
                 name = 'Grey Memento',
                 text = {
                     "Creates {C:attention}#1#{} random cards with",
-                    "your {C:attention}most popular suit{}"
+                    "the {C:attention}selected card's{} suit"
                 }
             },
             c_sarc_going_under = {
@@ -137,8 +137,8 @@ return {
             c_sarc_obra_dinn = {
                 name = 'Morbid Pocketwatch',
                 text = {
-                    "Creates {C:attention}#1#{} enhanced card with",
-                    "your {C:attention}most popular rank{}"
+                    "Creates {C:attention}#1#{} random {C:attention}enhanced{} card",
+                    " with the {C:attention}selected card's{} suit"
                 }
             },
             c_sarc_plort = {
@@ -404,10 +404,9 @@ return {
                 name = 'Witch Dice',
                 text = {
                     "{C:green}#1# in #2#{} chance to add",
-                    "the {C:chips}Chips{} value of",
-                    "discarded and played cards",
-                    "to this joker",
-                    "{C:inactive}(Currently {C:chips}#3#{} {C:inactive}Chips){}"
+                    "{C:chips}#3#{} Chips when playing or",
+                    "discarding a card",
+                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips){}"
                 }
             },
         },

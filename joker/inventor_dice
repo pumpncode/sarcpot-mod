@@ -3,9 +3,18 @@ SMODS.Joker {
 
     key = 'inventor_dice',
 
-    config = { extra = { odds = 6 } },
+    config = {
+        extra = {
+            n = 1,
+            d = 6
+        }
+    },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds, colours = {G.SP.C.travel_2}}}
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'inventor_dice')
+        return {
+            vars = {n, d ,colours = {G.SP.C.travel_2}}
+            
+        }
     end,
     rarity = 2,
     atlas = 'sarcpot_atlas',
@@ -23,7 +32,7 @@ SMODS.Joker {
 
             if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 local set = ''
-                if pseudorandom('inventor_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                if SMODS.pseudorandom_probability(card, 'inventor_dice', card.ability.extra.n, card.ability.extra.d, 'inventor_dice') then
                     set = 'Spectral'
 
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1

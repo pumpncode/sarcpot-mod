@@ -19,11 +19,11 @@ SMODS.Consumable({
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return true
+        return #G.hand.highlighted == 1
     end,
     use = function(self, card, area, copier)
 
-        local selected_rank = SARC.get_popular_rank()
+        local selected_rank = G.hand.highlighted[1].base.value
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.5,
