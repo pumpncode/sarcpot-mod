@@ -8,21 +8,20 @@ SMODS.Consumable({
     },
     discovered = false,
     config = {
-        amount = 1
+        max_highlighted = 3
     },
     loc_vars = function(self, info_queue)
         return {
-            vars = {self.config.amount}
+            vars = {self.config.max_highlighted}
         }
     end,
     cost = 3,
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return #G.hand.highlighted == 1
+          return #G.hand.highlighted > 1 and #G.hand.highlighted <= self.config.max_highlighted
     end,
     use = function(self, card, area, copier)
-
         local selected_rank = G.hand.highlighted[1].base.value
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
@@ -31,23 +30,25 @@ SMODS.Consumable({
                 return true
             end
         }))
-        for i = 1, self.config.amount do
+        for i = 2, #G.hand.highlighted do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
-                delay = 0.1,
+                delay = 0.2,
                 func = function()
-                    SMODS.add_card({
-                        play_sound('cardSlide1', (math.random(8, 12) / 10)),
-                        set = "Playing Card",
-                        enhancement = SMODS.poll_enhancement({
-                            guaranteed = true
-                        }),
-                        seal = SMODS.poll_seal(),
-                        rank = selected_rank
-                    })
+                    play_sound('tarot1', (math.random(8, 12) / 10))
+                    G.hand.highlighted[i]:juice_up()
+                    SMODS.change_base(G.hand.highlighted[i], nil, selected_rank)
                     return true
                 end
             }))
         end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                SMODS.destroy_cards(G.hand.highlighted[1])
+                return true
+            end
+        }))
     end
 })

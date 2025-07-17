@@ -86,10 +86,12 @@ for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('joker/' .. v))()
 end
 
+
 local path = SMODS.current_mod.path .. 'vouchers/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('vouchers/' .. v))()
 end
+
 
 local path = SMODS.current_mod.path .. 'consumables/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do

@@ -8,18 +8,18 @@ SMODS.Consumable({
     },
     discovered = false,
     config = {
-        amount = 2
+        max_highlighted = 3
     },
     loc_vars = function(self, info_queue)
         return {
-            vars = {self.config.amount}
+            vars = {self.config.max_highlighted}
         }
     end,
     cost = 3,
     calculate = function(self, card, context)
     end,
     can_use = function(self, card)
-        return #G.hand.highlighted == 1
+        return #G.hand.highlighted > 1 and #G.hand.highlighted <= self.config.max_highlighted
     end,
     use = function(self, card, area, copier)
 
@@ -34,22 +34,26 @@ SMODS.Consumable({
                     return true
                 end
             }))
-        for i = 1, self.config.amount do
+        for i = 2, #G.hand.highlighted do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
                 func = function()
-                    SMODS.add_card({
-                        play_sound('cardSlide1',(math.random(8,12)/10)),
-                        set = "Playing Card",
-                        enhancement = SMODS.poll_enhancement({mod = 0.6}),
-                        seal = SMODS.poll_seal(),
-                        suit = selected_suit
-                    })
+                    play_sound('tarot1',(math.random(8,12)/10))
+                    G.hand.highlighted[i]:juice_up()
+                    SMODS.change_base(G.hand.highlighted[i], selected_suit,nil)
                     return true
                 end
             }))
         end
+        G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                       SMODS.destroy_cards( G.hand.highlighted[1])
+                    return true
+                end
+            }))
 
         --[[for i = 1, #G.hand.highlighted do
             local random_index = math.random(1, #filtered_playing_cards)

@@ -75,8 +75,10 @@ return {
             c_sarc_deaths_door = {
                 name = 'Grey Memento',
                 text = {
-                    "Creates {C:attention}#1#{} random cards with",
-                    "the {C:attention}selected card's{} suit"
+                    "Select up to {C:attention}#1#{} cards",
+                    "Destroy the leftmost",
+                    "to convert the others into",
+                    "the selected card's {C:attention}suit{}",
                 }
             },
             c_sarc_going_under = {
@@ -137,8 +139,10 @@ return {
             c_sarc_obra_dinn = {
                 name = 'Morbid Pocketwatch',
                 text = {
-                    "Creates {C:attention}#1#{} random {C:attention}enhanced{} card",
-                    " with the {C:attention}selected card's{} suit"
+                    "Select up to {C:attention}#1#{} cards",
+                    "Destroy the leftmost",
+                    "to convert the others into",
+                    "the selected card's {C:attention}rank{}",
                 }
             },
             c_sarc_plort = {
@@ -256,8 +260,8 @@ return {
             j_sarc_crash_message = {
                 name = 'Crash Message',
                 text = {
-                    "Gives #1# Mult equal to the number of",
-                    "{C:attention}Rankless{} cards in your deck",
+                    "Gives {C:mult}+#1#{} Mult for each",
+                    "{C:attention}Rankless{} card in your deck",
                     "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
