@@ -187,8 +187,8 @@ return {
                 name = 'Frozen Diary',
                 text = {
                     "Enhances {C:attention}#1#{}",
-                    "selected cards to",
-                    "{C:blue}Luminice Cards{}"
+                    "selected card to a",
+                    "{C:blue}Luminice Card{}"
                 }
             },
             
