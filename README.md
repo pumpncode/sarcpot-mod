@@ -3,7 +3,7 @@
 
 Sarcpot is a mod where i'm adding anything i want really. Will release it once i have a larger number of implemented content.
 
-For now there are **21** implemented jokers,**1** tag, **2** vouchers, **11(ish)** of a brand new consumable type with **4** unique enhancements! I plan on making more content based on some of my niche interests and hyperfixations soon!
+For now there are **23** implemented jokers,**1** tag, **4** vouchers, **17** of a brand new consumable type with **4** unique enhancements as well as **1** deck to help you get them! I plan on making more content based on some of my niche interests and hyperfixations soon!
 
 (am amateur coder and artist, very tiny and dumb, please be nice to me somewhat(plz)) 
 
