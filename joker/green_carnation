@@ -23,8 +23,11 @@ SMODS.Joker {
         return false
 	end,
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play and not context.blueprint and context.other_card:get_id() == 13 then
-            card.ability.extra.prior_triggers = card.ability.extra.prior_triggers+1
+		if context.individual and context.cardarea == G.play and context.other_card:get_id() == 13 then
+			if not context.blueprint then
+				   card.ability.extra.prior_triggers = card.ability.extra.prior_triggers+1
+			end
+           
 				if card.ability.extra.prior_triggers>0 then
 					return {
 						chips = card.ability.extra.chips * card.ability.extra.prior_triggers,
