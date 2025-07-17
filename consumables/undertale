@@ -45,6 +45,15 @@ SMODS.Consumable({
               G.GAME.undertale_limit = G.GAME.undertale_limit + self.config.count_mod
         else
 
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                blocking = true,
+                function ()
+                    card:juice_up()
+                    play_sound('tarot1')
+                end
+                    }))
             G.GAME.undertale_count = G.GAME.undertale_count + 1
 
           
