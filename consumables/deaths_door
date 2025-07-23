@@ -23,10 +23,9 @@ SMODS.Consumable({
     end,
     use = function(self, card, area, copier)
 
-        --[[for _,v in ipairs(G.playing_cards) do
-            if v:is_suit(suit)
-        end]]
-        local selected_suit = G.hand.highlighted[1].base.suit
+        local leftmost = G.hand.highlighted[1]
+        for i=1, #G.hand.highlighted do if G.hand.highlighted[i].T.x < leftmost.T.x then leftmost = G.hand.highlighted[i] end end
+        local selected_suit = leftmost.base.suit
         G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.5,
@@ -34,8 +33,10 @@ SMODS.Consumable({
                     return true
                 end
             }))
-        for i = 2, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({
+        
+        for i = 1, #G.hand.highlighted do
+            if not G.hand.highlighted[i] ~= leftmost then
+                 G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
                 func = function()
@@ -45,12 +46,13 @@ SMODS.Consumable({
                     return true
                 end
             }))
+            end
         end
         G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.4,
                 func = function()
-                       SMODS.destroy_cards( G.hand.highlighted[1])
+                       SMODS.destroy_cards(leftmost)
                     return true
                 end
             }))
@@ -63,7 +65,7 @@ SMODS.Consumable({
                 trigger = 'after',
                 delay = 0.1,
                 func = function()
-                    if G.hand.highlighted[i] ~= rightmost then
+                    if G.hand.highlighted[i] ~= leftmost then
                         copy_card(random_card, G.hand.highlighted[i])
                     end
                     return true

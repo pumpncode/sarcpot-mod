@@ -62,8 +62,8 @@ SMODS.Atlas {
 }
 G.SP.C.travel_1 = HEX("DEB940")
 G.SP.C.travel_2 = HEX("fab411")
-G.SP.C.navy = HEX("484a85")
-G.SP.C.light_navy = HEX("515796")
+G.SP.C.navy = HEX("50638f")
+G.SP.C.light_navy = HEX("5f70a3")
 SMODS.ConsumableType({
     key = "travel",
     primary_colour = G.SP.C.travel_1,

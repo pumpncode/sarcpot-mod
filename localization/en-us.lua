@@ -22,7 +22,15 @@ return {
             sarc_rare = 'Rare',
             sarc_2_random_hands = "2 Random Hands",
             sarc_plus_rerolls = '+3 Rerolls',
-            sarc_minus_ante = "-1 Ante"
+            sarc_minus_ante = "-1 Ante",
+            sarc_active = "Active",
+            sarc_inactive = "Inactive",
+            sarc_disabled = "Disabled!",
+
+            
+        },
+        v_dictionary = {
+            sarc_progress = '#1#/#2#'
         }
     },
     descriptions = {
@@ -204,7 +212,8 @@ return {
             m_sarc_luminice= {
                 name = 'Luminice Card',
                 text = {
-                    "Always scores, no rank or suit",
+                    "Always scores,",
+                    "no rank or suit",
                     "Gives {C:mult}+#1#{} Mult and",
                     "{C:chips}+#2#{} Chips to scored cards"
                 }
@@ -231,10 +240,16 @@ return {
                 name = 'Garlic Bread',
                 text = {
                     "If first hand of round",
-                    "is {C:attention}High Card{}, convert",
-                    "scored cards to {C:attention}Aces{}",
-                    "{C:green}#1# in #2#{} chance this card is",
-                    "consumed at end of round",
+                    "is a {C:attention}single card{}",
+                    "convert it into an Ace"
+                }
+            },
+             j_sarc_aksnes = {
+                name = 'Aksnes',
+                text = {
+                    "{C:attention}Retrigger{} the first",
+                    "{C:clubs}Club{}, {C:hearts}Heart{} and {C:spades}Spade{}",
+                    "card in scored hand",
                 }
             },
             j_sarc_artemis = {
@@ -375,6 +390,14 @@ return {
                     "if it doesn't have an edition",
                 }
             },
+            j_sarc_sunflower = {
+                name = "Sunflower",
+                text = {
+                    "After skipping a blind",
+                    "{C:attention}disable{} the {C:attention}Boss Blind{}",
+                    "{C:inactive}(#1#){}"
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Thief Dice',
                 text = {
@@ -388,10 +411,14 @@ return {
             j_sarc_warrior_dice = {
                 name = 'Warrior Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain ",
-                    "a {C:green}reroll{} when {C:attention}discarding{}",
-                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
-                    "discard{} when {C:green}rerolling{}",
+                    {
+                        "{C:green}#1# in #2#{} chance to gain ",
+                        "a {C:green}reroll{} when {C:attention}discarding{}",
+                    },
+                    {
+                        "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
+                        "discard{} when {C:green}rerolling{}", 
+                    }
                     
                 }
             },
@@ -402,6 +429,22 @@ return {
                     "Consumed after",
                     "{C:attention}#2#{} round(s)"
                     
+                }
+            },
+            j_sarc_welch = {
+                name = 'Welch',
+                
+                text = {
+                    {
+                    "Unenhanced cards give {C:mult}+#1#{} Mult",
+                    "for every {C:attention}enhanced card in{}",
+                    "scored hand"
+                    },
+                    {
+                    "Enhanced cards give {C:mult}+#1#{} Mult",
+                    "for every {C:attention}unenhanced card in{}",
+                    "scored hand"
+                    }
                 }
             },
             j_sarc_witch_dice = {
@@ -419,7 +462,7 @@ return {
                 name = "Cardinal Tag",
                 text = {
                     "Gives a free",
-                    "Mega Travel Pack"
+                    "{V:1}Mega Travel Pack{}"
                 }
             }
         },

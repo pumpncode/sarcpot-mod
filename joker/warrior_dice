@@ -25,7 +25,8 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.pre_discard then
 			if SMODS.pseudorandom_probability(card, 'warrior_dice_reroll', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
-				G.GAME.free_rerolls = G.GAME.current_round.free_rerolls + 1
+				--G.GAME.free_rerolls = G.GAME.current_round.free_rerolls + 1
+				SMODS.change_free_rerolls(1)
 				calculate_reroll_cost(true)
 				return {
 					message = localize('sarc_combat_roll_ex'),
