@@ -261,6 +261,22 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 }
             },
+            j_sarc_beauty_of_the_sea = {
+                name = 'Beauty of the Sea',
+                text = {
+                    "{C:red}-#1# Discard{} on selecting blind,",
+                    "This Joker gains {C:mult}+#2#{} Mult",
+                    "every round",
+                    "{C:inactive}(Currently {C:mult}+#3#{} {C:inactive}Mult){}"
+                }
+            },
+            j_sarc_council_of_shadows = {
+                name = 'Council of Shadows',
+                text = {
+                    "{C:attention}-#1# Handsize{}",
+                    "{C:attention}Triple{} your {C:money}interest{}",
+                }
+            },
             j_sarc_cracked_egg = {
                 name = 'Cracked Egg',
                 text = {
@@ -277,7 +293,7 @@ return {
                 text = {
                     "Gives {C:mult}+#1#{} Mult for each",
                     "{C:attention}Rankless{} card in your deck",
-                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                    "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
             j_sarc_diversity = {
@@ -285,7 +301,7 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult per suit with",
                     "{C:attention}#2#{} cards or more in your deck",
-                    "{C:inactive}Currently {C:mult}+#3#{} {C:inactive}Mult){}",
+                    "{C:inactive}(Currently {C:mult}+#3#{} {C:inactive}Mult){}",
                 }
             },
             j_sarc_double_crescent = {
@@ -302,6 +318,14 @@ return {
                     "Scored Kings", 
                     "give {C:chips}+#1#{} Chips for every",
                     "previously scored King"
+                }
+            },
+            j_sarc_halbschwert = {
+                name = "Halbschwert",
+                text = {
+                    "This Joker gives {X:mult,C:white}X#1#{} Mult",
+                    "after you use {C:attention}10{} {C:planet}Planet{} cards",
+                    "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#3#{}"
                 }
             },
             j_sarc_inventor_dice = {
@@ -329,6 +353,15 @@ return {
                     "previously scored Queen"
                 }
             },
+            j_sarc_lil_guy = {
+                name = "Lil' Guy",
+                text = {
+                    "{C:blue}-#1# Hand{} on selecting blind,",
+                    "This Joker gains {C:chips}+#2#{} Chips",
+                    "every round",
+                    "{C:inactive}(Currently {C:chips}+#3#{} {C:inactive}Chips){}"
+                }
+            },
             j_sarc_none_of_the_above = {
                 name = 'None of the Above',
                 text = {
@@ -353,6 +386,16 @@ return {
                     "After playing the next {C:attention}#2#{} hands,",
                     "convert all cards played to {C:attention}Wild Cards{}",
                     "{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
+                }
+            },
+            j_sarc_phase_shift = {
+                name = 'Phase Shift',
+                text = {
+                    "Played {V:1}#1#{} and {V:2}#2#",
+                    "Balance {C:attention}#3#%{} of {C:mult}Mult{} and {C:chips}Chips{}",
+                    "when {C:attention}scored{}",
+                  
+                
                 }
             },
             j_sarc_robot_dice = {
@@ -398,14 +441,30 @@ return {
                     "{C:inactive}(#1#){}"
                 }
             },
+            j_sarc_terrarrium = {
+                name = 'Terrarrium',
+                text = {
+                    {
+                        "{C:attention}+#3#{} consumable slot"
+                    },
+                    {
+                    "{X:mult,C:white}X#1#{} Mult for each",
+                    "{C:attention}unique{} consumable",
+                    "you have",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult){}"
+                    }
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Thief Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain a",
-                    "{C:dark_edition}negative perishable common{} Joker",
-                    "or a random {C:attention}consumable{}",
-                    "when exiting the shop",
-                    "{C:inactive}(Multiple effects may trigger)"
+                    
+                        "{C:green}#1# in #2#{} chance to gain a",
+                        "{C:dark_edition}negative perishable common{} Joker",
+                        "or a random {C:attention}consumable{}",
+                        "when exiting the shop",
+                        "{C:inactive}(Multiple effects may trigger)"
+                    
                 }
             },
             j_sarc_warrior_dice = {
@@ -518,6 +577,14 @@ return {
               
             },
         },
+         p_sarc_travel_jumbo= {
+                name = "Jumbo Travel Pack",
+                text = {
+                  "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                  "{C:G.SP.C.travel_1}Travel{} cards to use",
+                  
+                }
+              },
             p_sarc_travel_mega= {
                 name = "Mega Travel Pack",
                 text = {
