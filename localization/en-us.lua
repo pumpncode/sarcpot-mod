@@ -27,6 +27,12 @@ return {
             sarc_inactive = "Inactive",
             sarc_disabled = "Disabled!",
 
+            sarc_requires_restart = "Restart the game to apply changes",
+            sarc_enable_vouchers = "Enable Vouchers",
+            sarc_enable_jokers = "Enable Jokers",
+            sarc_enable_consumables = "Enable Consumables",
+            sarc_enable_decks = "Enable Decks"
+
             
         },
         v_dictionary = {
@@ -328,12 +334,21 @@ return {
                     "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#3#{}"
                 }
             },
-            j_sarc_inventor_dice = {
+            j_sarc_inventor_dice_travel = {
                 name = 'Inventor Dice',
                 text = {
                     "Destroy a consumable when",
                     "exiting the shop to create a",
                     "{C:tarot}Tarot{}, {C:planet}Planet{} or {V:1}Travel{} Card",
+                    "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
+                }
+            },
+            j_sarc_inventor_dice_no_travel = {
+                name = 'Inventor Dice',
+                text = {
+                    "Destroy a consumable when",
+                    "exiting the shop to create a",
+                    "{C:tarot}Tarot{} or {C:planet}Planet{} card",
                     "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
                 }
             },

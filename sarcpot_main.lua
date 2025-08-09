@@ -1,5 +1,5 @@
 SARC = {}
-
+SARC.config = SMODS.current_mod.config
 --[[SMODS.current_mod.optional_features = {
     cardareas = {
         discard = true,
@@ -11,6 +11,61 @@ G.SP = {}
 G.SP.C = {}
 G.SP.FUNCS = {}
 local sarcpot = SMODS.current_mod.path
+
+SMODS.current_mod.config_tab = function()
+    return {
+        n = G.UIT.ROOT,
+        config = {
+            align = 'cm',
+            padding = 0.05,
+            emboss = 0.05,
+            r = 0.1,
+            colour = G.C.BLACK
+        },
+        nodes = {{
+            n = G.UIT.R,
+            config = {
+                align = 'cm',
+                minh = 1
+            },
+            nodes = {{
+                n = G.UIT.T,
+                config = {
+                    text = localize('sarc_requires_restart'),
+                    colour = G.C.RED,
+                    scale = 0.5,
+                    padding = 0.2
+                }
+            }}
+        }, {
+            n = G.UIT.R,
+            config = {
+                align = 'cm'
+            },
+            nodes = {{
+                n = G.UIT.C,
+                nodes = {create_toggle {
+                    label = localize('sarc_enable_jokers'),
+                    ref_table = SARC.config,
+                    ref_value = 'jokers_enabled'
+                }, create_toggle {
+                    label = localize('sarc_enable_consumables'),
+                    ref_table = SARC.config,
+                    ref_value = 'consumables_enabled'
+                }, create_toggle {
+                    label = localize('sarc_enable_vouchers'),
+                    ref_table = SARC.config,
+                    ref_value = 'vouchers_enabled'
+                }, create_toggle {
+                    label = localize('sarc_enable_decks'),
+                    ref_table = SARC.config,
+                    ref_value = 'decks_enabled'
+                }}
+            }}
+        }}
+    }
+end
+
 SMODS.Atlas {
     key = 'modicon',
     px = 32,
@@ -80,45 +135,50 @@ SMODS.ConsumableType({
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
+if SARC.config.jokers_enabled == true then
+    local path = SMODS.current_mod.path .. 'joker/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('joker/' .. v))()
+    end
 
-local path = SMODS.current_mod.path .. 'joker/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('joker/' .. v))()
+end
+if SARC.config.vouchers_enabled == true then
+    local path = SMODS.current_mod.path .. 'vouchers/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('vouchers/' .. v))()
+    end
 end
 
-local path = SMODS.current_mod.path .. 'vouchers/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('vouchers/' .. v))()
-end
-
-local path = SMODS.current_mod.path .. 'consumables/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('consumables/' .. v))()
-end
-
-local path = SMODS.current_mod.path .. 'tags/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('tags/' .. v))()
-end
-
-local path = SMODS.current_mod.path .. 'enhancements/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('enhancements/' .. v))()
-end
-
-local path = SMODS.current_mod.path .. 'boosters/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('boosters/' .. v))()
+if SARC.config.consumables_enabled == true then
+    local path = SMODS.current_mod.path .. 'consumables/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('consumables/' .. v))()
+    end
+    local path = SMODS.current_mod.path .. 'boosters/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('boosters/' .. v))()
+    end
+    local path = SMODS.current_mod.path .. 'enhancements/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('enhancements/' .. v))()
+    end
+    local path = SMODS.current_mod.path .. 'tags/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('tags/' .. v))()
+    end
 end
 
 local path = SMODS.current_mod.path .. 'sarcpot_utils/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('sarcpot_utils/' .. v))()
 end
-
-local path = SMODS.current_mod.path .. 'decks/'
-for _, v in pairs(NFS.getDirectoryItems(path)) do
-    assert(SMODS.load_file('decks/' .. v))()
+if SARC.config.decks_enabled == true then
+    if SARC.config.consumables_enabled == true then
+        local path = SMODS.current_mod.path .. 'decks/'
+        for _, v in pairs(NFS.getDirectoryItems(path)) do
+            assert(SMODS.load_file('decks/' .. v))()
+        end
+    end
 end
 
 local igo = Game.init_game_object
