@@ -1,7 +1,6 @@
 SMODS.Voucher({
     key = "advantage",
     atlas = "vouchers",
-
     config = {
         extra = {}
     },
@@ -13,13 +12,12 @@ SMODS.Voucher({
     unlocked = true,
     discovered = false,
     available = true,
-    
- 
-	calculate = function(self, card, context)
+
+    calculate = function(self, card, context)
         if context.mod_probability then
             return {
                 numerator = context.numerator * 2
             }
         end
-    end,
+    end
 })

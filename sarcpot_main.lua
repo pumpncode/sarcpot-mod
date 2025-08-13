@@ -144,9 +144,11 @@ if SARC.config.jokers_enabled == true then
 end
 if SARC.config.vouchers_enabled == true then
     local path = SMODS.current_mod.path .. 'vouchers/'
-    for _, v in pairs(NFS.getDirectoryItems(path)) do
-        assert(SMODS.load_file('vouchers/' .. v))()
-    end
+    assert(SMODS.load_file('vouchers/advantage'))()
+    assert(SMODS.load_file('vouchers/nat_20'))()
+    assert(SMODS.load_file('vouchers/compass'))()
+    assert(SMODS.load_file('vouchers/journey'))()
+
 end
 
 if SARC.config.consumables_enabled == true then
