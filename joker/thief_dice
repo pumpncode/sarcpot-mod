@@ -5,11 +5,18 @@ SMODS.Joker {
 
 
 
-	config = { extra = { odds = 6 } },
-	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue+1] = G.P_CENTERS.e_negative
-		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
-	end,
+	config = {
+        extra = {
+            n = 1,
+            d = 6
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'thief_dice')
+        return {
+            vars = {n, d}
+        }
+    end,
 	rarity = 2,
 	atlas = 'sarcpot_atlas',
 	pos = { x = 1, y = 2 },
@@ -18,13 +25,13 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		local trigger = nil
 		if context.ending_shop and context.cardarea == G.jokers then
-			if pseudorandom('thief_dice_consumable') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			if SMODS.pseudorandom_probability(card, 'thief_dice_consumable', card.ability.extra.n, card.ability.extra.d, 'thief_dice') then
 				local consumable = poll_consumable('thief_dice')
 				consumable:add_to_deck()
 				G.consumeables:emplace(consumable)
 				trigger = localize('sarc_yoink')
 			end
-			if pseudorandom('thief_dice_joker') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			if SMODS.pseudorandom_probability(card, 'thief_dice_joker', card.ability.extra.n, card.ability.extra.d, 'thief_dice') then
 				SMODS.add_card({ area = G.jokers, set = 'Joker', rarity = 0, edition = 'e_negative', stickers = { 'perishable' } })
 				trigger = localize('sarc_stolen')
 			end

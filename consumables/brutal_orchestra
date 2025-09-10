@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'brutal_orchestra',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {
         x = 0,

@@ -6,6 +6,11 @@ SMODS.Tag({
     config = { type = "new_blind_choice" },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.p_sarc_travel_mega
+		return {
+            vars = {
+                colours = {G.SP.C.travel_2}
+            }
+        }
 		
     end,
     apply = function(self, tag, context)

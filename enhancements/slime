@@ -14,7 +14,7 @@ SMODS.Enhancement({
                 delay = 0.1,
                 func = function()
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local consumable = create_card('Travel', G.consumeables, nil, nil, true, nil, 'c_sarc_plort')
+                        local consumable = create_card('travel', G.consumeables, nil, nil, true, nil, 'c_sarc_plort')
                         consumable:add_to_deck()
                         G.consumeables:emplace(consumable)
                         G.GAME.consumeable_buffer = 0

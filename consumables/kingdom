@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'kingdom',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = { x = 2, y = 2},
     discovered = false,

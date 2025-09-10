@@ -20,14 +20,39 @@ return {
             sarc_common = 'Common',
             sarc_uncommon = 'Uncommon',
             sarc_rare = 'Rare',
-            sarc_2_random_hands = "2 Random Hands"
+            sarc_2_random_hands = "2 Random Hands",
+            sarc_plus_rerolls = '+3 Rerolls',
+            sarc_minus_ante = "-1 Ante",
+            sarc_active = "Active",
+            sarc_inactive = "Inactive",
+            sarc_disabled = "Disabled!",
+
+            sarc_requires_restart = "Restart the game to apply changes",
+            sarc_enable_vouchers = "Enable Vouchers",
+            sarc_enable_jokers = "Enable Jokers",
+            sarc_enable_consumables = "Enable Consumables",
+            sarc_enable_decks = "Enable Decks"
+
+            
+        },
+        v_dictionary = {
+            sarc_progress = '#1#/#2#'
         }
     },
     descriptions = {
-        --Back={},
+    Back = {
+        b_sarc_travelling = {
+        name = "Travelling Deck",
+        text = {
+          "Start run with the",
+          "{C:attention,T:v_sarc_compass}#1#{} Voucher",
+          "{C:attention}+#2#{} consumable slot",
+        }
+      },
+    },
         --Blind={},
         --Edition={},
-        Travel = {
+        travel = {
             c_sarc_brittle_hollow = {
                 name = 'Tattered Postcard',
                 text = {
@@ -64,9 +89,10 @@ return {
             c_sarc_deaths_door = {
                 name = 'Grey Memento',
                 text = {
-                    "Transforms {C:attention}#1#{}",
-                    "selected cards to",
-                    "cards {C:attention}in your deck{}"
+                    "Select up to {C:attention}#1#{} cards",
+                    "Destroy the leftmost",
+                    "to convert the others into",
+                    "the selected card's {C:attention}suit{}",
                 }
             },
             c_sarc_going_under = {
@@ -92,7 +118,12 @@ return {
                     "{C:blue}Flow Cards{}"
                 }
             },
-            
+            c_sarc_isaac = {
+                name = "Kid's Drawing",
+                text = {
+                    "{C:green}+#1#{} Free Rerolls"
+                }
+            },
             c_sarc_kingdom = {
                 name = "Monarch's Funds",
                 text = {
@@ -117,6 +148,15 @@ return {
                     "with random enhancements",
                     "Increases with each ante",
                     "{C:inactive}(Max of #1#){}"
+                }
+            },
+            c_sarc_obra_dinn = {
+                name = 'Morbid Pocketwatch',
+                text = {
+                    "Select up to {C:attention}#1#{} cards",
+                    "Destroy the leftmost",
+                    "to convert the others into",
+                    "the selected card's {C:attention}rank{}",
                 }
             },
             c_sarc_plort = {
@@ -148,12 +188,21 @@ return {
                     "{C:attention}#2#{} random cards in hand"
                 }
             },
+            c_sarc_undertale = {
+                name = "...It's Still You",
+                text = {
+                    "After {C:attention}#3#{} uses, {C:attention}-1 Ante{}",
+                    "{C:inactive}(Currently #1#/#3#){}",
+                    "{C:inactive}(Required uses increases by {C:attention}#2#{}",
+                    "{C:inactive}after triggering){}"
+                }
+            },
             c_sarc_wildfrost = {
                 name = 'Frozen Diary',
                 text = {
                     "Enhances {C:attention}#1#{}",
-                    "selected cards to",
-                    "{C:blue}Luminice Cards{}"
+                    "selected card to a",
+                    "{C:blue}Luminice Card{}"
                 }
             },
             
@@ -169,7 +218,8 @@ return {
             m_sarc_luminice= {
                 name = 'Luminice Card',
                 text = {
-                    "Always scores, no rank or suit",
+                    "Always scores,",
+                    "no rank or suit",
                     "Gives {C:mult}+#1#{} Mult and",
                     "{C:chips}+#2#{} Chips to scored cards"
                 }
@@ -196,10 +246,16 @@ return {
                 name = 'Garlic Bread',
                 text = {
                     "If first hand of round",
-                    "is {C:attention}High Card{}, convert",
-                    "scored cards to {C:attention}Aces{}",
-                    "{C:green}#1# in #2#{} chance this card is",
-                    "consumed at end of round",
+                    "is a {C:attention}single card{}",
+                    "convert it into an Ace"
+                }
+            },
+             j_sarc_aksnes = {
+                name = 'Aksnes',
+                text = {
+                    "{C:attention}Retrigger{} the first",
+                    "{C:clubs}Club{}, {C:hearts}Heart{} and {C:spades}Spade{}",
+                    "card in scored hand",
                 }
             },
             j_sarc_artemis = {
@@ -209,6 +265,22 @@ return {
                     "Gives {X:mult,C:white}X#1#{} Mult",
                     "per card debuffed",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                }
+            },
+            j_sarc_beauty_of_the_sea = {
+                name = 'Beauty of the Sea',
+                text = {
+                    "{C:red}-#1# Discard{} on selecting blind,",
+                    "This Joker gains {C:mult}+#2#{} Mult",
+                    "every round",
+                    "{C:inactive}(Currently {C:mult}+#3#{} {C:inactive}Mult){}"
+                }
+            },
+            j_sarc_council_of_shadows = {
+                name = 'Council of Shadows',
+                text = {
+                    "{C:attention}-#1# Handsize{}",
+                    "{C:attention}Triple{} your {C:money}interest{}",
                 }
             },
             j_sarc_cracked_egg = {
@@ -225,9 +297,9 @@ return {
             j_sarc_crash_message = {
                 name = 'Crash Message',
                 text = {
-                    "Gives #1# Mult equal to the number of",
-                    "{C:attention}Rankless{} cards in your deck",
-                    "{C:inactive}Currently {C:mult}+#2#{} {C:inactive}Mult){}"
+                    "Gives {C:mult}+#1#{} Mult for each",
+                    "{C:attention}Rankless{} card in your deck",
+                    "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult){}"
                 }
             },
             j_sarc_diversity = {
@@ -235,7 +307,7 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult per suit with",
                     "{C:attention}#2#{} cards or more in your deck",
-                    "{C:inactive}Currently {C:mult}+#3#{} {C:inactive}Mult){}",
+                    "{C:inactive}(Currently {C:mult}+#3#{} {C:inactive}Mult){}",
                 }
             },
             j_sarc_double_crescent = {
@@ -254,12 +326,29 @@ return {
                     "previously scored King"
                 }
             },
-            j_sarc_inventor_dice = {
+            j_sarc_halbschwert = {
+                name = "Halbschwert",
+                text = {
+                    "This Joker gives {X:mult,C:white}X#1#{} Mult",
+                    "after you use {C:attention}10{} {C:planet}Planet{} cards",
+                    "{C:inactive}(Currently {C:attention}#2#{C:inactive}/#3#{}"
+                }
+            },
+            j_sarc_inventor_dice_travel = {
                 name = 'Inventor Dice',
                 text = {
                     "Destroy a consumable when",
                     "exiting the shop to create a",
                     "{C:tarot}Tarot{}, {C:planet}Planet{} or {V:1}Travel{} Card",
+                    "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
+                }
+            },
+            j_sarc_inventor_dice_no_travel = {
+                name = 'Inventor Dice',
+                text = {
+                    "Destroy a consumable when",
+                    "exiting the shop to create a",
+                    "{C:tarot}Tarot{} or {C:planet}Planet{} card",
                     "{C:green}#1# in #2#{} to gain a {C:spectral}Spectral{} Card instead",
                 }
             },
@@ -277,6 +366,15 @@ return {
                     "Scored Queens",
                     "give {C:mult}+#1#{} Mult for every",
                     "previously scored Queen"
+                }
+            },
+            j_sarc_lil_guy = {
+                name = "Lil' Guy",
+                text = {
+                    "{C:blue}-#1# Hand{} on selecting blind,",
+                    "This Joker gains {C:chips}+#2#{} Chips",
+                    "every round",
+                    "{C:inactive}(Currently {C:chips}+#3#{} {C:inactive}Chips){}"
                 }
             },
             j_sarc_none_of_the_above = {
@@ -303,6 +401,16 @@ return {
                     "After playing the next {C:attention}#2#{} hands,",
                     "convert all cards played to {C:attention}Wild Cards{}",
                     "{C:inactive}(Currently {C:attention}#1#{C:inactive}/#2#)"
+                }
+            },
+            j_sarc_phase_shift = {
+                name = 'Phase Shift',
+                text = {
+                    "Played {V:1}#1#{} and {V:2}#2#",
+                    "Balance {C:attention}#3#%{} of {C:mult}Mult{} and {C:chips}Chips{}",
+                    "when {C:attention}scored{}",
+                  
+                
                 }
             },
             j_sarc_robot_dice = {
@@ -340,23 +448,51 @@ return {
                     "if it doesn't have an edition",
                 }
             },
+            j_sarc_sunflower = {
+                name = "Sunflower",
+                text = {
+                    "After skipping a blind",
+                    "{C:attention}disable{} the {C:attention}Boss Blind{}",
+                    "{C:inactive}(#1#){}"
+                }
+            },
+            j_sarc_terrarrium = {
+                name = 'Terrarrium',
+                text = {
+                    {
+                        "{C:attention}+#3#{} consumable slot"
+                    },
+                    {
+                    "{X:mult,C:white}X#1#{} Mult for each",
+                    "{C:attention}unique{} consumable",
+                    "you have",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult){}"
+                    }
+                }
+            },
             j_sarc_thief_dice = {
                 name = 'Thief Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain a",
-                    "{C:dark_edition}negative perishable common{} Joker",
-                    "or a random {C:attention}consumable{}",
-                    "when exiting the shop",
-                    "{C:inactive}(Multiple effects may trigger)"
+                    
+                        "{C:green}#1# in #2#{} chance to gain a",
+                        "{C:dark_edition}negative perishable common{} Joker",
+                        "or a random {C:attention}consumable{}",
+                        "when exiting the shop",
+                        "{C:inactive}(Multiple effects may trigger)"
+                    
                 }
             },
             j_sarc_warrior_dice = {
                 name = 'Warrior Dice',
                 text = {
-                    "{C:green}#1# in #2#{} chance to gain ",
-                    "a {C:green}reroll{} when {C:attention}discarding{}",
-                    "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
-                    "discard{} when {C:green}rerolling{}",
+                    {
+                        "{C:green}#1# in #2#{} chance to gain ",
+                        "a {C:green}reroll{} when {C:attention}discarding{}",
+                    },
+                    {
+                        "{C:green}#1# in #2#{} chance to gain a {C:attention}temporary",
+                        "discard{} when {C:green}rerolling{}", 
+                    }
                     
                 }
             },
@@ -369,14 +505,29 @@ return {
                     
                 }
             },
+            j_sarc_welch = {
+                name = 'Welch',
+                
+                text = {
+                    {
+                    "Unenhanced cards give {C:mult}+#1#{} Mult",
+                    "for every {C:attention}enhanced card in{}",
+                    "scored hand"
+                    },
+                    {
+                    "Enhanced cards give {C:mult}+#1#{} Mult",
+                    "for every {C:attention}unenhanced card in{}",
+                    "scored hand"
+                    }
+                }
+            },
             j_sarc_witch_dice = {
                 name = 'Witch Dice',
                 text = {
                     "{C:green}#1# in #2#{} chance to add",
-                    "the {C:chips}Chips{} value of",
-                    "discarded and played cards",
-                    "to this joker",
-                    "{C:inactive}(Currently {C:chips}#3#{} {C:inactive}Chips){}"
+                    "{C:chips}#3#{} Chips when playing or",
+                    "discarding a card",
+                    "{C:inactive}(Currently {C:chips}#4#{} {C:inactive}Chips){}"
                 }
             },
         },
@@ -385,7 +536,7 @@ return {
                 name = "Cardinal Tag",
                 text = {
                     "Gives a free",
-                    "Mega Travel Pack"
+                    "{V:1}Mega Travel Pack{}"
                 }
             }
         },
@@ -400,6 +551,20 @@ return {
                 name = 'Nat 20!',
                 text = {
                     "{C:attention}X1.5{} to all listed probabilities"
+                },
+            },
+             v_sarc_compass = {
+                name = 'Compass',
+                text = {
+                    "Create a {V:1}Cardinal Tag{} after",
+                    "defeating the {C:attention}Boss Blind{}"
+                },
+            },
+            v_sarc_journey= {
+                name = 'Journey',
+                text = {
+                    "{V:1}Travel{} cards now appear",
+                    "in the shop"
                 },
             }
         },
@@ -427,6 +592,14 @@ return {
               
             },
         },
+         p_sarc_travel_jumbo= {
+                name = "Jumbo Travel Pack",
+                text = {
+                  "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                  "{C:G.SP.C.travel_1}Travel{} cards to use",
+                  
+                }
+              },
             p_sarc_travel_mega= {
                 name = "Mega Travel Pack",
                 text = {

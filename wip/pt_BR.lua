@@ -17,7 +17,9 @@ return {
             sarc_common = 'Comum',
             sarc_uncommon = 'Incomum',
             sarc_rare = 'Raro',
-            sarc_2_random_hands = "2 Mãos Aleatórias"
+            sarc_2_random_hands = "2 Mãos Aleatórias",
+            sarc_plus_rerolls = '+3 Atualizações',
+            sarc_minus_ante = "-1 Ante"
         }
 
 
@@ -27,12 +29,20 @@ return {
         --Blind={},
         --Edition={},
         --Enhanced={},
-        Travel = {
+         Back = {
+        b_sarc_travelling = {
+        name = "Travelling Deck",
+        text = {
+          "Start run with {C:attention,T:v_sarc_compass}#1#{} Voucher",
+        }
+      },
+    },
+        travel = {
             c_sarc_brittle_hollow = {
                 name = 'Cartão Desgastado',
                 text = {
                     "Aprimore {C:attention}#1#{} mãos aleatórias",
-                    "Depois de {C:attention}#3#{} usos, {C:purple}Colapse{}",
+                    "Após {C:attention}#3#{} usos, {C:purple}Colapse{}",
                     "{C:inactive}(No Momento #2#/#3#){}"
                 }
             },
@@ -57,9 +67,8 @@ return {
             c_sarc_deaths_door = {
                 name = 'Lembrança Acinzentada',
                 text = {
-                    "Transforma {C:attention}#1#{}",
-                    "cartas selecionadas em",
-                    "cartas do{C:attention} seu baralho{}"
+                   "Crie {C:attention}#1{} cartas aleatórias com",
+                    "o seu {C:attention}naipe mais popular{}"
                 }
             },
             c_sarc_going_under = {
@@ -85,7 +94,12 @@ return {
                     "{C:blue}Cartas de Fluxo{}"
                 }
             },
-            
+            c_sarc_isaac = {
+                name = "Desenho de Criança",
+                text = {
+                    "{C:green}+#1#{} Atualizações grátis"
+                }
+            },
             c_sarc_kingdom = {
                 name = "Fundos do Monarca",
                 text = {
@@ -112,6 +126,13 @@ return {
                     "{C:inactive}(Máximo de #1#){}"
                 }
             },
+            c_sarc_obra_dinn = {
+                name = 'Relógio de Bolso Mórbido',
+                text = {
+                    "Crie {C:attention}#1{} carta aprimorada com",
+                    "a sua {C:attention}classe mais popular{}"
+                }
+            },
             c_sarc_plort = {
                 name = 'Plort',
                 text = {
@@ -131,6 +152,23 @@ return {
                     "Aprimora {C:attention}#1#{}",
                     "cartas selecionadas para",
                     "{C:red}Cartas de Slime{}"
+                }
+            },
+            c_sarc_ultrakill = {
+                name = 'Intervenção Divina',
+                text = {
+                    "Destrua {C:attention}#1#{} carta selecionada," ,
+                    "Se possuir um {C:attention}Selo{}, dê o à",
+                    "{C:attention}#2#{} cartas aleatórias em mão"
+                }
+            },
+            c_sarc_undertale = {
+                name = "...It's Still You",
+                text = {
+                    "Após {C:attention}#3#{} usos, {C:attention}-1 Ante{}",
+                    "{C:inactive}(No momento #1#/#3#){}",
+                    "{C:inactive}(Usos necessários aumentam em {C:attention}#2#{}",
+                    "{C:inactive}ao ativar){}"
                 }
             },
             c_sarc_wildfrost = {
@@ -283,7 +321,7 @@ return {
                 }
             },
             j_sarc_orchid = {
-                name = 'Orchid',
+                name = 'Orquídea',
                 text = {
                     "Este Curinga ganha {C:mult}+#1#{} Multi",
                     "por mão jogada com um",
@@ -381,6 +419,42 @@ return {
                 }
             },
         },
+        Tag = {
+            tag_sarc_cardinal = {
+                name = "Marca Cardinal",
+                text = {
+                    "Dá um {V:1}Pacote de Viagem Mega{}"
+                }
+            }
+        },
+        Voucher = {
+            v_sarc_advantage = {
+                name = 'Vantagem',
+                text = {
+                    "{C:attention}X2{} à todas as probabilidades listadas"
+                },
+            },
+            v_sarc_nat_20 = {
+                name = '20 Natural!',
+                text = {
+                    "{C:attention}X1.5{} à todas as probabilidades listadas"
+                },
+            },
+            v_sarc_compass = {
+                name = 'Bússola',
+                text = {
+                    "Crie uma {V:1}Marca Cardinal{} depois de",
+                    "derrotar o {C:attention}Boss Blind{}"
+                },
+            },
+            v_sarc_journey= {
+                name = 'Jornada',
+                text = {
+                    "Cartas de {V:1}Viagem{} aparecem",
+                    "na loja"
+                },
+            },
+        },
         Other = {
             sarc_strawberry_deactivated = {
                 name = "Desativada",
@@ -419,29 +493,9 @@ return {
         --Stake={},
         --Tag={},
         --Tarot={},
-        Tag = {
-            tag_sarc_cardinal = {
-                name = "Marca Cardinal",
-                text = {
-                    "Dá um {V:1}Pacote de Viagem Mega{}"
-                }
-            }
-        },
-        Voucher = {
-            v_sarc_advantage = {
-                name = 'Vantagem',
-                text = {
-                    "{C:attention}X2{} à todas as probabilidades listadas"
-                },
-            },
-            v_sarc_nat_20 = {
-                name = '20 Natural!',
-                text = {
-                    "{C:attention}X1.5{} à todas as probabilidades listadas"
-                },
-            }
-    },
-}
+        
+    }
+
 
     --achievement_descriptions={},
     -- achievement_names={},
@@ -459,5 +513,3 @@ return {
     -- suits_singular={},
     --  v_dictionary={},
     -- v_text={},
-    --},]]--
-

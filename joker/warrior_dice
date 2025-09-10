@@ -5,10 +5,18 @@ SMODS.Joker {
 
 
 
-	config = { extra = { odds = 6} },
-	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal, card.ability.extra.odds } }
-	end,
+	config = {
+        extra = {
+            n = 1,
+            d = 6
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'warrior_dice')
+        return {
+            vars = {n, d}
+        }
+    end,
 	rarity = 1,
 	atlas = 'sarcpot_atlas',
 	pos = { x = 0, y = 2 },
@@ -16,8 +24,9 @@ SMODS.Joker {
 	
 	calculate = function(self, card, context)
 		if context.pre_discard then
-			if pseudorandom('warrior_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
-				G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
+			if SMODS.pseudorandom_probability(card, 'warrior_dice_reroll', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
+				--G.GAME.free_rerolls = G.GAME.current_round.free_rerolls + 1
+				SMODS.change_free_rerolls(1)
 				calculate_reroll_cost(true)
 				return {
 					message = localize('sarc_combat_roll_ex'),
@@ -27,7 +36,7 @@ SMODS.Joker {
 			end
 		end
 		if context.reroll_shop then
-			if pseudorandom('warrior_dice') < G.GAME.probabilities.normal / card.ability.extra.odds then
+if SMODS.pseudorandom_probability(card, 'warrior_dice_discard', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
 				G.GAME.round_bonus["discards"] = G.GAME.round_bonus["discards"] + 1
 				return {
 					message = localize('sarc_plus_one_discard'),

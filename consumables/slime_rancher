@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'slime_rancher',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {x=0, y=1},
     discovered = false,

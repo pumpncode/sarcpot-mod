@@ -1,6 +1,6 @@
 SMODS.Consumable({
     key = 'slay_the_spire',
-    set = 'Travel',
+    set = 'travel',
     atlas = 'consumables',
     pos = {
         x = 3,
@@ -36,7 +36,7 @@ SMODS.Consumable({
                             delay = 0.2,
                             func = function()
                                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                                local consumable = create_card('Travel', G.consumeables, false, nil, false, true, nil,
+                                local consumable = create_card('travel', G.consumeables, false, nil, false, true, nil,
                                     'travel')
                                 consumable:add_to_deck()
                                 G.consumeables:emplace(consumable)
