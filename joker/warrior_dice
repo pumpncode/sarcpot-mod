@@ -31,7 +31,7 @@ SMODS.Joker {
 				return {
 					message = localize('sarc_combat_roll_ex'),
 					colour = G.C.BLUE,
-					play_sound("whoosh1")
+					sound = "whoosh1"
 				}
 			end
 		end
