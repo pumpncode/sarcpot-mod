@@ -221,7 +221,8 @@ return {
                 text = {
                     "Always scores,",
                     "no rank or suit",
-                    "Gives {C:mult}+#1#{} Mult and",
+                    "After play,",
+                    "gives {C:mult}+#1#{} Mult and",
                     "{C:chips}+#2#{} Chips to scored cards"
                 }
             },
