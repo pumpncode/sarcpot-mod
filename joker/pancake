@@ -9,7 +9,7 @@ SMODS.Joker {
 	config = { extra = {current_hands = 0, hands = 3} },
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue+1] = G.P_CENTERS.m_wild
-		return { vars = {card.ability.extra.current_hands, card.ability.extra.hands,} }
+		return { vars = {card.ability.extra.hands - card.ability.extra.current_hands} }
 	end,
 	rarity = 2,
 	atlas = 'sarcpot_atlas',
