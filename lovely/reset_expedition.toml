@@ -1,0 +1,17 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "if G.GAME.blind:get_type() == 'Boss' then"
+position = "after"
+match_indent = true
+payload = '''
+if G.GAME.expedition_active == true then      
+            G.GAME.expedition_active = false
+            G.GAME.expedition_key = nil
+        end
+'''

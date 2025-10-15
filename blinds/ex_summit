@@ -1,0 +1,44 @@
+SMODS.Blind {
+    atlas = 'blinds',
+    expedition = true,
+    key = "ex_summit",
+    dollars = 10,
+    mult = 4,
+    pos = {
+        x = 0,
+        y = 0
+    },
+    loc_vars = function(self)
+        return {
+            vars = {3}
+        }
+    end,
+    palette = {
+        new_colour = HEX("9dd1eb"),
+        special_colour = HEX("5a5ca6"),
+        tertiary_colour = darken(HEX("5a5ca6"), 0.4),
+        contrast = 3
+    },
+    boss_palette = {
+        new_colour = lighten(HEX("fcf8eb"), 0.4),
+        special_colour = HEX("2d92c4"),
+        tertiary_colour = HEX("fa6498"),
+        contrast = 3
+    },
+    boss = {},
+    in_pool = function(self)
+        return false
+    end,
+    boss_colour = HEX("f2a0bf"),
+    calculate = function(self, blind, context)
+        if not blind.disabled then
+            if context.setting_blind then
+                ease_hands_played(3)
+            end
+        end
+    end,
+    disable = function(self)
+        G.GAME.blind.chips = (G.GAME.blind.chips / 2)
+        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+    end
+}

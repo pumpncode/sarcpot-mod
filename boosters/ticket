@@ -1,35 +1,35 @@
 SMODS.Booster {
 
-    atlas = 'boosters',
+    atlas = 'ticket_booster',
     pos = {
         x = 0,
         y = 0
     },
-    key = 'travel_small',
+    key = 'ticket',
 
     group_key = "sarc_travel_pack",
-    kind = "travel",
+    kind = "ticket",
     order = 1,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                colours = {G.SP.C.travel_1},
+                colours = {G.SP.C.ticket_1},
                 card.ability.choose,
                 card.ability.extra
             }
         }
     end,
     config = {
-        extra = 3,
+        extra = 2,
         choose = 1
     },
 
     create_card = function(self, card)
-        local card = create_card('travel', G.consumeables, false, nil, true, true, nil, 'travel')
+        local card = create_card('ticket', G.consumeables, false, nil, true, true, nil, 'ticket')
         return card
     end,
 
-    draw_hand = true,
+    draw_hand = false,
 
     particles = function(self)
         G.booster_pack_sparkles = Particles(1, 1, 0, 0, {
@@ -45,20 +45,21 @@ SMODS.Booster {
         })
     end,
     ease_background_colour = function(self)
-        ease_colour(G.C.DYN_UI.MAIN, G.SP.C.navy)
+        ease_colour(G.C.DYN_UI.MAIN, G.SP.C.ticket_1)
         ease_background_colour {
-            new_colour = G.SP.C.light_navy,
-            special_colour = G.SP.C.navy,
+            new_colour = G.SP.C.ticket_1,
+            special_colour = G.SP.C.ticket_2,
             contrast = 2
         }
     end,
 
-    weight = 4,
+    weight = 0.25,
 
-    cost = 4,
+    cost = 8,
 
     in_pool = function()
-        return true
+        local result = SARC.can_ticket_spawn()
+        return result
     end
 }
 

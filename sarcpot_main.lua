@@ -74,8 +74,8 @@ SMODS.Atlas {
 }
 SMODS.Atlas {
     key = 'tags',
-    px = 32,
-    py = 32,
+    px = 34,
+    py = 34,
     path = 'tags.png'
 }
 SMODS.Atlas {
@@ -110,15 +110,37 @@ SMODS.Atlas {
     py = 95
 }
 SMODS.Atlas {
+    key = "ticket_booster",
+    path = "ticket_booster.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
+    key = "tickets",
+    path = "tickets.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
     key = 'decks',
     px = 71,
     py = 95,
     path = 'decks.png'
 }
+SMODS.Atlas {
+    key = 'blinds',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34,
+    path = 'blinds.png'
+}
 G.SP.C.travel_1 = HEX("DEB940")
 G.SP.C.travel_2 = HEX("fab411")
 G.SP.C.navy = HEX("50638f")
 G.SP.C.light_navy = HEX("5f70a3")
+G.SP.C.ticket_1 = HEX("c4cacc")
+G.SP.C.ticket_2 = HEX("a5adb0")
 SMODS.ConsumableType({
     key = "travel",
     primary_colour = G.SP.C.travel_1,
@@ -135,6 +157,26 @@ SMODS.ConsumableType({
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
+SMODS.ConsumableType({
+    key = "ticket",
+    primary_colour = G.SP.C.ticket_1,
+    secondary_colour = G.SP.C.ticket_2,
+    loc_txt = {
+        name = "Ticket",
+        collection = "Tickets",
+        undiscovered = {
+            name = 'Unknown Ticket',
+            text = {'Find this card in an unseeded', 'run to find out what it does'}
+        }
+    },
+    collection_rows = {2, 2},
+    shop_rate = 0,
+    default = 'c_sarc_t_celeste'
+})
+local path = SMODS.current_mod.path .. 'blinds/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('blinds/' .. v))()
+end
 if SARC.config.jokers_enabled == true then
     local path = SMODS.current_mod.path .. 'joker/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
@@ -152,9 +194,13 @@ if SARC.config.vouchers_enabled == true then
 end
 
 if SARC.config.consumables_enabled == true then
-    local path = SMODS.current_mod.path .. 'consumables/'
+    local path = SMODS.current_mod.path .. 'consumables/travel/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
-        assert(SMODS.load_file('consumables/' .. v))()
+        assert(SMODS.load_file('consumables/travel/' .. v))()
+    end
+    local path = SMODS.current_mod.path .. 'consumables/ticket/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('consumables/ticket/' .. v))()
     end
     local path = SMODS.current_mod.path .. 'boosters/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
@@ -189,7 +235,9 @@ function Game:init_game_object()
     ret.brittle_hollow_count = 0
     ret.undertale_count = 0
     ret.undertale_limit = 2
-
+    ret.expedition_active = false
+    ret.expedition_key = nil
+    ret.expedition_used = false
     return ret
 end
 
@@ -198,9 +246,21 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.brittle_hollow_count = 0
         G.GAME.undertale_count = 0
         G.GAME.undertale_limit = 2
-
+        G.GAME.expedition_active = false
+        G.GAME.expedition_key = nil
+        G.GAME.expedition_used = false
     end
 end
+
+--[[local endround = end_round
+function end_round()
+    local ret = endround
+    if G.GAME.blind.boss and G.GAME.expedition_active == true then
+        G.GAME.expedition_active = false
+        G.GAME.expedition_key = nil
+    end
+    return ret
+end]] --
 
 function SARC.level_up(card, hand, levels)
     -- print(G.GAME.brittle_hollow_count)
@@ -576,3 +636,27 @@ function SARC.update_multiplied_value(t, key)
     t[key] = result
 end
 
+function SARC.can_be_expedition()
+    local result = true
+    if G.GAME.expedition_active ~= false then
+        result = false
+    end
+    if G.GAME.round_resets.ante % 8 == 0 then
+        result = false
+    end
+    return result
+end
+
+function SARC.can_ticket_spawn()
+    local result = true
+    if G.GAME.expedition_used ~= false then
+        result = false
+    end
+    if G.GAME.round_resets.ante % 8 == 7 then
+        result = false
+    end
+    if G.GAME.selected_back.effect.center.key == "b_sarc_metro" then
+        result = true
+    end
+    return result
+end
