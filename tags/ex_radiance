@@ -27,6 +27,7 @@ SMODS.Tag({
     apply = function(self, tag, context)
         if context.type == 'eval' and G.GAME.last_blind and G.GAME.last_blind.boss and SARC.can_be_expedition() then
             G.GAME.expedition_active = true
+            -- yes, i know this bit of code is repeated. trust me, it works well enough so please don't judge me
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.1,
@@ -34,7 +35,7 @@ SMODS.Tag({
                 blockable = true,
                 func = function()
                     tag:yep('+', G.C.GOLD, function()
-
+                        G.GAME.expedition_active = true
                         G.GAME.expedition_key = 'bl_sarc_ex_radiance'
 
                         return true
