@@ -1,4 +1,9 @@
 SARC = {}
+-- mod detecting variables
+SARC.aij_present = SMODS.find_mod('allinjest')
+SARC.paperback_present = SMODS.find_mod('paperback')
+SARC.artbox_present = SMODS.find_mod('artbox')
+
 SARC.config = SMODS.current_mod.config
 --[[SMODS.current_mod.optional_features = {
     cardareas = {
@@ -641,7 +646,10 @@ function SARC.can_be_expedition()
     if G.GAME.expedition_active ~= false then
         result = false
     end
-    if G.GAME.round_resets.ante % 8 == 0 then
+    if G.GAME.round_resets.ante % G.GAME.win_ante == 0 then
+        result = false
+    end
+    if SARC.aij_present and G.GAME.round_resets.ante % G.GAME.win_ante == G.GAME.win_ante / 2 then
         result = false
     end
     return result
@@ -652,7 +660,7 @@ function SARC.can_ticket_spawn()
     if G.GAME.expedition_used ~= false then
         result = false
     end
-    if G.GAME.round_resets.ante % 8 == 7 then
+    if G.GAME.round_resets.ante % G.GAME.win_ante == G.GAME.win_ante - 1 then
         result = false
     end
     if G.GAME.selected_back.effect.center.key == "b_sarc_metro" then
