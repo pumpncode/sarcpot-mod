@@ -47,7 +47,7 @@ return {
             },
             b_sarc_metro = {
                 name = "Metro Deck",
-                text = {"Create a free {V:1}Ticket Pack{}", "when entering {C:attention}Ante 3{}",
+                text = {"Create a free {V:1}Ticket Pack{}", "when entering {C:attention}Ante 4{}",
                         "You may find multiple", "{V:1}Ticket Packs{} this run"}
             }
         },

@@ -18,7 +18,7 @@ SMODS.Back {
     end,
     calculate = function(self, card, context)
 
-        if self.config.activated ~= true and context.starting_shop and G.GAME.round_resets.ante == 3 then
+        if self.config.activated ~= true and context.starting_shop and G.GAME.round_resets.ante == 4 then
 
             G.E_MANAGER:add_event(Event {
                 func = function()
