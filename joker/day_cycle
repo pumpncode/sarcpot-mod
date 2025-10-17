@@ -25,7 +25,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         local count = {}
 
-        if context.scoring_hand then
+        if context.before and context.scoring_hand then
             card.ability.extra.retriggers = 0
             for _, v in pairs(context.full_hand) do
                 if not SMODS.has_no_rank(v) then
