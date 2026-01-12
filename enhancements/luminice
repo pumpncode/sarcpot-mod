@@ -23,52 +23,102 @@ SMODS.Enhancement({
     end,
 
     calculate = function(self, card, context)
-        if context.cardarea == G.play and context.after and not context.debuffed_hand and card.config.center ==
-            G.P_CENTERS.m_sarc_luminice then
+        local has_lumin_lantern = false
+        if context.after and not context.debuffed_hand and card.config.center == G.P_CENTERS.m_sarc_luminice then
+            if #SMODS.find_card('j_sarc_lumin_lantern') > 0 then
+                has_lumin_lantern = true
 
-            for k, v in ipairs(context.scoring_hand) do
-                if card.config.center == G.P_CENTERS.m_sarc_luminice then
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        blockable = true,
-                        blocking = true,
-                        func = function()
-                            if card.config.center == G.P_CENTERS.m_sarc_luminice then
-                                play_sound('tarot1')
-                                v:juice_up()
+            else
 
-                                v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.permamult
-                                v.ability.perma_bonus = (v.ability.perma_bonus or 0) + card.ability.extra.permachips
+            end
 
-                            end
-
-                            return true
-                        end
-
-                    }))
+            if context.cardarea == G.play then
+                for k, v in ipairs(context.scoring_hand) do
                     if card.config.center == G.P_CENTERS.m_sarc_luminice then
-                        card:juice_up()
-                        SMODS.calculate_effect({
-                            message = localize('k_upgrade_ex'),
-                            colour = G.C.BLUE
-                        }, card)
-                    end
-                    if card.config.center == G.P_CENTERS.m_sarc_luminice then  
                         G.E_MANAGER:add_event(Event({
                             trigger = 'after',
                             blockable = true,
                             blocking = true,
-                            delay = 0.1,
                             func = function()
+                                if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                                    play_sound('tarot1')
+                                    v:juice_up()
+
+                                    v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.permamult
+                                    v.ability.perma_bonus = (v.ability.perma_bonus or 0) + card.ability.extra.permachips
+
+                                end
+
                                 return true
                             end
-                        }))
-                    end
 
+                        }))
+                        if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                            card:juice_up()
+                            SMODS.calculate_effect({
+                                message = localize('k_upgrade_ex'),
+                                colour = G.C.BLUE
+                            }, card)
+                        end
+                        if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                blockable = true,
+                                blocking = true,
+                                delay = 0.1,
+                                func = function()
+                                    return true
+                                end
+                            }))
+                        end
+
+                    end
                 end
             end
+            if has_lumin_lantern then
+                for k, v in ipairs(G.hand.cards) do
+                    if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                        G.E_MANAGER:add_event(Event({
+                            trigger = 'after',
+                            blockable = true,
+                            blocking = true,
+                            func = function()
+                                if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                                    play_sound('tarot1')
+                                    v:juice_up()
 
+                                    v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.permamult
+                                    v.ability.perma_bonus = (v.ability.perma_bonus or 0) + card.ability.extra.permachips
+
+                                end
+
+                                return true
+                            end
+
+                        }))
+                        if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                            card:juice_up()
+                            SMODS.calculate_effect({
+                                message = localize('k_upgrade_ex'),
+                                colour = G.C.BLUE
+                            }, card)
+                        end
+                        if card.config.center == G.P_CENTERS.m_sarc_luminice then
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'after',
+                                blockable = true,
+                                blocking = true,
+                                delay = 0.1,
+                                func = function()
+                                    return true
+                                end
+                            }))
+                        end
+
+                    end
+                end
+
+            end
         end
-
     end
 })

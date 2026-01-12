@@ -10,10 +10,9 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
-        return {
-        }
+        return {}
     end,
-    rarity = 2,
+    rarity = 1,
     pos = {
         x = 0,
         y = 6
@@ -33,7 +32,7 @@ SMODS.Joker {
 
         if not card.debuff then
             if context.repetition and context.cardarea == G.play and card.ability.extra.total_retriggers > 0 then
-                if SMODS.has_any_suit(context.other_card)then
+                if SMODS.has_any_suit(context.other_card) then
                     card.ability.extra.total_retriggers = card.ability.extra.total_retriggers - 1
                     return {
                         message = localize('k_again_ex'),

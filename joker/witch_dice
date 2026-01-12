@@ -1,6 +1,5 @@
 SMODS.Joker {
 
-
     key = 'witch_dice',
 
     config = {
@@ -12,21 +11,29 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
-        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'witch_dice')
+        local n, d = SMODS.get_probability_vars(card, card.ability.extra.n, card.ability.extra.d, 'witch_dice')
         return {
             vars = {n, d, card.ability.extra.chips_mod, card.ability.extra.chips}
         }
     end,
     rarity = 1,
     atlas = 'sarcpot_atlas',
-    pos = { x = 0, y = 3 },
+    pos = {
+        x = 0,
+        y = 3
+    },
     cost = 5,
 
     calculate = function(self, card, context)
         if context.pre_discard and not context.blueprint then
             for _, v in pairs(context.full_hand) do
-                if SMODS.pseudorandom_probability(card, 'witch_dice_discard', card.ability.extra.n, card.ability.extra.d, 'witch_dice') then
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
+                if SMODS.pseudorandom_probability(card, 'witch_dice_discard', card.ability.extra.n,
+                    card.ability.extra.d, 'witch_dice') then
+                    SMODS.scale_card(card, {
+                        ref_table = card.ability.extra,
+                        ref_value = "chips",
+                        scalar_value = "chips_mod"
+                    })
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         blockable = true,
@@ -38,17 +45,22 @@ SMODS.Joker {
                             return true
                         end
                     }))
-                    return{
+                    return {
                         message = localize('sarc_throw'),
-                        colour = G.C.PURPLE,
+                        colour = G.C.PURPLE
                     }
                 end
             end
         end
         if context.before and not context.blueprint then
             for _, v in pairs(context.full_hand) do
-                if SMODS.pseudorandom_probability(card, 'witch_dice_play', card.ability.extra.n, card.ability.extra.d, 'witch_dice') then
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
+                if SMODS.pseudorandom_probability(card, 'witch_dice_play', card.ability.extra.n, card.ability.extra.d,
+                    'witch_dice') then
+                    SMODS.scale_card(card, {
+                        ref_table = card.ability.extra,
+                        ref_value = "chips",
+                        scalar_value = "chips_mod"
+                    })
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after',
                         blockable = true,
@@ -60,22 +72,21 @@ SMODS.Joker {
                             return true
                         end
                     }))
-                    return{
+                    return {
                         message = localize('sarc_throw'),
-                        colour = G.C.PURPLE,
+                        colour = G.C.PURPLE
                     }
                 end
-                
+
             end
         end
         if context.joker_main then
             return {
-                
-                chips = card.ability.extra.chips,
-                
+
+                chips = card.ability.extra.chips
+
             }
         end
     end
-
 
 }

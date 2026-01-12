@@ -25,7 +25,7 @@ SMODS.Joker {
                     end
                 end
             end
-            -- print(wilds)
+
             local sorted = {}
             local i = 1
             for suit, count in pairs(suits) do
@@ -48,13 +48,12 @@ SMODS.Joker {
                         card.ability.extra.valid_suits = card.ability.extra.valid_suits + 1
                     end
                 end
-                -- print(v.suit .. " " .. v.count)
+
             end
             if wilds > card.ability.extra.limit then
                 card.ability.extra.valid_suits = card.ability.extra.valid_suits + 1
             end
             card.ability.extra.mult = card.ability.extra.valid_suits * card.ability.extra.mult_mod
-            -- print("Valid Suits = " .. card.ability.extra.valid_suits)
 
         end
         return {
@@ -109,7 +108,7 @@ SMODS.Joker {
                         end
                     end
                 end
-                -- print(wilds)
+
                 local sorted = {}
                 local i = 1
                 for suit, count in pairs(suits) do
@@ -132,13 +131,12 @@ SMODS.Joker {
                             card.ability.extra.valid_suits = card.ability.extra.valid_suits + 1
                         end
                     end
-                    -- print(v.suit .. " " .. v.count)
+
                 end
                 if wilds > card.ability.extra.limit then
                     card.ability.extra.valid_suits = card.ability.extra.valid_suits + 1
                 end
                 card.ability.extra.mult = card.ability.extra.valid_suits * card.ability.extra.mult_mod
-                -- print("Valid Suits = " .. card.ability.extra.valid_suits)
 
             end
             return {

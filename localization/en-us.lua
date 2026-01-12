@@ -26,6 +26,10 @@ return {
             sarc_active = "Active",
             sarc_inactive = "Inactive",
             sarc_disabled = "Disabled!",
+            sarc_efficient = "Efficient!",
+            sarc_went_under = "Went Under!",
+            sarc_stonks = "Stonks!",
+            sarc_flow = "~Flow~",
 
             sarc_requires_restart = "Restart the game to apply changes",
             sarc_enable_vouchers = "Enable Vouchers",
@@ -148,8 +152,7 @@ return {
             },
             c_sarc_loop_hero = {
                 name = 'Memory of a Road',
-                text = {"Destroys up to {C:attention}#1#{}", "random cards in hand.", "Draw the same number",
-                        "of destroyed cards"}
+                text = {"Select up to {C:attention}#2#{} cards", "Destroys {C:attention}#1#{} unselected cards."}
             },
             c_sarc_magic_survival = {
                 name = 'Wartorn Journal',
@@ -200,7 +203,7 @@ return {
             },
             m_sarc_slime = {
                 name = 'Slime Card',
-                text = {"Create a {C:attention}Plort{}", "when scored"}
+                text = {"Create a {C:attention}Plort{}", "when scored, {C:inactive}(Must have room){}"}
             },
             m_sarc_strawberry = {
                 name = 'Strawberry Card',
@@ -211,7 +214,8 @@ return {
         Joker = {
             j_sarc_garlic_bread = {
                 name = 'Garlic Bread',
-                text = {"If first hand of round", "is a {C:attention}single card{}", "convert it into an Ace"}
+                text = {"If first hand of round is", "a {C:attention}single card{}, convert it into an Ace",
+                        "{C:green}#1# in #2#{} chance to be {C:red}destroyed{}", "at the end of the round"}
             },
             j_sarc_aksnes = {
                 name = 'Aksnes',
@@ -222,6 +226,12 @@ return {
                 name = 'Artemis',
                 text = {"{C:attention}Debuffs{} all {C:hearts}Hearts{} cards,", "Gives {X:mult,C:white}X#1#{} Mult",
                         "per card debuffed", "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive}Mult)"}
+            },
+            j_sarc_autopilot = {
+                name = 'Autopilot',
+                text = {"When playing a hand,", "remove {C:attention}ALL{} hand levels",
+                        "This joker gains {C:chips}+#1#{} chips", "for every level removed",
+                        "{C:inactive}(Currently {C:chips}+#2#{} {C:inactive}Chips){}"}
             },
             j_sarc_beauty_of_the_sea = {
                 name = 'Beauty of the Sea',
@@ -253,6 +263,12 @@ return {
                 name = 'Diversity',
                 text = {"{C:mult}+#1#{} Mult per suit with", "{C:attention}#2#{} cards or more in your deck",
                         "{C:inactive}(Currently {C:mult}+#3#{} {C:inactive}Mult){}"}
+            },
+            j_sarc_fiasco = {
+                name = 'Fiasco',
+                text = {"{C:attention}Vouchers{} are {C:green}free{}",
+                        "{C:green}#1# in #2#{} chance to be {C:red}destroyed{}", "at the end of the round",
+                        "Chance increases by {C:attention}#3# each round"}
             },
             j_sarc_double_crescent = {
                 name = 'Double Crescent',
@@ -286,6 +302,11 @@ return {
                 text = {"{C:green}#1# in #2#{} chance to gain", "{C:blue}+1{} hand when playing or discarding",
                         "cards with {C:attention}matching ranks{}"}
             },
+            j_sarc_monarchs_crown = {
+                name = "Monarch's Crown",
+                text = {"When you gain", "{C:money}$#1#{} or more at once,", "create {C:tarot}The Emperor{}",
+                        "{C:inactive}(Must have room){}"}
+            },
             j_sarc_labrys = {
                 name = 'Labrys',
                 text = {"Scored Queens", "give {C:mult}+#1#{} Mult for every", "previously scored Queen"}
@@ -294,6 +315,10 @@ return {
                 name = "Lil' Guy",
                 text = {"{C:blue}-#1# Hand{} on selecting blind,", "This Joker gains {C:chips}+#2#{} Chips",
                         "every round", "{C:inactive}(Currently {C:chips}+#3#{} {C:inactive}Chips){}"}
+            },
+            j_sarc_lumin_lantern = {
+                name = "Lumin Lantern",
+                text = {"{C:attention}Luminice{} cards also upgrade", "cards held in hand"}
             },
             j_sarc_none_of_the_above = {
                 name = 'None of the Above',
@@ -318,6 +343,11 @@ return {
                         "Balance {C:attention}#3#%{} of {C:mult}Mult{} and {C:chips}Chips{}",
                         "when {C:attention}scored{}"}
             },
+            j_sarc_plort_market = {
+                name = 'Plort Market',
+                text = {"Gain {C:money}+$#1#{} when using", "a {C:attention}consumable{} during a round.",
+                        "Value {C:attention}changes{} every round"}
+            },
             j_sarc_robot_dice = {
                 name = 'Robot Dice',
                 text = {"This Joker gains {C:mult}#5#{} Mult when",
@@ -331,6 +361,11 @@ return {
                 text = {"Gives Mult equal to the number of",
                         "{C:hearts}Hearts{} and {C:attention}Stone{} Cards in your deck",
                         "{C:inactive}(Currently {C:mult}+#2#{} {C:inactive}Mult){}"}
+            },
+            j_sarc_still_free = {
+                name = 'Still Free',
+                text = {"Scored {C:blue}Flow{} cards have a", "{C:green}#1# in #2#{} chance to create the",
+                        "{C:planet}Planet{} card for the played hand"}
             },
             j_sarc_strange_fluid = {
                 name = "Strange Fluid",

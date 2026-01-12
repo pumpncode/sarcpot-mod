@@ -284,7 +284,7 @@ function SARC.level_up(card, hand, levels)
         level = G.GAME.hands[hand].level
     })
 
-    level_up_hand(nil, hand, true, levels)
+    SMODS.smart_level_up_hand(nil, hand, true, levels)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.2,
@@ -353,52 +353,15 @@ function SARC.level_up(card, hand, levels)
         level = ''
     })
 end
-function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_seal, exclude_edition)
-    local available_indexes = {}
-    local random_indexes = {}
-    local exclude_set = {}
 
-    if exclude then
-        for _, index in pairs(exclude) do
-            exclude_set[index] = true
-        end
-    end
-
-    for i = 1, #G.hand.cards do
-        if exclude_enhancement then
-            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
-                exclude_set[i] = true
-            end
-        end
-        if exclude_seal then
-            if G.hand.cards[i].seal then
-                exclude_set[i] = true
-            end
-        end
-        if exclude_edition then
-            if G.hand.cards[i].edition then
-                exclude_set[i] = true
-            end
-        end
-        if not exclude_set[i] then
-            table.insert(available_indexes, i)
-
-        end
-    end
-    for i = 1, amount do
-        if #available_indexes == 0 then
-            break
-        end
-        local rand_index_in_available = math.random(1, #available_indexes)
-
-        local selected_index = available_indexes[rand_index_in_available]
-        table.insert(random_indexes, selected_index)
-
-        table.remove(available_indexes, rand_index_in_available)
-    end
-    return random_indexes
-end
 function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
+    for i = 1, #hand_list do
+        SARC.level_up(card, hand_list[i], levels)
+
+    end
+end
+
+--[[function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
     levels = levels or 1
     update_hand_text({
         sound = 'button',
@@ -482,7 +445,54 @@ function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
         handname = '',
         level = ''
     })
+end]] --
+
+function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_seal, exclude_edition)
+    local available_indexes = {}
+    local random_indexes = {}
+    local exclude_set = {}
+
+    if exclude then
+        for _, index in pairs(exclude) do
+            exclude_set[index] = true
+        end
+    end
+
+    for i = 1, #G.hand.cards do
+        if exclude_enhancement then
+            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_seal then
+            if G.hand.cards[i].seal then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_edition then
+            if G.hand.cards[i].edition then
+                exclude_set[i] = true
+            end
+        end
+        if not exclude_set[i] then
+            table.insert(available_indexes, i)
+
+        end
+    end
+    for i = 1, amount do
+        if #available_indexes == 0 then
+            break
+        end
+        local rand_index_in_available = math.random(1, #available_indexes)
+
+        local selected_index = available_indexes[rand_index_in_available]
+        table.insert(random_indexes, selected_index)
+
+        table.remove(available_indexes, rand_index_in_available)
+    end
+    return random_indexes
 end
+
 function SARC.get_available_suits()
     local suits = {}
     for _, v in ipairs(G.playing_cards) do
@@ -498,7 +508,7 @@ end
 
 function SARC.get_table_size(tbl)
     local count = 0
-    for _ in pairs(tbl) do -- Iterate over all key-value pairs
+    for _ in pairs(tbl) do
         count = count + 1
     end
     return count

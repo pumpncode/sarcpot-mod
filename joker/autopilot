@@ -1,51 +1,43 @@
 SMODS.Joker {
-    key = "lil_guy",
+    key = "autopilot",
     config = {
         extra = {
-            hands_mod = 1,
-            chips_mod = 35,
-            chips = 0
+            chips = 0,
+            chips_mod = 16
         }
     },
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {card.ability.extra.hands_mod, card.ability.extra.chips_mod, card.ability.extra.chips}
+            vars = {card.ability.extra.chips_mod, card.ability.extra.chips}
         }
     end,
-    rarity = 1,
+    rarity = 2,
     pos = {
-        x = 0,
-        y = 7
+        x = 7,
+        y = 0
     },
     atlas = 'sarcpot_atlas',
-    cost = 5,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
     eternal_compat = true,
     soul_pos = nil,
 
-    in_pool = function(self, args)
-        return true
-    end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.blueprint then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                blocking = true,
-                delay = 0.2,
-                func = function()
+
+        if context.before and not context.blueprint then
+            for _, hand in ipairs(G.handlist) do
+                if G.GAME.hands[hand].level > 1 then
+                    SARC.level_up(card, hand, -(G.GAME.hands[hand].level - 1))
+
                     SMODS.scale_card(card, {
                         ref_table = card.ability.extra,
                         ref_value = "chips",
                         scalar_value = "chips_mod"
                     })
-                    play_sound('tarot1')
-                    card:juice_up()
-                    ease_hands_played(-card.ability.extra.hands_mod)
-                    return true
                 end
-            }))
+            end
         end
         if context.joker_main then
             return {
@@ -54,6 +46,8 @@ SMODS.Joker {
 
             }
         end
+
     end
+
 }
 
