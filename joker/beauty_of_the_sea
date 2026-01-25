@@ -41,8 +41,9 @@ SMODS.Joker {
                         scalar_value = "mult_mod"
 
                     })
-
-                    ease_discard(-card.ability.extra.discard_mod, true, false)
+                    if G.GAME.current_round.discards_left > 0 then
+                        ease_discard(-card.ability.extra.discard_mod, true, false)
+                    end
 
                     return true
                 end

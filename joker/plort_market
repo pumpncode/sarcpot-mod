@@ -19,8 +19,8 @@ SMODS.Joker {
     rarity = 2,
     atlas = 'sarcpot_atlas',
     pos = {
-        x = 2,
-        y = 2
+        x = 6,
+        y = 1
     },
     cost = 6,
 

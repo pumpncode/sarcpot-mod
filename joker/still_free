@@ -10,6 +10,7 @@ SMODS.Joker {
         }
     },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_sarc_flow
         local n, d = SMODS.get_probability_vars(card, card.ability.extra.n, card.ability.extra.d, 'still_free')
         return {
             vars = {n, d}
@@ -18,8 +19,8 @@ SMODS.Joker {
     rarity = 2,
     atlas = 'sarcpot_atlas',
     pos = {
-        x = 0,
-        y = 0
+        x = 5,
+        y = 1
     },
     cost = 6,
     blueprint_compat = true,
