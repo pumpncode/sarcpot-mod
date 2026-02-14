@@ -13,7 +13,11 @@ SMODS.Booster {
 
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {card.ability.choose, card.ability.extra}
+            vars = {
+                colours = {G.SP.C.travel_1},
+                card.ability.choose,
+                card.ability.extra
+            }
         }
     end,
     config = {
@@ -22,7 +26,7 @@ SMODS.Booster {
     },
 
     create_card = function(self, card)
-        local card = create_card('travel', G.consumeables, false, nil, true, true, nil, 'travel')
+        local card = create_card('travel', G.pack_cards, false, nil, true, true, nil, 'travel')
         return card
     end,
 

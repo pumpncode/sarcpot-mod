@@ -8,7 +8,8 @@ SMODS.Joker {
 	config = {
         extra = {
             n = 1,
-            d = 6
+            d = 6,
+			free_rerolls = 0,
         }
     },
     loc_vars = function(self, info_queue, card)
@@ -25,18 +26,17 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.pre_discard then
 			if SMODS.pseudorandom_probability(card, 'warrior_dice_reroll', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
-				--G.GAME.free_rerolls = G.GAME.current_round.free_rerolls + 1
-				SMODS.change_free_rerolls(1)
+				G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
 				calculate_reroll_cost(true)
 				return {
 					message = localize('sarc_combat_roll_ex'),
 					colour = G.C.BLUE,
-					play_sound("whoosh1")
+					sound = "whoosh1"
 				}
 			end
 		end
 		if context.reroll_shop then
-if SMODS.pseudorandom_probability(card, 'warrior_dice_discard', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
+			if SMODS.pseudorandom_probability(card, 'warrior_dice_discard', card.ability.extra.n, card.ability.extra.d, 'warrior_dice') then
 				G.GAME.round_bonus["discards"] = G.GAME.round_bonus["discards"] + 1
 				return {
 					message = localize('sarc_plus_one_discard'),

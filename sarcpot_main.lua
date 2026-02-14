@@ -1,4 +1,9 @@
 SARC = {}
+-- mod detecting variables
+SARC.aij_present = SMODS.find_mod('allinjest')
+SARC.paperback_present = SMODS.find_mod('paperback')
+SARC.artbox_present = SMODS.find_mod('artbox')
+
 SARC.config = SMODS.current_mod.config
 --[[SMODS.current_mod.optional_features = {
     cardareas = {
@@ -74,8 +79,8 @@ SMODS.Atlas {
 }
 SMODS.Atlas {
     key = 'tags',
-    px = 32,
-    py = 32,
+    px = 34,
+    py = 34,
     path = 'tags.png'
 }
 SMODS.Atlas {
@@ -110,15 +115,37 @@ SMODS.Atlas {
     py = 95
 }
 SMODS.Atlas {
+    key = "ticket_booster",
+    path = "ticket_booster.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
+    key = "tickets",
+    path = "tickets.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
     key = 'decks',
     px = 71,
     py = 95,
     path = 'decks.png'
 }
+SMODS.Atlas {
+    key = 'blinds',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34,
+    path = 'blinds.png'
+}
 G.SP.C.travel_1 = HEX("DEB940")
 G.SP.C.travel_2 = HEX("fab411")
 G.SP.C.navy = HEX("50638f")
 G.SP.C.light_navy = HEX("5f70a3")
+G.SP.C.ticket_1 = HEX("c4cacc")
+G.SP.C.ticket_2 = HEX("a5adb0")
 SMODS.ConsumableType({
     key = "travel",
     primary_colour = G.SP.C.travel_1,
@@ -135,6 +162,26 @@ SMODS.ConsumableType({
     shop_rate = 0,
     default = 'c_sarc_brittle_hollow'
 })
+SMODS.ConsumableType({
+    key = "ticket",
+    primary_colour = G.SP.C.ticket_1,
+    secondary_colour = G.SP.C.ticket_2,
+    loc_txt = {
+        name = "Ticket",
+        collection = "Tickets",
+        undiscovered = {
+            name = 'Unknown Ticket',
+            text = {'Find this card in an unseeded', 'run to find out what it does'}
+        }
+    },
+    collection_rows = {2, 2},
+    shop_rate = 0,
+    default = 'c_sarc_t_celeste'
+})
+local path = SMODS.current_mod.path .. 'blinds/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('blinds/' .. v))()
+end
 if SARC.config.jokers_enabled == true then
     local path = SMODS.current_mod.path .. 'joker/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
@@ -152,9 +199,13 @@ if SARC.config.vouchers_enabled == true then
 end
 
 if SARC.config.consumables_enabled == true then
-    local path = SMODS.current_mod.path .. 'consumables/'
+    local path = SMODS.current_mod.path .. 'consumables/travel/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
-        assert(SMODS.load_file('consumables/' .. v))()
+        assert(SMODS.load_file('consumables/travel/' .. v))()
+    end
+    local path = SMODS.current_mod.path .. 'consumables/ticket/'
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file('consumables/ticket/' .. v))()
     end
     local path = SMODS.current_mod.path .. 'boosters/'
     for _, v in pairs(NFS.getDirectoryItems(path)) do
@@ -189,7 +240,10 @@ function Game:init_game_object()
     ret.brittle_hollow_count = 0
     ret.undertale_count = 0
     ret.undertale_limit = 2
-
+    ret.expedition_active = false
+    ret.expedition_key = nil
+    ret.expedition_used = false
+    ret.metro_activated = false
     return ret
 end
 
@@ -198,9 +252,22 @@ function SMODS.current_mod.reset_game_globals(run_start)
         G.GAME.brittle_hollow_count = 0
         G.GAME.undertale_count = 0
         G.GAME.undertale_limit = 2
-
+        G.GAME.expedition_active = false
+        G.GAME.expedition_key = nil
+        G.GAME.expedition_used = false
+        G.GAME.metro_activated = false
     end
 end
+
+--[[local endround = end_round
+function end_round()
+    local ret = endround
+    if G.GAME.blind.boss and G.GAME.expedition_active == true then
+        G.GAME.expedition_active = false
+        G.GAME.expedition_key = nil
+    end
+    return ret
+end]] --
 
 function SARC.level_up(card, hand, levels)
     -- print(G.GAME.brittle_hollow_count)
@@ -217,7 +284,7 @@ function SARC.level_up(card, hand, levels)
         level = G.GAME.hands[hand].level
     })
 
-    level_up_hand(nil, hand, true, levels)
+    SMODS.smart_level_up_hand(nil, hand, true, levels)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.2,
@@ -286,52 +353,15 @@ function SARC.level_up(card, hand, levels)
         level = ''
     })
 end
-function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_seal, exclude_edition)
-    local available_indexes = {}
-    local random_indexes = {}
-    local exclude_set = {}
 
-    if exclude then
-        for _, index in pairs(exclude) do
-            exclude_set[index] = true
-        end
-    end
-
-    for i = 1, #G.hand.cards do
-        if exclude_enhancement then
-            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
-                exclude_set[i] = true
-            end
-        end
-        if exclude_seal then
-            if G.hand.cards[i].seal then
-                exclude_set[i] = true
-            end
-        end
-        if exclude_edition then
-            if G.hand.cards[i].edition then
-                exclude_set[i] = true
-            end
-        end
-        if not exclude_set[i] then
-            table.insert(available_indexes, i)
-
-        end
-    end
-    for i = 1, amount do
-        if #available_indexes == 0 then
-            break
-        end
-        local rand_index_in_available = math.random(1, #available_indexes)
-
-        local selected_index = available_indexes[rand_index_in_available]
-        table.insert(random_indexes, selected_index)
-
-        table.remove(available_indexes, rand_index_in_available)
-    end
-    return random_indexes
-end
 function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
+    for i = 1, #hand_list do
+        SARC.level_up(card, hand_list[i], levels)
+
+    end
+end
+
+--[[function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
     levels = levels or 1
     update_hand_text({
         sound = 'button',
@@ -415,7 +445,54 @@ function SARC.level_up_multiple(card, hand_list, custom_hand_text, levels)
         handname = '',
         level = ''
     })
+end]] --
+
+function SARC.get_rand_hand_index(amount, exclude, exclude_enhancement, exclude_seal, exclude_edition)
+    local available_indexes = {}
+    local random_indexes = {}
+    local exclude_set = {}
+
+    if exclude then
+        for _, index in pairs(exclude) do
+            exclude_set[index] = true
+        end
+    end
+
+    for i = 1, #G.hand.cards do
+        if exclude_enhancement then
+            if SMODS.has_enhancement(G.hand.cards[i], 'c_base') then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_seal then
+            if G.hand.cards[i].seal then
+                exclude_set[i] = true
+            end
+        end
+        if exclude_edition then
+            if G.hand.cards[i].edition then
+                exclude_set[i] = true
+            end
+        end
+        if not exclude_set[i] then
+            table.insert(available_indexes, i)
+
+        end
+    end
+    for i = 1, amount do
+        if #available_indexes == 0 then
+            break
+        end
+        local rand_index_in_available = math.random(1, #available_indexes)
+
+        local selected_index = available_indexes[rand_index_in_available]
+        table.insert(random_indexes, selected_index)
+
+        table.remove(available_indexes, rand_index_in_available)
+    end
+    return random_indexes
 end
+
 function SARC.get_available_suits()
     local suits = {}
     for _, v in ipairs(G.playing_cards) do
@@ -431,7 +508,7 @@ end
 
 function SARC.get_table_size(tbl)
     local count = 0
-    for _ in pairs(tbl) do -- Iterate over all key-value pairs
+    for _ in pairs(tbl) do
         count = count + 1
     end
     return count
@@ -576,3 +653,34 @@ function SARC.update_multiplied_value(t, key)
     t[key] = result
 end
 
+function SARC.can_be_expedition()
+    local result = true
+    local string_res = ""
+    if G.GAME.expedition_active ~= false then
+        result = false
+    end
+    if G.GAME.round_resets.ante % G.GAME.win_ante == 0 then
+        result = false
+    end
+    if result then
+        string_res = "true"
+    else
+        string_res = "false"
+    end
+    print('Can be expedition = ' .. string_res)
+    return result
+end
+
+function SARC.can_ticket_spawn()
+    local result = true
+    if G.GAME.expedition_used ~= false then
+        result = false
+    end
+    if G.GAME.round_resets.ante % G.GAME.win_ante == G.GAME.win_ante - 1 then
+        result = false
+    end
+    if G.GAME.selected_back.effect.center.key == "b_sarc_metro" then
+        result = true
+    end
+    return result
+end
